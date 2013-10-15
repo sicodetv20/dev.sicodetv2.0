@@ -1,0 +1,1 @@
+Directorio destinado para realizar las diferentes conexiones locales y remotas de la aplicación

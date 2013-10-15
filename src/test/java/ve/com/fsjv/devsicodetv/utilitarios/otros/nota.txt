@@ -1,0 +1,1 @@
+Directorio destinado para todas aquellas clases alternas que se utilizaran en la aplicación

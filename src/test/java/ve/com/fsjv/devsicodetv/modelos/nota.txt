@@ -1,0 +1,1 @@
+Directorio destinado para cada uno de las clases que modelaran los procesos de la aplicación
