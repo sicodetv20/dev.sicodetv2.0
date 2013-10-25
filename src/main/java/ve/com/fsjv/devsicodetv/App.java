@@ -41,6 +41,12 @@ public class App
             System.err.println("Exception: " + excep);
         }
         
+        Procesos p = new Procesos();
+        String codigo = p.generarCodigo("DET", "detenido", "15242874", 1);
+        
+        System.out.println("Nuevo codigo o identificador: " + codigo);
+        
+        
         
     }
 }

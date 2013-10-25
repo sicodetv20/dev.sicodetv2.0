@@ -16,6 +16,14 @@ public class Procesos {
     
     public String generarCodigo(String acronimo, String tabla, String indice, int tipo){
         String identificador = null;
+        String sql = "";
+        int cantidad = this.obtenerCantidad(sql);
+        identificador = this.concatenarCodigo(acronimo, indice, cantidad, tipo);
+        int bandera = this.chequearCodigo(identificador);
+        if(bandera > 0){
+            cantidad++;
+            identificador = this.concatenarCodigo(acronimo, indice, cantidad, tipo);
+        }
         return identificador;
     }
     
@@ -32,6 +40,7 @@ public class Procesos {
     
     public int obtenerCantidad(String sql){
         int cantidad = 0;
+        cantidad++;
         return cantidad;
     }
     
