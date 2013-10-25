@@ -1,6 +1,11 @@
 package ve.com.fsjv.devsicodetv;
 
 import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
+import org.hibernate.Session;
+import org.hibernate.HibernateException;
+import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
+import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSeguridadUtil;
+import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionPersonalUtil;
 /**
  * Hello world!
  *
@@ -9,16 +14,33 @@ public class App
 {
     public static void main( String[] args )
     {
-        /*
-        Session sesion = ConexionSicodet.getSessionFactory().openSession();
-        sesion.beginTransaction();
         
-        Session sesion2 = ConexionSeguridad.getSessionFactory().openSession();
-        sesion2.beginTransaction();
-        System.out.println( "Sesion 1: " + sesion.beginTransaction().toString() + "\nsesion 2: " + sesion2.beginTransaction().toString());*/
-        Procesos p = new Procesos();
-        String identificador = p.generarIdentificadorRelacional("DET", "detenido", "15242874");
-        System.out.println("el identificador es: " + identificador);
+        Session sesion = ConexionSicodetUtil.getSessionFactory().openSession();
+        try{
+            sesion.getTransaction().begin();
+            System.out.println("Session: " + sesion.getTransaction().toString());
+        }catch(HibernateException excep){
+            System.err.println("Exception: " + excep);
+        }
+        
+        Session sesion2 = ConexionSeguridadUtil.getSessionFactory().openSession();
+        
+        try{
+            sesion2.getTransaction().begin();
+            System.out.println("Session2: " + sesion2.getTransaction().toString());
+        }catch(HibernateException excep){
+            System.err.println("Exception: " + excep);
+        }
+        
+        Session sesion3 = ConexionPersonalUtil.getSessionFactory().openSession();
+        
+        try{
+            sesion3.getTransaction().begin();
+            System.out.println("Session3: " + sesion3.getTransaction().toString());
+        }catch(HibernateException excep){
+            System.err.println("Exception: " + excep);
+        }
+        
         
     }
 }

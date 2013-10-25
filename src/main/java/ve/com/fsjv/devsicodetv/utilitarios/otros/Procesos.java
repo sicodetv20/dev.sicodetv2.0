@@ -16,12 +16,14 @@ public class Procesos {
     
     public String generarIdentificadorRelacional (String acronimo, String tabla, String indice){
         String identificador = null;
-        
+        int cantidad = 1;
+        identificador = this.concatenarelementos(acronimo, indice, cantidad);
         return identificador;
     }
     
-    public String concatenarelementos (String aronimo, String indice, int cantidad){
+    public String concatenarelementos (String acronimo, String indice, int cantidad){
         String concatenar = null;
+        concatenar = acronimo + indice + cantidad;
         return concatenar;
     }
     
