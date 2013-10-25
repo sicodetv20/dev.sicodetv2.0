@@ -1,6 +1,7 @@
 package ve.com.fsjv.devsicodetv;
 
 import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
+//import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
 import org.hibernate.Session;
 import org.hibernate.HibernateException;
 import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
@@ -42,10 +43,11 @@ public class App
         }
         
         Procesos p = new Procesos();
-        String codigo = p.generarCodigo("DET", "detenido", "15242874", 1);
+        String identificador = p.generarCodigo(ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, "detenido", "15242874");
         
-        System.out.println("Nuevo codigo o identificador: " + codigo);
+        String codigo = p.generarCodigo(ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp.ACRONIMO_MODULO_SALIDA, "detenido", null);
         
+        System.out.println("Nuevo identificador: " + identificador + " Nuevo Codigo: " + codigo);
         
         
     }

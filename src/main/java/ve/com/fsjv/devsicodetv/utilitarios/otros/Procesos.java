@@ -14,22 +14,26 @@ public class Procesos {
         
     }
     
-    public String generarCodigo(String acronimo, String tabla, String indice, int tipo){
+    public String generarCodigo(String acronimo, String tabla, String indice){
         String identificador = null;
         String sql = "";
         int cantidad = this.obtenerCantidad(sql);
-        identificador = this.concatenarCodigo(acronimo, indice, cantidad, tipo);
+        identificador = this.concatenarCodigo(acronimo, indice, cantidad);
         int bandera = this.chequearCodigo(identificador);
         if(bandera > 0){
             cantidad++;
-            identificador = this.concatenarCodigo(acronimo, indice, cantidad, tipo);
+            identificador = this.concatenarCodigo(acronimo, indice, cantidad);
         }
         return identificador;
     }
     
-    public String concatenarCodigo(String acronimo, String indice, int cantidad, int tipo){
+    public String concatenarCodigo(String acronimo, String indice, int cantidad){
         String concatenar = null;
-        concatenar = acronimo + indice + cantidad;
+        if(indice == null){
+            concatenar = acronimo + cantidad;
+        }else{
+            concatenar = acronimo + indice + cantidad;
+        }
         return concatenar;
     }
     
