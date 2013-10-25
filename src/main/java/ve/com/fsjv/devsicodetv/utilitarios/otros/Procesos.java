@@ -14,21 +14,25 @@ public class Procesos {
         
     }
     
-    public String generarIdentificadorRelacional (String acronimo, String tabla, String indice){
+    public String generarCodigo(String acronimo, String tabla, String indice, int tipo){
         String identificador = null;
-        int cantidad = 1;
-        identificador = this.concatenarelementos(acronimo, indice, cantidad);
         return identificador;
     }
     
-    public String concatenarelementos (String acronimo, String indice, int cantidad){
+    public String concatenarCodigo(String acronimo, String indice, int cantidad, int tipo){
         String concatenar = null;
         concatenar = acronimo + indice + cantidad;
         return concatenar;
     }
     
-    public int chequearIdentificadorRelacional (String identificador){
+    public int chequearCodigo(String identificador){
         int chequeado = 0;
         return chequeado;
     }
+    
+    public int obtenerCantidad(String sql){
+        int cantidad = 0;
+        return cantidad;
+    }
+    
 }
