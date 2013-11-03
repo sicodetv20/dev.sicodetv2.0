@@ -47,7 +47,26 @@ public class ConstantesApp {
     public static final boolean EDITABLE = true;
     public static final String EN_BLANCO = "";
     
-    public static final String FORMATO_FECHA = "dd/mm/YY";
-    public static final String FORMATO_FECHA_COMPLETA = "dd/mm/YY H:i:s";
+    public static final String FORMATO_FECHA = "dd/MM/yyyy";
+    public static final String FORMATO_FECHA_COMPLETA = "dd/MM/yyyy HH:mm:ss";
+    public static final String FORMATO_HORA = "HH:mm:ss a";
+    
+    public static final int MINLENGTH = 1;
+    public static final int MAXLENGTH = 100;
+    public static final int TIPO_VALIDACION_VACIO = 1;
+    public static final int TIPO_VALIDACION_MAXLENGTH = 2;
+    public static final int TIPO_VALIDACION_MINLENGTH = 3;
+    public static final int TIPO_VALIDACION_FECHA = 4;
+    public static final int TIPO_VALIDACION_FECHA_HORA = 5;
+    public static final int TIPO_VALIDACION_HORA = 6;
+    public static final int TIPO_VALIDACION_NUMERICO = 7;
+    
+    public static final int BACKGROUND_ERROR_R = 255;
+    public static final int BACKGROUND_ERROR_G = 213;
+    public static final int BACKGROUND_ERROR_B = 213;
+    
+    public static final int BORDER_ERROR_R = 255;
+    public static final int BORDER_ERROR_G = 0;
+    public static final int BORDER_ERROR_B = 0;
     
 }
