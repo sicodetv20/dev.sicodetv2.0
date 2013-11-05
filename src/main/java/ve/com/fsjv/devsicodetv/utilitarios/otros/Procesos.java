@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -25,13 +27,58 @@ import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMaxLength;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMinLength;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionNumeroInvalido;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionPasswordIguales;
+import ve.com.fsjv.devsicodetv.vistas.vFichaDetenido;
 /**
  *
  * @author franklin
  */
 public class Procesos {
+    private vFichaDetenido formFichaDetenido;
     
     public Procesos(){
+        
+    }
+    
+    public JDialog aplicarReadOnly(String acronimo, boolean valor){
+        JDialog form = null;
+        if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
+            this.formFichaDetenido = new vFichaDetenido(new JFrame(), true);
+            this.formFichaDetenido.txtCedulaIdentidad.setEditable(valor);
+            this.formFichaDetenido.txtNombres.setEditable(valor);
+            this.formFichaDetenido.txtApellidos.setEditable(valor);
+            this.formFichaDetenido.txtAlias.setEditable(valor);
+            this.formFichaDetenido.cmbSexo.setEnabled(valor);
+            this.formFichaDetenido.txtPasaporte.setEditable(valor);
+            this.formFichaDetenido.cmbNacionalidad.setEnabled(valor);
+            this.formFichaDetenido.txtReligion.setEditable(valor);
+            this.formFichaDetenido.cmbEstadoCivil.setEnabled(valor);
+            this.formFichaDetenido.txtFechaNacimiento.setEditable(valor);
+            this.formFichaDetenido.txtLugarNacimiento.setEditable(valor);
+            this.formFichaDetenido.txtDocumentoAnterior.setEditable(valor);
+            this.formFichaDetenido.cmbReservista.setEnabled(valor);
+            this.formFichaDetenido.cmbColorPiel.setEnabled(valor);
+            this.formFichaDetenido.cmbColorCabello.setEnabled(valor);
+            this.formFichaDetenido.cmbColorOjos.setEnabled(valor);
+            this.formFichaDetenido.cmbTipoNariz.setEnabled(valor);
+            this.formFichaDetenido.txtEstatura.setEditable(valor);
+            this.formFichaDetenido.cmbLentes.setEnabled(valor);
+            this.formFichaDetenido.cmbContextura.setEnabled(valor);
+            this.formFichaDetenido.txtCicatriz.setEditable(valor);
+            this.formFichaDetenido.txtSeniasParticulares.setEditable(valor);
+            this.formFichaDetenido.txtDireccionActual.setEditable(valor);
+            this.formFichaDetenido.txtDireccionAnterior.setEditable(valor);
+            this.formFichaDetenido.txtDireccionEmergencia.setEditable(valor);
+            this.formFichaDetenido.txtTelefonoCelular.setEditable(valor);
+            this.formFichaDetenido.txtTelefonoEmergencia.setEditable(valor);
+            this.formFichaDetenido.txtTelefonoHabitacion.setEditable(valor);
+            this.formFichaDetenido.cmbVivienda.setEnabled(valor);
+            this.formFichaDetenido.cmbTipoVivienda.setEnabled(valor);
+            this.formFichaDetenido.cmbGradoInstruccion.setEnabled(valor);
+            this.formFichaDetenido.txtProfesion.setEditable(valor);
+            return this.formFichaDetenido;
+        }else{
+            return form;
+        }
         
     }
     

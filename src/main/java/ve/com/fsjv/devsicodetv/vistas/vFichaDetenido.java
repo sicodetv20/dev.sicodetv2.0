@@ -98,11 +98,11 @@ public class vFichaDetenido extends javax.swing.JDialog {
         panRasgosFisicos = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         cmbColorPiel = new javax.swing.JComboBox();
-        jComboBox1 = new javax.swing.JComboBox();
+        cmbColorOjos = new javax.swing.JComboBox();
         jLabel18 = new javax.swing.JLabel();
         cmbColorCabello = new javax.swing.JComboBox();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        cmbTipoNariz = new javax.swing.JComboBox();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         txtEstatura = new javax.swing.JTextField();
@@ -760,8 +760,8 @@ public class vFichaDetenido extends javax.swing.JDialog {
         cmbColorPiel.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         cmbColorPiel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "Morena", "Negro", "Blanca", "Amarillo" }));
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "Azul Claro", "Verde Claro", "Gris", "Negro", "Cafe", "Castaño", "Marrones" }));
+        cmbColorOjos.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        cmbColorOjos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "Azul Claro", "Verde Claro", "Gris", "Negro", "Cafe", "Castaño", "Marrones" }));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel18.setText("Color de Ojos:");
@@ -772,8 +772,8 @@ public class vFichaDetenido extends javax.swing.JDialog {
         jLabel19.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel19.setText("Color de Cabello:");
 
-        jComboBox2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "Chata", "Corta", "Larga", "Pequeña", "Perfilada", "Aguileña" }));
+        cmbTipoNariz.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        cmbTipoNariz.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "Chata", "Corta", "Larga", "Pequeña", "Perfilada", "Aguileña" }));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel20.setText("Tipo de Nariz:");
@@ -819,7 +819,7 @@ public class vFichaDetenido extends javax.swing.JDialog {
                 .addGap(22, 22, 22)
                 .addGroup(panRasgosFisicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panRasgosFisicosLayout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbColorOjos, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel23))
                     .addGroup(panRasgosFisicosLayout.createSequentialGroup()
@@ -831,7 +831,7 @@ public class vFichaDetenido extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel21))
                     .addGroup(panRasgosFisicosLayout.createSequentialGroup()
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbTipoNariz, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel25)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -842,8 +842,7 @@ public class vFichaDetenido extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbLentes, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(cmbLentes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(txtCicatriz)
                     .addComponent(cmbContextura, 0, 170, Short.MAX_VALUE))
                 .addContainerGap())
@@ -861,7 +860,7 @@ public class vFichaDetenido extends javax.swing.JDialog {
                     .addComponent(cmbLentes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panRasgosFisicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbColorOjos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel23)
                     .addComponent(cmbContextura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -873,7 +872,7 @@ public class vFichaDetenido extends javax.swing.JDialog {
                     .addComponent(txtCicatriz, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panRasgosFisicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTipoNariz, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20)
                     .addComponent(jLabel25)
                     .addComponent(txtSeniasParticulares, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1027,6 +1026,7 @@ public class vFichaDetenido extends javax.swing.JDialog {
     public javax.swing.JButton btnVerHistoriales;
     public javax.swing.JButton btnVerUltimosAgregados;
     public javax.swing.JComboBox cmbColorCabello;
+    public javax.swing.JComboBox cmbColorOjos;
     public javax.swing.JComboBox cmbColorPiel;
     public javax.swing.JComboBox cmbContextura;
     public javax.swing.JComboBox cmbEstadoCivil;
@@ -1035,12 +1035,11 @@ public class vFichaDetenido extends javax.swing.JDialog {
     public javax.swing.JComboBox cmbNacionalidad;
     public javax.swing.JComboBox cmbReservista;
     public javax.swing.JComboBox cmbSexo;
+    public javax.swing.JComboBox cmbTipoNariz;
     public javax.swing.JComboBox cmbTipoVivienda;
     public javax.swing.JComboBox cmbVivienda;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
