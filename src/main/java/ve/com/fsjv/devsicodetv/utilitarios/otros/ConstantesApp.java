@@ -62,9 +62,13 @@ public class ConstantesApp {
     public static final int TIPO_VALIDACION_HORA = 6;
     public static final int TIPO_VALIDACION_NUMERICO = 7;
     
-    public static final float BACKGROUND_ERROR_R = 255;
-    public static final float BACKGROUND_ERROR_G = 213;
-    public static final float BACKGROUND_ERROR_B = 213;
+    public static final int BACKGROUND_ERROR_R = 255;
+    public static final int BACKGROUND_ERROR_G = 213;
+    public static final int BACKGROUND_ERROR_B = 213;
+    
+    public static final int REQUIRED_R = 215;
+    public static final int REQUIRED_G = 238;
+    public static final int REQUIRED_B = 244;
     
     public static final int BANDERA_TRUE = 1;
     public static final int BANDERA_FALSE = 0;
