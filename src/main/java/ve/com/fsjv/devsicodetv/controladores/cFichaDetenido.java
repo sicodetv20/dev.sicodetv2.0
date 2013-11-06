@@ -1,30 +1,18 @@
 package ve.com.fsjv.devsicodetv.controladores;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import ve.com.fsjv.devsicodetv.vistas.vFichaDetenido;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
+import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
+import ve.com.fsjv.devsicodetv.vistas.vFichaDetenido;
 
 /**
  *
