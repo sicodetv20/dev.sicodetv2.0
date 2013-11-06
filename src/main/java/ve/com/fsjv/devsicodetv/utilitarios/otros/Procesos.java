@@ -5,9 +5,21 @@
 package ve.com.fsjv.devsicodetv.utilitarios.otros;
 
 import java.awt.Color;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -39,46 +51,119 @@ public class Procesos {
         
     }
     
-    public JDialog aplicarReadOnly(String acronimo, boolean valor){
-        JDialog form = null;
-        if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
-            this.formFichaDetenido = new vFichaDetenido(new JFrame(), true);
-            this.formFichaDetenido.txtCedulaIdentidad.setEditable(valor);
-            this.formFichaDetenido.txtNombres.setEditable(valor);
-            this.formFichaDetenido.txtApellidos.setEditable(valor);
-            this.formFichaDetenido.txtAlias.setEditable(valor);
-            this.formFichaDetenido.cmbSexo.setEnabled(valor);
-            this.formFichaDetenido.txtPasaporte.setEditable(valor);
-            this.formFichaDetenido.cmbNacionalidad.setEnabled(valor);
-            this.formFichaDetenido.txtReligion.setEditable(valor);
-            this.formFichaDetenido.cmbEstadoCivil.setEnabled(valor);
-            this.formFichaDetenido.txtFechaNacimiento.setEditable(valor);
-            this.formFichaDetenido.txtLugarNacimiento.setEditable(valor);
-            this.formFichaDetenido.txtDocumentoAnterior.setEditable(valor);
-            this.formFichaDetenido.cmbReservista.setEnabled(valor);
-            this.formFichaDetenido.cmbColorPiel.setEnabled(valor);
-            this.formFichaDetenido.cmbColorCabello.setEnabled(valor);
-            this.formFichaDetenido.cmbColorOjos.setEnabled(valor);
-            this.formFichaDetenido.cmbTipoNariz.setEnabled(valor);
-            this.formFichaDetenido.txtEstatura.setEditable(valor);
-            this.formFichaDetenido.cmbLentes.setEnabled(valor);
-            this.formFichaDetenido.cmbContextura.setEnabled(valor);
-            this.formFichaDetenido.txtCicatriz.setEditable(valor);
-            this.formFichaDetenido.txtSeniasParticulares.setEditable(valor);
-            this.formFichaDetenido.txtDireccionActual.setEditable(valor);
-            this.formFichaDetenido.txtDireccionAnterior.setEditable(valor);
-            this.formFichaDetenido.txtDireccionEmergencia.setEditable(valor);
-            this.formFichaDetenido.txtTelefonoCelular.setEditable(valor);
-            this.formFichaDetenido.txtTelefonoEmergencia.setEditable(valor);
-            this.formFichaDetenido.txtTelefonoHabitacion.setEditable(valor);
-            this.formFichaDetenido.cmbVivienda.setEnabled(valor);
-            this.formFichaDetenido.cmbTipoVivienda.setEnabled(valor);
-            this.formFichaDetenido.cmbGradoInstruccion.setEnabled(valor);
-            this.formFichaDetenido.txtProfesion.setEditable(valor);
-            return this.formFichaDetenido;
+    public void deshabilitarTeclas(KeyEvent e){
+        if((e.getKeyCode() >= e.VK_F1 &&  e.getKeyCode() <= e.VK_F12) || e.getKeyCode() == e.VK_INSERT || e.getKeyCode() == e.VK_SCROLL_LOCK || e.getKeyCode() == e.VK_PAUSE){
+            e.consume();
         }else{
-            return form;
+            if(e.getKeyCode()==e.VK_PRINTSCREEN){
+                Rectangle screenRectangle = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+                Robot mr = null;
+                BufferedImage screenImage;
+                try{
+                    mr = new Robot();
+                }catch(Exception excep){
+                    excep.printStackTrace();
+                }
+                screenImage = mr.createScreenCapture(screenRectangle);
+                StringSelection stringSelection = new StringSelection("");
+                Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+            }
         }
+    }
+    
+    public JDialog cargarDialogBlanco(String acronimo) throws ExcepcionCampoVacio, ExcepcionComponenteNulo {
+        if(acronimo == null){
+            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO + ConstantesApp.MENSAJE_ACRONIMO_NULO);
+        }else{
+            if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
+                this.formFichaDetenido = new vFichaDetenido(new JFrame(), true);
+                this.formFichaDetenido.txtCedulaIdentidad.setText("");
+                this.formFichaDetenido.txtNombres.setText("");
+                this.formFichaDetenido.txtApellidos.setText("");
+                this.formFichaDetenido.txtAlias.setText("");
+                this.formFichaDetenido.cmbSexo.setSelectedIndex(0);
+                this.formFichaDetenido.txtPasaporte.setText("");
+                this.formFichaDetenido.cmbNacionalidad.setSelectedIndex(0);
+                this.formFichaDetenido.txtReligion.setText("");
+                this.formFichaDetenido.cmbEstadoCivil.setSelectedIndex(0);
+                this.formFichaDetenido.txtFechaNacimiento.setText("");
+                this.formFichaDetenido.txtLugarNacimiento.setText("");
+                this.formFichaDetenido.txtDocumentoAnterior.setText("");
+                this.formFichaDetenido.cmbReservista.setSelectedIndex(0);
+                this.formFichaDetenido.cmbColorPiel.setSelectedIndex(0);
+                this.formFichaDetenido.cmbColorCabello.setSelectedIndex(0);
+                this.formFichaDetenido.cmbColorOjos.setSelectedIndex(0);
+                this.formFichaDetenido.cmbTipoNariz.setSelectedIndex(0);
+                this.formFichaDetenido.txtEstatura.setText("");
+                this.formFichaDetenido.cmbLentes.setSelectedIndex(0);
+                this.formFichaDetenido.cmbContextura.setSelectedIndex(0);
+                this.formFichaDetenido.txtCicatriz.setText("");
+                this.formFichaDetenido.txtSeniasParticulares.setText("");
+                this.formFichaDetenido.txtDireccionActual.setText("");
+                this.formFichaDetenido.txtDireccionAnterior.setText("");
+                this.formFichaDetenido.txtDireccionEmergencia.setText("");
+                this.formFichaDetenido.txtTelefonoCelular.setText("");
+                this.formFichaDetenido.txtTelefonoEmergencia.setText("");
+                this.formFichaDetenido.txtTelefonoHabitacion.setText("");
+                this.formFichaDetenido.cmbVivienda.setSelectedIndex(0);
+                this.formFichaDetenido.cmbTipoVivienda.setSelectedIndex(0);
+                this.formFichaDetenido.cmbGradoInstruccion.setSelectedIndex(0);
+                this.formFichaDetenido.txtProfesion.setText("");
+                return this.formFichaDetenido;
+            }else{
+                throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
+            }
+        }
+    
+    }
+    
+    public JDialog aplicarReadOnly(String acronimo, boolean valor, int tipo) throws ExcepcionCampoVacio, ExcepcionComponenteNulo {
+        if(acronimo == null){
+            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO + ConstantesApp.MENSAJE_ACRONIMO_NULO);
+        }else{
+            if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
+                this.formFichaDetenido = new vFichaDetenido(new JFrame(), true);
+                if(tipo == ConstantesApp.READONLY_DEFAULT){
+                    this.formFichaDetenido = (vFichaDetenido) this.cargarDialogBlanco(acronimo);
+                }
+                this.formFichaDetenido.txtCedulaIdentidad.setEditable(valor);
+                this.formFichaDetenido.txtNombres.setEditable(valor);
+                this.formFichaDetenido.txtApellidos.setEditable(valor);
+                this.formFichaDetenido.txtAlias.setEditable(valor);
+                this.formFichaDetenido.cmbSexo.setEnabled(valor);
+                this.formFichaDetenido.txtPasaporte.setEditable(valor);
+                this.formFichaDetenido.cmbNacionalidad.setEnabled(valor);
+                this.formFichaDetenido.txtReligion.setEditable(valor);
+                this.formFichaDetenido.cmbEstadoCivil.setEnabled(valor);
+                this.formFichaDetenido.txtFechaNacimiento.setEditable(valor);
+                this.formFichaDetenido.txtLugarNacimiento.setEditable(valor);
+                this.formFichaDetenido.txtDocumentoAnterior.setEditable(valor);
+                this.formFichaDetenido.cmbReservista.setEnabled(valor);
+                this.formFichaDetenido.cmbColorPiel.setEnabled(valor);
+                this.formFichaDetenido.cmbColorCabello.setEnabled(valor);
+                this.formFichaDetenido.cmbColorOjos.setEnabled(valor);
+                this.formFichaDetenido.cmbTipoNariz.setEnabled(valor);
+                this.formFichaDetenido.txtEstatura.setEditable(valor);
+                this.formFichaDetenido.cmbLentes.setEnabled(valor);
+                this.formFichaDetenido.cmbContextura.setEnabled(valor);
+                this.formFichaDetenido.txtCicatriz.setEditable(valor);
+                this.formFichaDetenido.txtSeniasParticulares.setEditable(valor);
+                this.formFichaDetenido.txtDireccionActual.setEditable(valor);
+                this.formFichaDetenido.txtDireccionAnterior.setEditable(valor);
+                this.formFichaDetenido.txtDireccionEmergencia.setEditable(valor);
+                this.formFichaDetenido.txtTelefonoCelular.setEditable(valor);
+                this.formFichaDetenido.txtTelefonoEmergencia.setEditable(valor);
+                this.formFichaDetenido.txtTelefonoHabitacion.setEditable(valor);
+                this.formFichaDetenido.cmbVivienda.setEnabled(valor);
+                this.formFichaDetenido.cmbTipoVivienda.setEnabled(valor);
+                this.formFichaDetenido.cmbGradoInstruccion.setEnabled(valor);
+                this.formFichaDetenido.txtProfesion.setEditable(valor);
+                return this.formFichaDetenido;
+            }else{
+                throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
+            }
+        }
+        
         
     }
     
@@ -122,7 +207,7 @@ public class Procesos {
         JTextField componente;
         java.util.Date jud = null;
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
-        if(componente1 == null){
+        if(componente1 != null){
             componente = componente1;
             if(tipoValidacion == ConstantesApp.TIPO_VALIDACION_VACIO){
                 if(componente.getText().trim().isEmpty()){

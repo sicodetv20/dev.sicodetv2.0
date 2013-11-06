@@ -69,6 +69,9 @@ public class ConstantesApp {
     public static final int BANDERA_TRUE = 1;
     public static final int BANDERA_FALSE = 0;
     
+    public static final int READONLY_DEFAULT = 1;
+    public static final int READONLY_DATA = 2;
+    
     public static final String MENSAJE_CAMPO_VACIO = "Error 001: Campo vacio, componente referenciado: ";
     public static final String MENSAJE_CAMPO_EXCEDE_MAXLENGTH = "Error 002: El length del campo excede la cantidad de " + MAXLENGTH + " Caracteres, componente referenciado: ";
     public static final String MENSAJE_CAMPO_MENOR_MINLENGTH = "Error 003: El length del campo es menor de " + MINLENGTH + "Caracteres, componente referenciado: ";
@@ -79,5 +82,7 @@ public class ConstantesApp {
     public static final String MENSAJE_COMPONENTE_NULO = "Error 008: Componente nulo.";
     public static final String MENSAJE_CHECKBOX_NO_SELECCIONADO = "Error 009: Item No Seleccionado, componente referenciado: ";
     public static final String MENSAJE_PASSWORD_DIFERENTES = "Error 010: Contraseñas no coinciden.";
+    public static final String MENSAJE_CLASE_PROCESOS_NULA = "Error 011: La clase procesos no se instancio o esta nula";
+    public static final String MENSAJE_ACRONIMO_NULO = "Error 012: El parametro acronimo esta pasando nulo o vacio.";
     
 }
