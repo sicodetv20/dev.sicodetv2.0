@@ -81,18 +81,24 @@ public class ConstantesApp {
     public static final int TITULO_DOBLE = 2;
     public static final int TITULO_COMPLETO = 3;
     
+    public static final String VALIDACION_EXITOSA = "No se consiguio ningun tipo de error";
+    public static final String VALIDACION_ERROR = "Errores por validacion encontrados:";
+    public static final String TITULO_VALIDACION = "Validacion Terminada";
     
-    public static final String MENSAJE_CAMPO_VACIO = "Error 001: Campo vacio, componente referenciado: ";
-    public static final String MENSAJE_CAMPO_EXCEDE_MAXLENGTH = "Error 002: El length del campo excede la cantidad de " + MAXLENGTH + " Caracteres, componente referenciado: ";
-    public static final String MENSAJE_CAMPO_MENOR_MINLENGTH = "Error 003: El length del campo es menor de " + MINLENGTH + "Caracteres, componente referenciado: ";
-    public static final String MENSAJE_CAMPO_FECHA_INVALIDO = "Error 004: Formato Fecha Simple Invalido, componente referenciado: ";
-    public static final String MENSAJE_CAMPO_FECHA_COMPLETA_INVALIDO = "Error 005: Formato de Fecha larga invalido, componente referenciado: ";
-    public static final String MENSAJE_CAMPO_HORA_INVALIDO = "Error 006: Formato de Hora invalido, componente referenciado: ";
-    public static final String MENSAJE_CAMPO_NUMERICO_INVALIDO = "Error 007: Campo no es numerico, componente referenciado: ";
-    public static final String MENSAJE_COMPONENTE_NULO = "Error 008: Componente nulo.";
-    public static final String MENSAJE_CHECKBOX_NO_SELECCIONADO = "Error 009: Item No Seleccionado, componente referenciado: ";
-    public static final String MENSAJE_PASSWORD_DIFERENTES = "Error 010: Contraseñas no coinciden.";
-    public static final String MENSAJE_CLASE_PROCESOS_NULA = "Error 011: La clase procesos no se instancio o esta nula";
-    public static final String MENSAJE_ACRONIMO_NULO = "Error 012: El parametro acronimo esta pasando nulo o vacio.";
+    public static final String CONCATENADOR = "---";
+    
+    
+    public static final String MENSAJE_CAMPO_VACIO = "Codigo de Error 001: Campo vacio, componente referenciado: ";
+    public static final String MENSAJE_CAMPO_EXCEDE_MAXLENGTH = "Codigo de Error 002: El length del campo excede la cantidad de " + MAXLENGTH + " Caracteres, componente referenciado: ";
+    public static final String MENSAJE_CAMPO_MENOR_MINLENGTH = "Codigo de Error 003: El length del campo es menor de " + MINLENGTH + " Caracteres, componente referenciado: ";
+    public static final String MENSAJE_CAMPO_FECHA_INVALIDO = "Codigo de Error 004: Formato Fecha Simple Invalido, componente referenciado: ";
+    public static final String MENSAJE_CAMPO_FECHA_COMPLETA_INVALIDO = "Codigo de Error 005: Formato de Fecha larga invalido, componente referenciado: ";
+    public static final String MENSAJE_CAMPO_HORA_INVALIDO = "Codigo de Error 006: Formato de Hora invalido, componente referenciado: ";
+    public static final String MENSAJE_CAMPO_NUMERICO_INVALIDO = "Codigo de Error 007: Campo no es numerico, componente referenciado: ";
+    public static final String MENSAJE_COMPONENTE_NULO = "Codigo de Error 008: Componente nulo.";
+    public static final String MENSAJE_CHECKBOX_NO_SELECCIONADO = "Codigo de Error 009: Item No Seleccionado, componente referenciado: ";
+    public static final String MENSAJE_PASSWORD_DIFERENTES = "Codigo de Error 010: Contraseñas no coinciden.";
+    public static final String MENSAJE_CLASE_PROCESOS_NULA = "Codigo de Error 011: La clase procesos no se instancio o esta nula";
+    public static final String MENSAJE_ACRONIMO_NULO = "Codigo de Error 012: El parametro acronimo esta pasando nulo o vacio.";
     
 }

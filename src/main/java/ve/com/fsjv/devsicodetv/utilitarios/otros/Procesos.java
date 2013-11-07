@@ -156,9 +156,9 @@ public class Procesos {
         return cantidad;
     }
 
-    public JTextField validarTextField(JTextField componente1, int tipoValidacion)
-            throws ExcepcionCampoVacio, ExcepcionComponenteNulo, ExcepcionMaxLength, ExcepcionMinLength,
-            ExcepcionFecha, ExcepcionFechaCompleta, ExcepcionHora, ExcepcionNumeroInvalido {
+    public JTextField validarCampo(JTextField componente1, int tipoValidacion, String nombreComponente, String valor)
+            throws ExcepcionComponenteNulo, ExcepcionMaxLength, ExcepcionMinLength,
+            ExcepcionFecha, ExcepcionFechaCompleta, ExcepcionHora, ExcepcionNumeroInvalido, ExcepcionCampoVacio {
         JTextField componente;
         java.util.Date jud = null;
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
@@ -168,33 +168,33 @@ public class Procesos {
                 if (componente.getText().trim().isEmpty()) {
                     componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                     componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + componente.getName();
-                    componente.setText(componente.getText() + "|" + mensaje);
-                    throw new ExcepcionCampoVacio(mensaje);
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
+                    componente.setText(mensaje);
+                    //throw new ExcepcionCampoVacio(mensaje);
                 }
             } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_MAXLENGTH) {
-                if (componente.getText().trim().length() <= ConstantesApp.MAXLENGTH) {
+                if (componente.getText().trim().length() > ConstantesApp.MAXLENGTH) {
                     componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                     componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_EXCEDE_MAXLENGTH + componente.getName();
-                    componente.setText(componente.getText() + "|" + mensaje);
-                    throw new ExcepcionMaxLength(mensaje);
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_EXCEDE_MAXLENGTH + nombreComponente;
+                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
+                    //throw new ExcepcionMaxLength(mensaje);
                 }
             } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_MINLENGTH) {
-                if (componente.getText().trim().length() >= ConstantesApp.MINLENGTH) {
+                if (componente.getText().trim().length() < ConstantesApp.MINLENGTH) {
                     componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                     componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_MENOR_MINLENGTH + componente.getName();
-                    componente.setText(componente.getText() + "|" + mensaje);
-                    throw new ExcepcionMinLength(mensaje);
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_MENOR_MINLENGTH + nombreComponente;
+                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
+                    //throw new ExcepcionMinLength(mensaje);
                 }
             } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_FECHA) {
                 jud = this.convertirStringDateFecha(componente.getText().trim(), tipoValidacion);
                 if (jud == null) {
                     componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                     componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_FECHA_INVALIDO + componente.getName();
-                    componente.setText(componente.getText() + "|" + mensaje);
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_FECHA_INVALIDO + nombreComponente;
+                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
                     throw new ExcepcionFecha(mensaje);
                 }
             } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_FECHA_HORA) {
@@ -202,8 +202,8 @@ public class Procesos {
                 if (jud == null) {
                     componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                     componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_FECHA_COMPLETA_INVALIDO + componente.getName();
-                    componente.setText(componente.getText() + "|" + mensaje);
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_FECHA_COMPLETA_INVALIDO + nombreComponente;
+                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
                     throw new ExcepcionFechaCompleta(mensaje);
                 }
             } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_HORA) {
@@ -211,8 +211,8 @@ public class Procesos {
                 if (jud == null) {
                     componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                     componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_HORA_INVALIDO + componente.getName();
-                    componente.setText(componente.getText() + "|" + mensaje);
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_HORA_INVALIDO + nombreComponente;
+                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
                     throw new ExcepcionHora(mensaje);
                 }
             } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_NUMERICO) {
@@ -221,8 +221,8 @@ public class Procesos {
                 } catch (NumberFormatException excep) {
                     componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                     componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_NUMERICO_INVALIDO + componente.getName();
-                    componente.setText(componente.getText() + "|" + mensaje);
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_NUMERICO_INVALIDO + nombreComponente;
+                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
                     throw new ExcepcionNumeroInvalido(mensaje);
                 }
             }
@@ -232,7 +232,7 @@ public class Procesos {
         return componente;
     }
 
-    public JComboBox validarComboBox(JComboBox componente1) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
+    public JComboBox validarCampo(JComboBox componente1) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
         JComboBox componente;
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if (componente1 == null) {
@@ -243,14 +243,14 @@ public class Procesos {
                 componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                 componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
                 mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + componente.getName();
-                componente.setSelectedItem(componente.getSelectedItem() + "|" + mensaje);
+                componente.setSelectedItem(componente.getSelectedItem() + ConstantesApp.CONCATENADOR + mensaje);
                 throw new ExcepcionCampoVacio(mensaje);
             }
         }
         return componente;
     }
 
-    public JCheckBox validarCheckBox(JCheckBox componente1) throws ExcepcionComponenteNulo, ExcepcionCheckBoxNoSeleccionado {
+    public JCheckBox validarCampo(JCheckBox componente1, String nombreComponente) throws ExcepcionComponenteNulo, ExcepcionCheckBoxNoSeleccionado {
         JCheckBox componente;
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if (componente1 == null) {
@@ -261,14 +261,14 @@ public class Procesos {
                 componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                 componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
                 mensaje = ConstantesApp.MENSAJE_CHECKBOX_NO_SELECCIONADO + componente.getName();
-                componente.setText(componente.getText() + "|" + mensaje);
+                componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
                 throw new ExcepcionCheckBoxNoSeleccionado(mensaje);
             }
         }
         return componente;
     }
 
-    public JRadioButton validarRadioButton(JRadioButton componente1) throws ExcepcionComponenteNulo, ExcepcionCheckBoxNoSeleccionado {
+    public JRadioButton validarCampo(JRadioButton componente1, String nombreComponente) throws ExcepcionComponenteNulo, ExcepcionCheckBoxNoSeleccionado {
         JRadioButton componente;
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if (componente1 == null) {
@@ -278,15 +278,15 @@ public class Procesos {
             if (!componente.isSelected()) {
                 componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                 componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                mensaje = ConstantesApp.MENSAJE_CHECKBOX_NO_SELECCIONADO + componente.getName();
-                componente.setText(componente.getText() + "|" + mensaje);
+                mensaje = ConstantesApp.MENSAJE_CHECKBOX_NO_SELECCIONADO + nombreComponente;
+                componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
                 throw new ExcepcionCheckBoxNoSeleccionado(mensaje);
             }
         }
         return componente;
     }
 
-    public JTextArea validarTextArea(JTextArea componente1) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
+    public JTextArea validarCampo(JTextArea componente1, String nombreComponente) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
         JTextArea componente;
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if (componente1 == null) {
@@ -296,15 +296,15 @@ public class Procesos {
             if (componente.getText().isEmpty()) {
                 componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                 componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                mensaje = ConstantesApp.MENSAJE_CHECKBOX_NO_SELECCIONADO + componente.getName();
-                componente.setText(componente.getText() + "|" + mensaje);
+                mensaje = ConstantesApp.MENSAJE_CHECKBOX_NO_SELECCIONADO + nombreComponente;
+                componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
                 throw new ExcepcionCampoVacio(mensaje);
             }
         }
         return componente;
     }
 
-    public JPasswordField validarJPasswordField(JPasswordField componente1) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
+    public JPasswordField validarCampo(JPasswordField componente1, String nombreComponente) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
         JPasswordField componente;
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if (componente1 == null) {
@@ -314,8 +314,8 @@ public class Procesos {
             if (componente.getText().equals(null)) {
                 componente.setBorder(BorderFactory.createLineBorder(Color.RED));
                 componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + componente.getName();
-                componente.setText(componente.getText() + "|" + mensaje);
+                mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
+                componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
                 throw new ExcepcionCampoVacio(mensaje);
             }
         }
@@ -328,7 +328,7 @@ public class Procesos {
         if (componente1.getText().toLowerCase().trim().equals(componente2.getText().toLowerCase().trim())) {
             bandera = String.valueOf(ConstantesApp.BANDERA_FALSE);
             mensaje = ConstantesApp.MENSAJE_PASSWORD_DIFERENTES;
-            mensaje = bandera + "|" + mensaje;
+            mensaje = bandera + ConstantesApp.CONCATENADOR + mensaje;
             componente2.setBorder(BorderFactory.createLineBorder(Color.RED));
             componente2.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
             throw new ExcepcionPasswordIguales(mensaje);
