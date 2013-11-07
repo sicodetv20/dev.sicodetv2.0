@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
+import ve.com.fsjv.devsicodetv.utilitarios.otros.Eventos;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
 import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
 
@@ -21,30 +22,30 @@ import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
 public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
     private FichaDetenidoDialog formulario;
     private Procesos procesos;
+    private Eventos eventos;
     
     public FichaDetenidoDialogManager() throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
         this.formulario = new FichaDetenidoDialog(new JFrame(), true);
         this.procesos = new Procesos();
-        this.formulario = (FichaDetenidoDialog) this.procesos.aplicarReadOnly(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, false, ConstantesApp.READONLY_DEFAULT);
-        this.formulario.txtCedulaIdentidad = this.procesos.resaltarCampoRequerido(this.formulario.txtCedulaIdentidad);
-        this.formulario.txtNombres = this.procesos.resaltarCampoRequerido(this.formulario.txtNombres);
-        this.formulario.txtApellidos = this.procesos.resaltarCampoRequerido(this.formulario.txtApellidos);
-        this.formulario.txtFechaNacimiento = this.procesos.resaltarCampoRequerido(this.formulario.txtFechaNacimiento);
-        this.formulario.txtFechaNacimiento = this.procesos.resaltarCampoRequerido(this.formulario.txtFechaNacimiento);
-        this.formulario.txtLugarNacimiento = this.procesos.resaltarCampoRequerido(this.formulario.txtLugarNacimiento);
-        this.formulario.cmbSexo = this.procesos.resaltarCampoRequerido(this.formulario.cmbSexo);
-        this.formulario.cmbNacionalidad = this.procesos.resaltarCampoRequerido(this.formulario.cmbNacionalidad);
-        this.formulario.cmbColorCabello = this.procesos.resaltarCampoRequerido(this.formulario.cmbColorCabello);
-        this.formulario.cmbColorOjos = this.procesos.resaltarCampoRequerido(this.formulario.cmbColorOjos);
-        this.formulario.cmbColorPiel = this.procesos.resaltarCampoRequerido(this.formulario.cmbColorPiel);
-        this.formulario.cmbContextura = this.procesos.resaltarCampoRequerido(this.formulario.cmbContextura);
-        this.formulario.txtEstatura = this.procesos.resaltarCampoRequerido(this.formulario.txtEstatura);
-        
-        this.formulario.txtFechaNacimiento.setText(this.procesos.obtenerFechaActual(ConstantesApp.TIPO_VALIDACION_FECHA));
-        
+        this.eventos = new Eventos();
+        this.formulario = (FichaDetenidoDialog) this.eventos.aplicarReadOnly(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, false, ConstantesApp.READONLY_DEFAULT);
+        this.formulario.setTxtCedulaIdentidad(this.procesos.resaltarCampoRequerido(this.formulario.getTxtCedulaIdentidad()));
+        this.formulario.setTxtNombres(this.procesos.resaltarCampoRequerido(this.formulario.getTxtNombres()));
+        this.formulario.setTxtApellidos(this.procesos.resaltarCampoRequerido(this.formulario.getTxtApellidos()));
+        this.formulario.setTxtFechaNacimiento(this.procesos.resaltarCampoRequerido(this.formulario.getTxtFechaNacimiento()));
+        this.formulario.setTxtLugarNacimiento(this.procesos.resaltarCampoRequerido(this.formulario.getTxtLugarNacimiento()));
+        this.formulario.setCmbSexo(this.procesos.resaltarCampoRequerido(this.formulario.getCmbSexo()));
+        this.formulario.setCmbNacionalidad(this.procesos.resaltarCampoRequerido(this.formulario.getCmbNacionalidad()));
+        this.formulario.setCmbColorCabello(this.procesos.resaltarCampoRequerido(this.formulario.getCmbColorCabello()));
+        this.formulario.setCmbColorOjos(this.procesos.resaltarCampoRequerido(this.formulario.getCmbColorOjos()));
+        this.formulario.setCmbColorPiel(this.procesos.resaltarCampoRequerido(this.formulario.getCmbColorPiel()));
+        this.formulario.setCmbContextura(this.procesos.resaltarCampoRequerido(this.formulario.getCmbContextura()));
+        this.formulario.setTxtEstatura(this.procesos.resaltarCampoRequerido(this.formulario.getTxtEstatura()));
+        this.formulario.getTxtFechaNacimiento().setText(this.procesos.obtenerFechaActual(ConstantesApp.TIPO_VALIDACION_FECHA));
         
         //this.formulario.txtCedulaIdentidad.addKeyListener(this);
         //this.formulario.cmbNacionalidad.addKeyListener(this);
+        this.formulario.setTitle(this.procesos.cargarMembreteBarraTitulo(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, "Administrador", ConstantesApp.TITULO_COMPLETO));
         this.formulario.setSize(1150, 740);
         this.formulario.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         this.formulario.setVisible(true);

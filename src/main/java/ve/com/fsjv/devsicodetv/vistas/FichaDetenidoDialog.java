@@ -3,6 +3,13 @@ package ve.com.fsjv.devsicodetv.vistas;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -39,12 +46,11 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         btnHuellas = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
         btnVerHistoriales = new javax.swing.JButton();
         btnVerUltimosAgregados = new javax.swing.JButton();
         btnCamara = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSeleccionarImagen = new javax.swing.JButton();
+        btnVerFoto = new javax.swing.JButton();
         panDatosPersonales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -79,11 +85,11 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         jLabel16 = new javax.swing.JLabel();
         txtAnio = new javax.swing.JTextField();
         panGaleria = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        panFoto1 = new javax.swing.JPanel();
+        panFoto2 = new javax.swing.JPanel();
+        panFoto4 = new javax.swing.JPanel();
+        panFoto3 = new javax.swing.JPanel();
+        panFoto5 = new javax.swing.JPanel();
         panDatosUbicacion = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDireccionAnterior = new javax.swing.JTextArea();
@@ -256,79 +262,51 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         btnCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panBarraHerramientas.add(btnCancelar);
 
-        jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(25, 74));
-        jPanel1.setRequestFocusEnabled(false);
-        jPanel1.setVerifyInputWhenFocusTarget(false);
-
         btnVerHistoriales.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         btnVerHistoriales.setText("Ver Historiales");
         btnVerHistoriales.setFocusable(false);
         btnVerHistoriales.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnVerHistoriales.setMaximumSize(new java.awt.Dimension(160, 18));
-        btnVerHistoriales.setMinimumSize(new java.awt.Dimension(160, 18));
-        btnVerHistoriales.setPreferredSize(new java.awt.Dimension(160, 18));
+        btnVerHistoriales.setMaximumSize(new java.awt.Dimension(100, 55));
+        btnVerHistoriales.setMinimumSize(new java.awt.Dimension(100, 55));
+        btnVerHistoriales.setPreferredSize(new java.awt.Dimension(100, 55));
         btnVerHistoriales.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panBarraHerramientas.add(btnVerHistoriales);
 
         btnVerUltimosAgregados.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         btnVerUltimosAgregados.setText("Ver Ultimos Agregados");
-        btnVerUltimosAgregados.setMaximumSize(new java.awt.Dimension(160, 18));
-        btnVerUltimosAgregados.setMinimumSize(new java.awt.Dimension(160, 18));
-        btnVerUltimosAgregados.setPreferredSize(new java.awt.Dimension(160, 18));
+        btnVerUltimosAgregados.setFocusPainted(false);
+        btnVerUltimosAgregados.setFocusable(false);
+        btnVerUltimosAgregados.setMaximumSize(new java.awt.Dimension(130, 55));
+        btnVerUltimosAgregados.setMinimumSize(new java.awt.Dimension(130, 55));
+        btnVerUltimosAgregados.setPreferredSize(new java.awt.Dimension(130, 55));
+        panBarraHerramientas.add(btnVerUltimosAgregados);
 
         btnCamara.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         btnCamara.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/camera.png"))); // NOI18N
+        btnCamara.setFocusPainted(false);
+        btnCamara.setFocusable(false);
         btnCamara.setMaximumSize(new java.awt.Dimension(42, 37));
         btnCamara.setMinimumSize(new java.awt.Dimension(42, 37));
         btnCamara.setPreferredSize(new java.awt.Dimension(42, 37));
+        panBarraHerramientas.add(btnCamara);
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/Add.png"))); // NOI18N
-        jButton1.setMaximumSize(new java.awt.Dimension(42, 37));
-        jButton1.setMinimumSize(new java.awt.Dimension(42, 37));
-        jButton1.setPreferredSize(new java.awt.Dimension(42, 37));
+        btnSeleccionarImagen.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnSeleccionarImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/Add.png"))); // NOI18N
+        btnSeleccionarImagen.setFocusPainted(false);
+        btnSeleccionarImagen.setFocusable(false);
+        btnSeleccionarImagen.setMaximumSize(new java.awt.Dimension(42, 37));
+        btnSeleccionarImagen.setMinimumSize(new java.awt.Dimension(42, 37));
+        btnSeleccionarImagen.setPreferredSize(new java.awt.Dimension(42, 37));
+        panBarraHerramientas.add(btnSeleccionarImagen);
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/ver.png"))); // NOI18N
-        jButton2.setMaximumSize(new java.awt.Dimension(42, 37));
-        jButton2.setMinimumSize(new java.awt.Dimension(42, 37));
-        jButton2.setPreferredSize(new java.awt.Dimension(42, 37));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVerHistoriales, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                    .addComponent(btnVerUltimosAgregados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCamara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCamara, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnVerUltimosAgregados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVerHistoriales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        panBarraHerramientas.add(jPanel1);
-        jPanel1.getAccessibleContext().setAccessibleName("");
-        jPanel1.getAccessibleContext().setAccessibleDescription("");
+        btnVerFoto.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnVerFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/ver.png"))); // NOI18N
+        btnVerFoto.setFocusPainted(false);
+        btnVerFoto.setFocusable(false);
+        btnVerFoto.setMaximumSize(new java.awt.Dimension(42, 37));
+        btnVerFoto.setMinimumSize(new java.awt.Dimension(42, 37));
+        btnVerFoto.setPreferredSize(new java.awt.Dimension(42, 37));
+        panBarraHerramientas.add(btnVerFoto);
 
         panDatosPersonales.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos Personales", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         panDatosPersonales.setPreferredSize(new java.awt.Dimension(469, 367));
@@ -441,9 +419,9 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                 .addGroup(panDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panDatosPersonalesLayout.createSequentialGroup()
                         .addComponent(cmbReservista, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
                         .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panDatosPersonalesLayout.createSequentialGroup()
                         .addComponent(txtCodigoInterno, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -546,69 +524,69 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         panGaleria.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Galeria de Fotos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
         panGaleria.setPreferredSize(new java.awt.Dimension(526, 123));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panFoto1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panFoto1Layout = new javax.swing.GroupLayout(panFoto1);
+        panFoto1.setLayout(panFoto1Layout);
+        panFoto1Layout.setHorizontalGroup(
+            panFoto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        panFoto1Layout.setVerticalGroup(
+            panFoto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panFoto2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panFoto2Layout = new javax.swing.GroupLayout(panFoto2);
+        panFoto2.setLayout(panFoto2Layout);
+        panFoto2Layout.setHorizontalGroup(
+            panFoto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        panFoto2Layout.setVerticalGroup(
+            panFoto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panFoto4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panFoto4Layout = new javax.swing.GroupLayout(panFoto4);
+        panFoto4.setLayout(panFoto4Layout);
+        panFoto4Layout.setHorizontalGroup(
+            panFoto4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        panFoto4Layout.setVerticalGroup(
+            panFoto4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panFoto3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panFoto3Layout = new javax.swing.GroupLayout(panFoto3);
+        panFoto3.setLayout(panFoto3Layout);
+        panFoto3Layout.setHorizontalGroup(
+            panFoto3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        panFoto3Layout.setVerticalGroup(
+            panFoto3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panFoto5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panFoto5Layout = new javax.swing.GroupLayout(panFoto5);
+        panFoto5.setLayout(panFoto5Layout);
+        panFoto5Layout.setHorizontalGroup(
+            panFoto5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        panFoto5Layout.setVerticalGroup(
+            panFoto5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panGaleriaLayout = new javax.swing.GroupLayout(panGaleria);
@@ -617,28 +595,28 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
             panGaleriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panGaleriaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panFoto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panFoto2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panFoto3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panFoto4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(panFoto5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panGaleriaLayout.setVerticalGroup(
             panGaleriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panGaleriaLayout.createSequentialGroup()
-                .addGroup(panGaleriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panGaleriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panGaleriaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panGaleriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panFoto4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panFoto3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panFoto2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panFoto1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panFoto5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         panDatosUbicacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos de Ubicacion", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
@@ -708,24 +686,24 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                     .addComponent(jLabel27)
                     .addComponent(jLabel28))
                 .addGap(18, 18, 18)
-                .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panDatosUbicacionLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txtTelefonoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtTelefonoHabitacion)
-                    .addComponent(txtTelefonoEmergencia)
+                    .addGroup(panDatosUbicacionLayout.createSequentialGroup()
+                        .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTelefonoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTelefonoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTelefonoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
                     .addGroup(panDatosUbicacionLayout.createSequentialGroup()
                         .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29)
                             .addComponent(jLabel31)
                             .addComponent(jLabel30))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(47, 47, 47))))
         );
         panDatosUbicacionLayout.setVerticalGroup(
             panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -745,21 +723,20 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                                     .addGap(11, 11, 11)
                                     .addComponent(txtTelefonoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel26)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel26))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel27)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(panDatosUbicacionLayout.createSequentialGroup()
-                            .addComponent(jLabel30)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtTelefonoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel28))
+                    .addGroup(panDatosUbicacionLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel30)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTelefonoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel28)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -1011,7 +988,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(panRasgosFisicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtEstatusControl, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -1022,35 +999,35 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_txtEstatusControlActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAgregarCausa;
-    public javax.swing.JButton btnBorrar;
-    public javax.swing.JButton btnBuscar;
-    public javax.swing.JButton btnCamara;
-    public javax.swing.JButton btnCancelar;
-    public javax.swing.JButton btnCelda;
-    public javax.swing.JButton btnEditar;
-    public javax.swing.JButton btnEvidencias;
-    public javax.swing.JButton btnGuardar;
-    public javax.swing.JButton btnHuellas;
-    public javax.swing.JButton btnImprimir;
-    public javax.swing.JButton btnNuevo;
-    public javax.swing.JButton btnVerHistoriales;
-    public javax.swing.JButton btnVerUltimosAgregados;
-    public javax.swing.JComboBox cmbColorCabello;
-    public javax.swing.JComboBox cmbColorOjos;
-    public javax.swing.JComboBox cmbColorPiel;
-    public javax.swing.JComboBox cmbContextura;
-    public javax.swing.JComboBox cmbEstadoCivil;
-    public javax.swing.JComboBox cmbGradoInstruccion;
-    public javax.swing.JComboBox cmbLentes;
-    public javax.swing.JComboBox cmbNacionalidad;
-    public javax.swing.JComboBox cmbReservista;
-    public javax.swing.JComboBox cmbSexo;
-    public javax.swing.JComboBox cmbTipoNariz;
-    public javax.swing.JComboBox cmbTipoVivienda;
-    public javax.swing.JComboBox cmbVivienda;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAgregarCausa;
+    private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCamara;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCelda;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEvidencias;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnHuellas;
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnSeleccionarImagen;
+    private javax.swing.JButton btnVerFoto;
+    private javax.swing.JButton btnVerHistoriales;
+    private javax.swing.JButton btnVerUltimosAgregados;
+    private javax.swing.JComboBox cmbColorCabello;
+    private javax.swing.JComboBox cmbColorOjos;
+    private javax.swing.JComboBox cmbColorPiel;
+    private javax.swing.JComboBox cmbContextura;
+    private javax.swing.JComboBox cmbEstadoCivil;
+    private javax.swing.JComboBox cmbGradoInstruccion;
+    private javax.swing.JComboBox cmbLentes;
+    private javax.swing.JComboBox cmbNacionalidad;
+    private javax.swing.JComboBox cmbReservista;
+    private javax.swing.JComboBox cmbSexo;
+    private javax.swing.JComboBox cmbTipoNariz;
+    private javax.swing.JComboBox cmbTipoVivienda;
+    private javax.swing.JComboBox cmbVivienda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1086,43 +1063,522 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JToolBar panBarraHerramientas;
     public javax.swing.JPanel panDatosPersonales;
     public javax.swing.JPanel panDatosUbicacion;
+    private javax.swing.JPanel panFoto1;
+    private javax.swing.JPanel panFoto2;
+    private javax.swing.JPanel panFoto3;
+    private javax.swing.JPanel panFoto4;
+    private javax.swing.JPanel panFoto5;
     public javax.swing.JPanel panGaleria;
     public javax.swing.JPanel panInformacionAdicional;
     public javax.swing.JPanel panRasgosFisicos;
-    public javax.swing.JTextField txtAlias;
-    public javax.swing.JTextField txtAnio;
-    public javax.swing.JTextField txtApellidos;
-    public javax.swing.JTextField txtCedulaIdentidad;
-    public javax.swing.JTextField txtCicatriz;
-    public javax.swing.JTextField txtCodigoInterno;
-    public javax.swing.JTextArea txtDireccionActual;
-    public javax.swing.JTextArea txtDireccionAnterior;
-    public javax.swing.JTextArea txtDireccionEmergencia;
-    public javax.swing.JTextField txtDocumentoAnterior;
-    public javax.swing.JTextField txtEdad;
-    public javax.swing.JTextField txtEstatura;
-    public javax.swing.JTextField txtEstatusControl;
-    public javax.swing.JFormattedTextField txtFechaNacimiento;
-    public javax.swing.JTextField txtLugarNacimiento;
-    public javax.swing.JTextField txtNombres;
-    public javax.swing.JTextField txtPasaporte;
-    public javax.swing.JTextField txtProfesion;
-    public javax.swing.JTextField txtReligion;
-    public javax.swing.JTextField txtSeniasParticulares;
-    public javax.swing.JFormattedTextField txtTelefonoCelular;
-    public javax.swing.JFormattedTextField txtTelefonoEmergencia;
-    public javax.swing.JFormattedTextField txtTelefonoHabitacion;
+    private javax.swing.JTextField txtAlias;
+    private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtCedulaIdentidad;
+    private javax.swing.JTextField txtCicatriz;
+    private javax.swing.JTextField txtCodigoInterno;
+    private javax.swing.JTextArea txtDireccionActual;
+    private javax.swing.JTextArea txtDireccionAnterior;
+    private javax.swing.JTextArea txtDireccionEmergencia;
+    private javax.swing.JTextField txtDocumentoAnterior;
+    private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtEstatura;
+    private javax.swing.JTextField txtEstatusControl;
+    private javax.swing.JFormattedTextField txtFechaNacimiento;
+    private javax.swing.JTextField txtLugarNacimiento;
+    private javax.swing.JTextField txtNombres;
+    private javax.swing.JTextField txtPasaporte;
+    private javax.swing.JTextField txtProfesion;
+    private javax.swing.JTextField txtReligion;
+    private javax.swing.JTextField txtSeniasParticulares;
+    private javax.swing.JFormattedTextField txtTelefonoCelular;
+    private javax.swing.JFormattedTextField txtTelefonoEmergencia;
+    private javax.swing.JFormattedTextField txtTelefonoHabitacion;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnAgregarCausa() {
+        return btnAgregarCausa;
+    }
+
+    public void setBtnAgregarCausa(JButton btnAgregarCausa) {
+        this.btnAgregarCausa = btnAgregarCausa;
+    }
+
+    public JButton getBtnBorrar() {
+        return btnBorrar;
+    }
+
+    public void setBtnBorrar(JButton btnBorrar) {
+        this.btnBorrar = btnBorrar;
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public JButton getBtnCamara() {
+        return btnCamara;
+    }
+
+    public void setBtnCamara(JButton btnCamara) {
+        this.btnCamara = btnCamara;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnCelda() {
+        return btnCelda;
+    }
+
+    public void setBtnCelda(JButton btnCelda) {
+        this.btnCelda = btnCelda;
+    }
+
+    public JButton getBtnEditar() {
+        return btnEditar;
+    }
+
+    public void setBtnEditar(JButton btnEditar) {
+        this.btnEditar = btnEditar;
+    }
+
+    public JButton getBtnEvidencias() {
+        return btnEvidencias;
+    }
+
+    public void setBtnEvidencias(JButton btnEvidencias) {
+        this.btnEvidencias = btnEvidencias;
+    }
+
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public void setBtnGuardar(JButton btnGuardar) {
+        this.btnGuardar = btnGuardar;
+    }
+
+    public JButton getBtnHuellas() {
+        return btnHuellas;
+    }
+
+    public void setBtnHuellas(JButton btnHuellas) {
+        this.btnHuellas = btnHuellas;
+    }
+
+    public JButton getBtnImprimir() {
+        return btnImprimir;
+    }
+
+    public void setBtnImprimir(JButton btnImprimir) {
+        this.btnImprimir = btnImprimir;
+    }
+
+    public JButton getBtnNuevo() {
+        return btnNuevo;
+    }
+
+    public void setBtnNuevo(JButton btnNuevo) {
+        this.btnNuevo = btnNuevo;
+    }
+
+    public JButton getBtnSeleccionarImagen() {
+        return btnSeleccionarImagen;
+    }
+
+    public void setBtnSeleccionarImagen(JButton btnSeleccionarImagen) {
+        this.btnSeleccionarImagen = btnSeleccionarImagen;
+    }
+
+    public JButton getBtnVerFoto() {
+        return btnVerFoto;
+    }
+
+    public void setBtnVerFoto(JButton btnVerFoto) {
+        this.btnVerFoto = btnVerFoto;
+    }
+
+    public JButton getBtnVerHistoriales() {
+        return btnVerHistoriales;
+    }
+
+    public void setBtnVerHistoriales(JButton btnVerHistoriales) {
+        this.btnVerHistoriales = btnVerHistoriales;
+    }
+
+    public JButton getBtnVerUltimosAgregados() {
+        return btnVerUltimosAgregados;
+    }
+
+    public void setBtnVerUltimosAgregados(JButton btnVerUltimosAgregados) {
+        this.btnVerUltimosAgregados = btnVerUltimosAgregados;
+    }
+
+    public JComboBox getCmbColorCabello() {
+        return cmbColorCabello;
+    }
+
+    public void setCmbColorCabello(JComboBox cmbColorCabello) {
+        this.cmbColorCabello = cmbColorCabello;
+    }
+
+    public JComboBox getCmbColorOjos() {
+        return cmbColorOjos;
+    }
+
+    public void setCmbColorOjos(JComboBox cmbColorOjos) {
+        this.cmbColorOjos = cmbColorOjos;
+    }
+
+    public JComboBox getCmbColorPiel() {
+        return cmbColorPiel;
+    }
+
+    public void setCmbColorPiel(JComboBox cmbColorPiel) {
+        this.cmbColorPiel = cmbColorPiel;
+    }
+
+    public JComboBox getCmbContextura() {
+        return cmbContextura;
+    }
+
+    public void setCmbContextura(JComboBox cmbContextura) {
+        this.cmbContextura = cmbContextura;
+    }
+
+    public JComboBox getCmbEstadoCivil() {
+        return cmbEstadoCivil;
+    }
+
+    public void setCmbEstadoCivil(JComboBox cmbEstadoCivil) {
+        this.cmbEstadoCivil = cmbEstadoCivil;
+    }
+
+    public JComboBox getCmbGradoInstruccion() {
+        return cmbGradoInstruccion;
+    }
+
+    public void setCmbGradoInstruccion(JComboBox cmbGradoInstruccion) {
+        this.cmbGradoInstruccion = cmbGradoInstruccion;
+    }
+
+    public JComboBox getCmbLentes() {
+        return cmbLentes;
+    }
+
+    public void setCmbLentes(JComboBox cmbLentes) {
+        this.cmbLentes = cmbLentes;
+    }
+
+    public JComboBox getCmbNacionalidad() {
+        return cmbNacionalidad;
+    }
+
+    public void setCmbNacionalidad(JComboBox cmbNacionalidad) {
+        this.cmbNacionalidad = cmbNacionalidad;
+    }
+
+    public JComboBox getCmbReservista() {
+        return cmbReservista;
+    }
+
+    public void setCmbReservista(JComboBox cmbReservista) {
+        this.cmbReservista = cmbReservista;
+    }
+
+    public JComboBox getCmbSexo() {
+        return cmbSexo;
+    }
+
+    public void setCmbSexo(JComboBox cmbSexo) {
+        this.cmbSexo = cmbSexo;
+    }
+
+    public JComboBox getCmbTipoNariz() {
+        return cmbTipoNariz;
+    }
+
+    public void setCmbTipoNariz(JComboBox cmbTipoNariz) {
+        this.cmbTipoNariz = cmbTipoNariz;
+    }
+
+    public JComboBox getCmbTipoVivienda() {
+        return cmbTipoVivienda;
+    }
+
+    public void setCmbTipoVivienda(JComboBox cmbTipoVivienda) {
+        this.cmbTipoVivienda = cmbTipoVivienda;
+    }
+
+    public JComboBox getCmbVivienda() {
+        return cmbVivienda;
+    }
+
+    public void setCmbVivienda(JComboBox cmbVivienda) {
+        this.cmbVivienda = cmbVivienda;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public void setjScrollPane3(JScrollPane jScrollPane3) {
+        this.jScrollPane3 = jScrollPane3;
+    }
+
+    public JPanel getPanFoto1() {
+        return panFoto1;
+    }
+
+    public void setPanFoto1(JPanel panFoto1) {
+        this.panFoto1 = panFoto1;
+    }
+
+    public JPanel getPanFoto2() {
+        return panFoto2;
+    }
+
+    public void setPanFoto2(JPanel panFoto2) {
+        this.panFoto2 = panFoto2;
+    }
+
+    public JPanel getPanFoto3() {
+        return panFoto3;
+    }
+
+    public void setPanFoto3(JPanel panFoto3) {
+        this.panFoto3 = panFoto3;
+    }
+
+    public JPanel getPanFoto4() {
+        return panFoto4;
+    }
+
+    public void setPanFoto4(JPanel panFoto4) {
+        this.panFoto4 = panFoto4;
+    }
+
+    public JPanel getPanFoto5() {
+        return panFoto5;
+    }
+
+    public void setPanFoto5(JPanel panFoto5) {
+        this.panFoto5 = panFoto5;
+    }
+
+    public JTextField getTxtAlias() {
+        return txtAlias;
+    }
+
+    public void setTxtAlias(JTextField txtAlias) {
+        this.txtAlias = txtAlias;
+    }
+
+    public JTextField getTxtAnio() {
+        return txtAnio;
+    }
+
+    public void setTxtAnio(JTextField txtAnio) {
+        this.txtAnio = txtAnio;
+    }
+
+    public JTextField getTxtApellidos() {
+        return txtApellidos;
+    }
+
+    public void setTxtApellidos(JTextField txtApellidos) {
+        this.txtApellidos = txtApellidos;
+    }
+
+    public JTextField getTxtCedulaIdentidad() {
+        return txtCedulaIdentidad;
+    }
+
+    public void setTxtCedulaIdentidad(JTextField txtCedulaIdentidad) {
+        this.txtCedulaIdentidad = txtCedulaIdentidad;
+    }
+
+    public JTextField getTxtCicatriz() {
+        return txtCicatriz;
+    }
+
+    public void setTxtCicatriz(JTextField txtCicatriz) {
+        this.txtCicatriz = txtCicatriz;
+    }
+
+    public JTextField getTxtCodigoInterno() {
+        return txtCodigoInterno;
+    }
+
+    public void setTxtCodigoInterno(JTextField txtCodigoInterno) {
+        this.txtCodigoInterno = txtCodigoInterno;
+    }
+
+    public JTextArea getTxtDireccionActual() {
+        return txtDireccionActual;
+    }
+
+    public void setTxtDireccionActual(JTextArea txtDireccionActual) {
+        this.txtDireccionActual = txtDireccionActual;
+    }
+
+    public JTextArea getTxtDireccionAnterior() {
+        return txtDireccionAnterior;
+    }
+
+    public void setTxtDireccionAnterior(JTextArea txtDireccionAnterior) {
+        this.txtDireccionAnterior = txtDireccionAnterior;
+    }
+
+    public JTextArea getTxtDireccionEmergencia() {
+        return txtDireccionEmergencia;
+    }
+
+    public void setTxtDireccionEmergencia(JTextArea txtDireccionEmergencia) {
+        this.txtDireccionEmergencia = txtDireccionEmergencia;
+    }
+
+    public JTextField getTxtDocumentoAnterior() {
+        return txtDocumentoAnterior;
+    }
+
+    public void setTxtDocumentoAnterior(JTextField txtDocumentoAnterior) {
+        this.txtDocumentoAnterior = txtDocumentoAnterior;
+    }
+
+    public JTextField getTxtEdad() {
+        return txtEdad;
+    }
+
+    public void setTxtEdad(JTextField txtEdad) {
+        this.txtEdad = txtEdad;
+    }
+
+    public JTextField getTxtEstatura() {
+        return txtEstatura;
+    }
+
+    public void setTxtEstatura(JTextField txtEstatura) {
+        this.txtEstatura = txtEstatura;
+    }
+
+    public JTextField getTxtEstatusControl() {
+        return txtEstatusControl;
+    }
+
+    public void setTxtEstatusControl(JTextField txtEstatusControl) {
+        this.txtEstatusControl = txtEstatusControl;
+    }
+
+    public JFormattedTextField getTxtFechaNacimiento() {
+        return txtFechaNacimiento;
+    }
+
+    public void setTxtFechaNacimiento(JFormattedTextField txtFechaNacimiento) {
+        this.txtFechaNacimiento = txtFechaNacimiento;
+    }
+
+    public JTextField getTxtLugarNacimiento() {
+        return txtLugarNacimiento;
+    }
+
+    public void setTxtLugarNacimiento(JTextField txtLugarNacimiento) {
+        this.txtLugarNacimiento = txtLugarNacimiento;
+    }
+
+    public JTextField getTxtNombres() {
+        return txtNombres;
+    }
+
+    public void setTxtNombres(JTextField txtNombres) {
+        this.txtNombres = txtNombres;
+    }
+
+    public JTextField getTxtPasaporte() {
+        return txtPasaporte;
+    }
+
+    public void setTxtPasaporte(JTextField txtPasaporte) {
+        this.txtPasaporte = txtPasaporte;
+    }
+
+    public JTextField getTxtProfesion() {
+        return txtProfesion;
+    }
+
+    public void setTxtProfesion(JTextField txtProfesion) {
+        this.txtProfesion = txtProfesion;
+    }
+
+    public JTextField getTxtReligion() {
+        return txtReligion;
+    }
+
+    public void setTxtReligion(JTextField txtReligion) {
+        this.txtReligion = txtReligion;
+    }
+
+    public JTextField getTxtSeniasParticulares() {
+        return txtSeniasParticulares;
+    }
+
+    public void setTxtSeniasParticulares(JTextField txtSeniasParticulares) {
+        this.txtSeniasParticulares = txtSeniasParticulares;
+    }
+
+    public JFormattedTextField getTxtTelefonoCelular() {
+        return txtTelefonoCelular;
+    }
+
+    public void setTxtTelefonoCelular(JFormattedTextField txtTelefonoCelular) {
+        this.txtTelefonoCelular = txtTelefonoCelular;
+    }
+
+    public JFormattedTextField getTxtTelefonoEmergencia() {
+        return txtTelefonoEmergencia;
+    }
+
+    public void setTxtTelefonoEmergencia(JFormattedTextField txtTelefonoEmergencia) {
+        this.txtTelefonoEmergencia = txtTelefonoEmergencia;
+    }
+
+    public JFormattedTextField getTxtTelefonoHabitacion() {
+        return txtTelefonoHabitacion;
+    }
+
+    public void setTxtTelefonoHabitacion(JFormattedTextField txtTelefonoHabitacion) {
+        this.txtTelefonoHabitacion = txtTelefonoHabitacion;
+    }
 }

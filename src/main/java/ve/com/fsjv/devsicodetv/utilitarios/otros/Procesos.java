@@ -17,9 +17,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -34,7 +32,6 @@ import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMaxLength;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMinLength;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionNumeroInvalido;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionPasswordIguales;
-import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
 
 /**
  *
@@ -42,9 +39,26 @@ import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
  */
 public class Procesos {
 
-    private FichaDetenidoDialog formFichaDetenido;
-
     public Procesos() {
+    }
+    
+    public String cargarMembreteBarraTitulo(String acronimo, String usuario, int tipo) throws ExcepcionCampoVacio {
+        if(acronimo == null || usuario == null || tipo < 0){
+            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
+        }else{
+            String titulo = ConstantesApp.INICIALIZAR_STRING;
+            titulo = ConstantesApp.APLICACION;
+            if(tipo==ConstantesApp.TITULO_DOBLE || tipo == ConstantesApp.TITULO_COMPLETO){
+                if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
+                    titulo = titulo + " - " + ConstantesApp.MODULO_FICHA_DETENIDO;
+                }
+            }
+            if(tipo==ConstantesApp.TITULO_COMPLETO){
+                titulo = titulo + " - " + this.obtenerFechaActual(ConstantesApp.TIPO_VALIDACION_FECHA_HORA) + " - " + usuario;
+            }
+            return titulo;
+        }
+        
     }
     
     public String obtenerFechaActual(int tipo) throws ExcepcionCampoVacio {
@@ -106,102 +120,6 @@ public class Procesos {
                 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
             }
         }
-    }
-
-    public JDialog cargarDialogBlanco(String acronimo) throws ExcepcionCampoVacio, ExcepcionComponenteNulo {
-        if (acronimo == null) {
-            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO + ConstantesApp.MENSAJE_ACRONIMO_NULO);
-        } else {
-            if (acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)) {
-                this.formFichaDetenido = new FichaDetenidoDialog(new JFrame(), true);
-                this.formFichaDetenido.txtCedulaIdentidad.setText("");
-                this.formFichaDetenido.txtNombres.setText("");
-                this.formFichaDetenido.txtApellidos.setText("");
-                this.formFichaDetenido.txtAlias.setText("");
-                this.formFichaDetenido.cmbSexo.setSelectedIndex(0);
-                this.formFichaDetenido.txtPasaporte.setText("");
-                this.formFichaDetenido.cmbNacionalidad.setSelectedIndex(0);
-                this.formFichaDetenido.txtReligion.setText("");
-                this.formFichaDetenido.cmbEstadoCivil.setSelectedIndex(0);
-                this.formFichaDetenido.txtFechaNacimiento.setText("");
-                this.formFichaDetenido.txtLugarNacimiento.setText("");
-                this.formFichaDetenido.txtDocumentoAnterior.setText("");
-                this.formFichaDetenido.cmbReservista.setSelectedIndex(0);
-                this.formFichaDetenido.cmbColorPiel.setSelectedIndex(0);
-                this.formFichaDetenido.cmbColorCabello.setSelectedIndex(0);
-                this.formFichaDetenido.cmbColorOjos.setSelectedIndex(0);
-                this.formFichaDetenido.cmbTipoNariz.setSelectedIndex(0);
-                this.formFichaDetenido.txtEstatura.setText("");
-                this.formFichaDetenido.cmbLentes.setSelectedIndex(0);
-                this.formFichaDetenido.cmbContextura.setSelectedIndex(0);
-                this.formFichaDetenido.txtCicatriz.setText("");
-                this.formFichaDetenido.txtSeniasParticulares.setText("");
-                this.formFichaDetenido.txtDireccionActual.setText("");
-                this.formFichaDetenido.txtDireccionAnterior.setText("");
-                this.formFichaDetenido.txtDireccionEmergencia.setText("");
-                this.formFichaDetenido.txtTelefonoCelular.setText("");
-                this.formFichaDetenido.txtTelefonoEmergencia.setText("");
-                this.formFichaDetenido.txtTelefonoHabitacion.setText("");
-                this.formFichaDetenido.cmbVivienda.setSelectedIndex(0);
-                this.formFichaDetenido.cmbTipoVivienda.setSelectedIndex(0);
-                this.formFichaDetenido.cmbGradoInstruccion.setSelectedIndex(0);
-                this.formFichaDetenido.txtProfesion.setText("");
-                return this.formFichaDetenido;
-            } else {
-                throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
-            }
-        }
-
-    }
-
-    public JDialog aplicarReadOnly(String acronimo, boolean valor, int tipo) throws ExcepcionCampoVacio, ExcepcionComponenteNulo {
-        if (acronimo == null) {
-            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO + ConstantesApp.MENSAJE_ACRONIMO_NULO);
-        } else {
-            if (acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)) {
-                this.formFichaDetenido = new FichaDetenidoDialog(new JFrame(), true);
-                if (tipo == ConstantesApp.READONLY_DEFAULT) {
-                    this.formFichaDetenido = (FichaDetenidoDialog) this.cargarDialogBlanco(acronimo);
-                }
-                this.formFichaDetenido.txtCedulaIdentidad.setEditable(valor);
-                this.formFichaDetenido.txtNombres.setEditable(valor);
-                this.formFichaDetenido.txtApellidos.setEditable(valor);
-                this.formFichaDetenido.txtAlias.setEditable(valor);
-                this.formFichaDetenido.cmbSexo.setEnabled(valor);
-                this.formFichaDetenido.txtPasaporte.setEditable(valor);
-                this.formFichaDetenido.cmbNacionalidad.setEnabled(valor);
-                this.formFichaDetenido.txtReligion.setEditable(valor);
-                this.formFichaDetenido.cmbEstadoCivil.setEnabled(valor);
-                this.formFichaDetenido.txtFechaNacimiento.setEditable(valor);
-                this.formFichaDetenido.txtLugarNacimiento.setEditable(valor);
-                this.formFichaDetenido.txtDocumentoAnterior.setEditable(valor);
-                this.formFichaDetenido.cmbReservista.setEnabled(valor);
-                this.formFichaDetenido.cmbColorPiel.setEnabled(valor);
-                this.formFichaDetenido.cmbColorCabello.setEnabled(valor);
-                this.formFichaDetenido.cmbColorOjos.setEnabled(valor);
-                this.formFichaDetenido.cmbTipoNariz.setEnabled(valor);
-                this.formFichaDetenido.txtEstatura.setEditable(valor);
-                this.formFichaDetenido.cmbLentes.setEnabled(valor);
-                this.formFichaDetenido.cmbContextura.setEnabled(valor);
-                this.formFichaDetenido.txtCicatriz.setEditable(valor);
-                this.formFichaDetenido.txtSeniasParticulares.setEditable(valor);
-                this.formFichaDetenido.txtDireccionActual.setEditable(valor);
-                this.formFichaDetenido.txtDireccionAnterior.setEditable(valor);
-                this.formFichaDetenido.txtDireccionEmergencia.setEditable(valor);
-                this.formFichaDetenido.txtTelefonoCelular.setEditable(valor);
-                this.formFichaDetenido.txtTelefonoEmergencia.setEditable(valor);
-                this.formFichaDetenido.txtTelefonoHabitacion.setEditable(valor);
-                this.formFichaDetenido.cmbVivienda.setEnabled(valor);
-                this.formFichaDetenido.cmbTipoVivienda.setEnabled(valor);
-                this.formFichaDetenido.cmbGradoInstruccion.setEnabled(valor);
-                this.formFichaDetenido.txtProfesion.setEditable(valor);
-                return this.formFichaDetenido;
-            } else {
-                throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
-            }
-        }
-
-
     }
 
     public String generarCodigo(String acronimo, String tabla, String indice) {

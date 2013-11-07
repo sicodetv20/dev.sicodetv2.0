@@ -76,6 +76,12 @@ public class ConstantesApp {
     public static final int READONLY_DEFAULT = 1;
     public static final int READONLY_DATA = 2;
     
+    public static final int SIN_TITULO = 0;
+    public static final int TITULO_SIMPLE = 1;
+    public static final int TITULO_DOBLE = 2;
+    public static final int TITULO_COMPLETO = 3;
+    
+    
     public static final String MENSAJE_CAMPO_VACIO = "Error 001: Campo vacio, componente referenciado: ";
     public static final String MENSAJE_CAMPO_EXCEDE_MAXLENGTH = "Error 002: El length del campo excede la cantidad de " + MAXLENGTH + " Caracteres, componente referenciado: ";
     public static final String MENSAJE_CAMPO_MENOR_MINLENGTH = "Error 003: El length del campo es menor de " + MINLENGTH + "Caracteres, componente referenciado: ";
