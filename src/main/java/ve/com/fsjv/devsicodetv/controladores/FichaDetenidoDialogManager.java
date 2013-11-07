@@ -12,20 +12,20 @@ import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
-import ve.com.fsjv.devsicodetv.vistas.vFichaDetenido;
+import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
 
 /**
  *
  * @author franklin
  */
-public class cFichaDetenido implements ActionListener, KeyListener {
-    private vFichaDetenido formulario;
+public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
+    private FichaDetenidoDialog formulario;
     private Procesos procesos;
     
-    public cFichaDetenido() throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
-        this.formulario = new vFichaDetenido(new JFrame(), true);
+    public FichaDetenidoDialogManager() throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
+        this.formulario = new FichaDetenidoDialog(new JFrame(), true);
         this.procesos = new Procesos();
-        this.formulario = (vFichaDetenido) this.procesos.aplicarReadOnly(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, false, ConstantesApp.READONLY_DEFAULT);
+        this.formulario = (FichaDetenidoDialog) this.procesos.aplicarReadOnly(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, false, ConstantesApp.READONLY_DEFAULT);
         this.formulario.txtCedulaIdentidad = this.procesos.resaltarCampoRequerido(this.formulario.txtCedulaIdentidad);
         this.formulario.txtNombres = this.procesos.resaltarCampoRequerido(this.formulario.txtNombres);
         this.formulario.txtApellidos = this.procesos.resaltarCampoRequerido(this.formulario.txtApellidos);
@@ -40,6 +40,7 @@ public class cFichaDetenido implements ActionListener, KeyListener {
         this.formulario.cmbContextura = this.procesos.resaltarCampoRequerido(this.formulario.cmbContextura);
         this.formulario.txtEstatura = this.procesos.resaltarCampoRequerido(this.formulario.txtEstatura);
         
+        this.formulario.txtFechaNacimiento.setText(this.procesos.obtenerFechaActual(ConstantesApp.TIPO_VALIDACION_FECHA));
         
         
         //this.formulario.txtCedulaIdentidad.addKeyListener(this);
@@ -70,7 +71,7 @@ public class cFichaDetenido implements ActionListener, KeyListener {
             try {
                 throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_CLASE_PROCESOS_NULA);
             } catch (ExcepcionComponenteNulo ex) {
-                Logger.getLogger(cFichaDetenido.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

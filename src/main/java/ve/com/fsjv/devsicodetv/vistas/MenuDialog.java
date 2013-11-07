@@ -8,12 +8,12 @@ package ve.com.fsjv.devsicodetv.vistas;
  *
  * @author franklin
  */
-public class vMenu extends javax.swing.JFrame {
+public class MenuDialog extends javax.swing.JFrame {
 
     /**
      * Creates new form vMenu
      */
-    public vMenu() {
+    public MenuDialog() {
         initComponents();
     }
 

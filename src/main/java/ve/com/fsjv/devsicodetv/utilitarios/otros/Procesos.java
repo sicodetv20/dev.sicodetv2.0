@@ -11,15 +11,9 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -40,7 +34,7 @@ import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMaxLength;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMinLength;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionNumeroInvalido;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionPasswordIguales;
-import ve.com.fsjv.devsicodetv.vistas.vFichaDetenido;
+import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
 
 /**
  *
@@ -48,9 +42,20 @@ import ve.com.fsjv.devsicodetv.vistas.vFichaDetenido;
  */
 public class Procesos {
 
-    private vFichaDetenido formFichaDetenido;
+    private FichaDetenidoDialog formFichaDetenido;
 
     public Procesos() {
+    }
+    
+    public String obtenerFechaActual(int tipo) throws ExcepcionCampoVacio {
+        if(tipo <= 0){
+            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
+        }else{
+            String fecha = ConstantesApp.INICIALIZAR_STRING;
+            java.util.Date jud = new java.util.Date();
+            fecha = this.convertirDateStringFecha(jud, tipo);
+            return fecha;
+        }
     }
 
     public JTextField resaltarCampoRequerido(JTextField componente1) throws ExcepcionComponenteNulo {
@@ -108,7 +113,7 @@ public class Procesos {
             throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO + ConstantesApp.MENSAJE_ACRONIMO_NULO);
         } else {
             if (acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)) {
-                this.formFichaDetenido = new vFichaDetenido(new JFrame(), true);
+                this.formFichaDetenido = new FichaDetenidoDialog(new JFrame(), true);
                 this.formFichaDetenido.txtCedulaIdentidad.setText("");
                 this.formFichaDetenido.txtNombres.setText("");
                 this.formFichaDetenido.txtApellidos.setText("");
@@ -154,9 +159,9 @@ public class Procesos {
             throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO + ConstantesApp.MENSAJE_ACRONIMO_NULO);
         } else {
             if (acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)) {
-                this.formFichaDetenido = new vFichaDetenido(new JFrame(), true);
+                this.formFichaDetenido = new FichaDetenidoDialog(new JFrame(), true);
                 if (tipo == ConstantesApp.READONLY_DEFAULT) {
-                    this.formFichaDetenido = (vFichaDetenido) this.cargarDialogBlanco(acronimo);
+                    this.formFichaDetenido = (FichaDetenidoDialog) this.cargarDialogBlanco(acronimo);
                 }
                 this.formFichaDetenido.txtCedulaIdentidad.setEditable(valor);
                 this.formFichaDetenido.txtNombres.setEditable(valor);
