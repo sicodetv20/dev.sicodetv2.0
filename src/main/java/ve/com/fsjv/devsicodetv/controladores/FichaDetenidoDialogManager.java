@@ -53,9 +53,9 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         
         this.formulario.getBtnGuardar().addActionListener(this);
         
-        this.formulario.getTxtCedulaIdentidad().setText("1");
-        this.formulario.getTxtCodigoInterno().setText("DEV5");
-        this.formulario.getTxtNombres().setText("1");
+        //this.formulario.getTxtCedulaIdentidad().setText("1");
+        //this.formulario.getTxtCodigoInterno().setText("DEV5");
+        //this.formulario.getTxtNombres().setText("1");
         
         //this.formulario.txtCedulaIdentidad.addKeyListener(this);
         //this.formulario.cmbNacionalidad.addKeyListener(this);
