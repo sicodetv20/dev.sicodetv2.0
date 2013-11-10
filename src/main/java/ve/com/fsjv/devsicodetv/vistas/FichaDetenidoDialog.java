@@ -36,21 +36,6 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
 
         panBarraHerramientas = new javax.swing.JToolBar();
         btnNuevo = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnBorrar = new javax.swing.JButton();
-        btnAgregarCausa = new javax.swing.JButton();
-        btnCelda = new javax.swing.JButton();
-        btnEvidencias = new javax.swing.JButton();
-        btnHuellas = new javax.swing.JButton();
-        btnImprimir = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        btnVerHistoriales = new javax.swing.JButton();
-        btnVerUltimosAgregados = new javax.swing.JButton();
-        btnCamara = new javax.swing.JButton();
-        btnSeleccionarImagen = new javax.swing.JButton();
-        btnVerFoto = new javax.swing.JButton();
         panDatosPersonales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -148,167 +133,10 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         btnNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnNuevo.setMaximumSize(new java.awt.Dimension(55, 55));
         btnNuevo.setMinimumSize(new java.awt.Dimension(55, 55));
-        btnNuevo.setPreferredSize(new java.awt.Dimension(55, 55));
         btnNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panBarraHerramientas.add(btnNuevo);
 
-        btnBuscar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/search.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.setFocusable(false);
-        btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBuscar.setMaximumSize(new java.awt.Dimension(55, 55));
-        btnBuscar.setMinimumSize(new java.awt.Dimension(55, 55));
-        btnBuscar.setPreferredSize(new java.awt.Dimension(55, 55));
-        btnBuscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnBuscar);
-
-        btnGuardar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/save.png"))); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.setFocusable(false);
-        btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnGuardar.setMaximumSize(new java.awt.Dimension(55, 55));
-        btnGuardar.setMinimumSize(new java.awt.Dimension(55, 55));
-        btnGuardar.setPreferredSize(new java.awt.Dimension(55, 55));
-        btnGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnGuardar);
-
-        btnEditar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/edit.png"))); // NOI18N
-        btnEditar.setText("Editar");
-        btnEditar.setFocusable(false);
-        btnEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEditar.setMaximumSize(new java.awt.Dimension(55, 55));
-        btnEditar.setMinimumSize(new java.awt.Dimension(55, 55));
-        btnEditar.setPreferredSize(new java.awt.Dimension(55, 55));
-        btnEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnEditar);
-
-        btnBorrar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/delete.png"))); // NOI18N
-        btnBorrar.setText("Borrar");
-        btnBorrar.setFocusable(false);
-        btnBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBorrar.setMaximumSize(new java.awt.Dimension(55, 55));
-        btnBorrar.setMinimumSize(new java.awt.Dimension(55, 55));
-        btnBorrar.setPreferredSize(new java.awt.Dimension(55, 55));
-        btnBorrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnBorrar);
-
-        btnAgregarCausa.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnAgregarCausa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/add_causa.png"))); // NOI18N
-        btnAgregarCausa.setText("Ag. Causa");
-        btnAgregarCausa.setFocusable(false);
-        btnAgregarCausa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAgregarCausa.setMaximumSize(new java.awt.Dimension(65, 55));
-        btnAgregarCausa.setMinimumSize(new java.awt.Dimension(65, 55));
-        btnAgregarCausa.setPreferredSize(new java.awt.Dimension(65, 55));
-        btnAgregarCausa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnAgregarCausa);
-
-        btnCelda.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnCelda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/carcel2.png"))); // NOI18N
-        btnCelda.setText("Celda");
-        btnCelda.setFocusable(false);
-        btnCelda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCelda.setMaximumSize(new java.awt.Dimension(55, 55));
-        btnCelda.setMinimumSize(new java.awt.Dimension(55, 55));
-        btnCelda.setPreferredSize(new java.awt.Dimension(55, 55));
-        btnCelda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnCelda);
-
-        btnEvidencias.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnEvidencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/pertenencias.png"))); // NOI18N
-        btnEvidencias.setText("Evidencias");
-        btnEvidencias.setFocusable(false);
-        btnEvidencias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEvidencias.setMaximumSize(new java.awt.Dimension(70, 55));
-        btnEvidencias.setMinimumSize(new java.awt.Dimension(70, 55));
-        btnEvidencias.setPreferredSize(new java.awt.Dimension(70, 55));
-        btnEvidencias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnEvidencias);
-
-        btnHuellas.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnHuellas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/huella.png"))); // NOI18N
-        btnHuellas.setText("Huellas");
-        btnHuellas.setFocusable(false);
-        btnHuellas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnHuellas.setMaximumSize(new java.awt.Dimension(55, 55));
-        btnHuellas.setMinimumSize(new java.awt.Dimension(55, 55));
-        btnHuellas.setPreferredSize(new java.awt.Dimension(55, 55));
-        btnHuellas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnHuellas);
-
-        btnImprimir.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/print.png"))); // NOI18N
-        btnImprimir.setText("Imprimir");
-        btnImprimir.setFocusable(false);
-        btnImprimir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnImprimir.setMaximumSize(new java.awt.Dimension(55, 55));
-        btnImprimir.setMinimumSize(new java.awt.Dimension(55, 55));
-        btnImprimir.setPreferredSize(new java.awt.Dimension(55, 55));
-        btnImprimir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnImprimir);
-
-        btnCancelar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/cancel.png"))); // NOI18N
-        btnCancelar.setText("Cancelar");
-        btnCancelar.setFocusable(false);
-        btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCancelar.setMaximumSize(new java.awt.Dimension(60, 55));
-        btnCancelar.setMinimumSize(new java.awt.Dimension(60, 55));
-        btnCancelar.setPreferredSize(new java.awt.Dimension(60, 55));
-        btnCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnCancelar);
-
-        btnVerHistoriales.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnVerHistoriales.setText("Ver Historiales");
-        btnVerHistoriales.setFocusable(false);
-        btnVerHistoriales.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnVerHistoriales.setMaximumSize(new java.awt.Dimension(100, 55));
-        btnVerHistoriales.setMinimumSize(new java.awt.Dimension(100, 55));
-        btnVerHistoriales.setPreferredSize(new java.awt.Dimension(100, 55));
-        btnVerHistoriales.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnVerHistoriales);
-
-        btnVerUltimosAgregados.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnVerUltimosAgregados.setText("Ver Ultimos Agregados");
-        btnVerUltimosAgregados.setFocusPainted(false);
-        btnVerUltimosAgregados.setFocusable(false);
-        btnVerUltimosAgregados.setMaximumSize(new java.awt.Dimension(130, 55));
-        btnVerUltimosAgregados.setMinimumSize(new java.awt.Dimension(130, 55));
-        btnVerUltimosAgregados.setPreferredSize(new java.awt.Dimension(130, 55));
-        panBarraHerramientas.add(btnVerUltimosAgregados);
-
-        btnCamara.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnCamara.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/camera.png"))); // NOI18N
-        btnCamara.setFocusPainted(false);
-        btnCamara.setFocusable(false);
-        btnCamara.setMaximumSize(new java.awt.Dimension(42, 37));
-        btnCamara.setMinimumSize(new java.awt.Dimension(42, 37));
-        btnCamara.setPreferredSize(new java.awt.Dimension(42, 37));
-        panBarraHerramientas.add(btnCamara);
-
-        btnSeleccionarImagen.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnSeleccionarImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/Add.png"))); // NOI18N
-        btnSeleccionarImagen.setFocusPainted(false);
-        btnSeleccionarImagen.setFocusable(false);
-        btnSeleccionarImagen.setMaximumSize(new java.awt.Dimension(42, 37));
-        btnSeleccionarImagen.setMinimumSize(new java.awt.Dimension(42, 37));
-        btnSeleccionarImagen.setPreferredSize(new java.awt.Dimension(42, 37));
-        panBarraHerramientas.add(btnSeleccionarImagen);
-
-        btnVerFoto.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnVerFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/ver.png"))); // NOI18N
-        btnVerFoto.setFocusPainted(false);
-        btnVerFoto.setFocusable(false);
-        btnVerFoto.setMaximumSize(new java.awt.Dimension(42, 37));
-        btnVerFoto.setMinimumSize(new java.awt.Dimension(42, 37));
-        btnVerFoto.setPreferredSize(new java.awt.Dimension(42, 37));
-        panBarraHerramientas.add(btnVerFoto);
-
-        panDatosPersonales.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos Personales", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        panDatosPersonales.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos Personales", 1, 0, new java.awt.Font("Arial", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         panDatosPersonales.setPreferredSize(new java.awt.Dimension(469, 367));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
@@ -521,7 +349,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        panGaleria.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Galeria de Fotos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
+        panGaleria.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Galeria de Fotos", 1, 0, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
         panGaleria.setPreferredSize(new java.awt.Dimension(526, 123));
 
         panFoto1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -619,7 +447,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        panDatosUbicacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos de Ubicacion", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
+        panDatosUbicacion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos de Ubicacion", 1, 0, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
 
         txtDireccionAnterior.setColumns(20);
         txtDireccionAnterior.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
@@ -692,18 +520,13 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panDatosUbicacionLayout.createSequentialGroup()
-                        .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTelefonoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTelefonoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTelefonoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(panDatosUbicacionLayout.createSequentialGroup()
-                        .addGroup(panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel31)
-                            .addComponent(jLabel30))
-                        .addGap(47, 47, 47))))
+                    .addComponent(txtTelefonoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefonoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefonoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel30))
+                .addContainerGap())
         );
         panDatosUbicacionLayout.setVerticalGroup(
             panDatosUbicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -740,7 +563,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        panRasgosFisicos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Rasgos Fisicos y Señas Particulares", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
+        panRasgosFisicos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Rasgos Fisicos y Señas Particulares", 1, 0, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel17.setText("Color de Piel:");
@@ -867,7 +690,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panInformacionAdicional.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Informacion Adicional", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
+        panInformacionAdicional.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Informacion Adicional", 0, 0, new java.awt.Font("Arial", 1, 12), java.awt.Color.black)); // NOI18N
 
         jLabel32.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel32.setText("Vivienda:");
@@ -999,22 +822,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_txtEstatusControlActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarCausa;
-    private javax.swing.JButton btnBorrar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnCamara;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCelda;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEvidencias;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnHuellas;
-    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnSeleccionarImagen;
-    private javax.swing.JButton btnVerFoto;
-    private javax.swing.JButton btnVerHistoriales;
-    private javax.swing.JButton btnVerUltimosAgregados;
     private javax.swing.JComboBox cmbColorCabello;
     private javax.swing.JComboBox cmbColorOjos;
     private javax.swing.JComboBox cmbColorPiel;
@@ -1101,134 +909,6 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField txtTelefonoEmergencia;
     private javax.swing.JFormattedTextField txtTelefonoHabitacion;
     // End of variables declaration//GEN-END:variables
-
-    public JButton getBtnAgregarCausa() {
-        return btnAgregarCausa;
-    }
-
-    public void setBtnAgregarCausa(JButton btnAgregarCausa) {
-        this.btnAgregarCausa = btnAgregarCausa;
-    }
-
-    public JButton getBtnBorrar() {
-        return btnBorrar;
-    }
-
-    public void setBtnBorrar(JButton btnBorrar) {
-        this.btnBorrar = btnBorrar;
-    }
-
-    public JButton getBtnBuscar() {
-        return btnBuscar;
-    }
-
-    public void setBtnBuscar(JButton btnBuscar) {
-        this.btnBuscar = btnBuscar;
-    }
-
-    public JButton getBtnCamara() {
-        return btnCamara;
-    }
-
-    public void setBtnCamara(JButton btnCamara) {
-        this.btnCamara = btnCamara;
-    }
-
-    public JButton getBtnCancelar() {
-        return btnCancelar;
-    }
-
-    public void setBtnCancelar(JButton btnCancelar) {
-        this.btnCancelar = btnCancelar;
-    }
-
-    public JButton getBtnCelda() {
-        return btnCelda;
-    }
-
-    public void setBtnCelda(JButton btnCelda) {
-        this.btnCelda = btnCelda;
-    }
-
-    public JButton getBtnEditar() {
-        return btnEditar;
-    }
-
-    public void setBtnEditar(JButton btnEditar) {
-        this.btnEditar = btnEditar;
-    }
-
-    public JButton getBtnEvidencias() {
-        return btnEvidencias;
-    }
-
-    public void setBtnEvidencias(JButton btnEvidencias) {
-        this.btnEvidencias = btnEvidencias;
-    }
-
-    public JButton getBtnGuardar() {
-        return btnGuardar;
-    }
-
-    public void setBtnGuardar(JButton btnGuardar) {
-        this.btnGuardar = btnGuardar;
-    }
-
-    public JButton getBtnHuellas() {
-        return btnHuellas;
-    }
-
-    public void setBtnHuellas(JButton btnHuellas) {
-        this.btnHuellas = btnHuellas;
-    }
-
-    public JButton getBtnImprimir() {
-        return btnImprimir;
-    }
-
-    public void setBtnImprimir(JButton btnImprimir) {
-        this.btnImprimir = btnImprimir;
-    }
-
-    public JButton getBtnNuevo() {
-        return btnNuevo;
-    }
-
-    public void setBtnNuevo(JButton btnNuevo) {
-        this.btnNuevo = btnNuevo;
-    }
-
-    public JButton getBtnSeleccionarImagen() {
-        return btnSeleccionarImagen;
-    }
-
-    public void setBtnSeleccionarImagen(JButton btnSeleccionarImagen) {
-        this.btnSeleccionarImagen = btnSeleccionarImagen;
-    }
-
-    public JButton getBtnVerFoto() {
-        return btnVerFoto;
-    }
-
-    public void setBtnVerFoto(JButton btnVerFoto) {
-        this.btnVerFoto = btnVerFoto;
-    }
-
-    public JButton getBtnVerHistoriales() {
-        return btnVerHistoriales;
-    }
-
-    public void setBtnVerHistoriales(JButton btnVerHistoriales) {
-        this.btnVerHistoriales = btnVerHistoriales;
-    }
-
-    public JButton getBtnVerUltimosAgregados() {
-        return btnVerUltimosAgregados;
-    }
-
-    public void setBtnVerUltimosAgregados(JButton btnVerUltimosAgregados) {
-        this.btnVerUltimosAgregados = btnVerUltimosAgregados;
-    }
 
     public JComboBox getCmbColorCabello() {
         return cmbColorCabello;
