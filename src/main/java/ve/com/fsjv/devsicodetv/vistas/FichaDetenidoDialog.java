@@ -109,7 +109,6 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         cmbTipoNariz = new javax.swing.JComboBox();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        txtEstatura = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         cmbLentes = new javax.swing.JComboBox();
         jLabel23 = new javax.swing.JLabel();
@@ -118,6 +117,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         txtCicatriz = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         txtSeniasParticulares = new javax.swing.JTextField();
+        txtEstatura = new javax.swing.JFormattedTextField();
         panInformacionAdicional = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         cmbVivienda = new javax.swing.JComboBox();
@@ -710,9 +710,6 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         jLabel21.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel21.setText("Estatura:");
 
-        txtEstatura.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        txtEstatura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
-
         jLabel22.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel22.setText("Lentes:");
 
@@ -739,6 +736,13 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         txtSeniasParticulares.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         txtSeniasParticulares.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
 
+        try {
+            txtEstatura.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtEstatura.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
         javax.swing.GroupLayout panRasgosFisicosLayout = new javax.swing.GroupLayout(panRasgosFisicos);
         panRasgosFisicos.setLayout(panRasgosFisicosLayout);
         panRasgosFisicosLayout.setHorizontalGroup(
@@ -761,8 +765,8 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(panRasgosFisicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panRasgosFisicosLayout.createSequentialGroup()
-                        .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel22)
                         .addGap(18, 18, 18)
                         .addComponent(cmbLentes, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -796,13 +800,13 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                     .addComponent(jLabel17)
                     .addComponent(cmbColorPiel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
-                    .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22)
                     .addComponent(cmbLentes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(cmbColorOjos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23)
-                    .addComponent(cmbContextura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbContextura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(panRasgosFisicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbColorCabello, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1097,7 +1101,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
     private javax.swing.JTextArea txtDireccionEmergencia;
     private javax.swing.JTextField txtDocumentoAnterior;
     private javax.swing.JTextField txtEdad;
-    private javax.swing.JTextField txtEstatura;
+    private javax.swing.JFormattedTextField txtEstatura;
     private javax.swing.JTextField txtEstatusControl;
     private javax.swing.JTextField txtLugarNacimiento;
     private javax.swing.JTextField txtNombres;
@@ -1109,6 +1113,14 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField txtTelefonoEmergencia;
     private javax.swing.JFormattedTextField txtTelefonoHabitacion;
     // End of variables declaration//GEN-END:variables
+
+    public JFormattedTextField getTxtEstatura() {
+        return txtEstatura;
+    }
+
+    public void setTxtEstatura(JFormattedTextField txtEstatura) {
+        this.txtEstatura = txtEstatura;
+    }
 
     public JComboBox getCmbAnio() {
         return cmbAnio;
@@ -1476,14 +1488,6 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
 
     public void setTxtDocumentoAnterior(JTextField txtDocumentoAnterior) {
         this.txtDocumentoAnterior = txtDocumentoAnterior;
-    }
-
-    public JTextField getTxtEstatura() {
-        return txtEstatura;
-    }
-
-    public void setTxtEstatura(JTextField txtEstatura) {
-        this.txtEstatura = txtEstatura;
     }
 
     public JTextField getTxtEstatusControl() {

@@ -20,6 +20,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -43,6 +44,77 @@ public class Procesos {
 
     public Procesos() {
     }
+    
+    public void permitirSoloNumeros(KeyEvent e){
+        int tecla = (int)e.getKeyChar();
+        if(tecla >= 97 && tecla <= 122 || tecla >= 65 && tecla <= 90)
+            e.consume();
+    }
+    
+    public String validarCampo(JTextField componente, int tipoValidacion, String valor, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo {
+        String mensaje = ConstantesApp.INICIALIZAR_STRING;
+        if(componente == null){
+            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
+        }else{
+            if(tipoValidacion==ConstantesApp.TIPO_VALIDACION_VACIO){
+                if(componente.getText().trim().equals("")){
+                    componente.setBorder(BorderFactory.createLineBorder(Color.red));
+                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
+                }else{
+                    if(tipoCampo == ConstantesApp.CAMPO_NORMAL){
+                        componente.setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
+                        componente.setBackground(Color.white);
+                    }else if(tipoCampo == ConstantesApp.CAMPO_REQUERIDO){
+                        componente.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                        componente.setBackground(new Color(ConstantesApp.REQUIRED_R, ConstantesApp.REQUIRED_G, ConstantesApp.REQUIRED_B));
+                    }
+                    mensaje = null;
+                }
+            }
+        }
+        return mensaje;
+    }
+    
+    public String validarCampo(JFormattedTextField componente, int tipoValidacion, String valor, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo{
+        String mensaje = ConstantesApp.INICIALIZAR_STRING;
+        if(componente == null){
+            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
+        }else{
+            if(tipoValidacion == ConstantesApp.TIPO_VALIDACION_DECIMAL){
+                if(componente.getText().trim().replaceAll(" ", "").length() <= 1){
+                    componente.setBorder(BorderFactory.createLineBorder(Color.red));
+                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
+                }else{
+                    if(tipoCampo == ConstantesApp.CAMPO_NORMAL){
+                        componente.setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
+                        componente.setBackground(Color.white);
+                    }else if(tipoCampo == ConstantesApp.CAMPO_REQUERIDO){
+                        componente.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                        componente.setBackground(new Color(ConstantesApp.REQUIRED_R, ConstantesApp.REQUIRED_G, ConstantesApp.REQUIRED_B));
+                    }
+                }
+            }else if(tipoValidacion == ConstantesApp.TIPO_VALIDACION_TELEFONO){
+                if(componente.getText().trim().replaceAll(" ", "").length() <= 3){
+                    componente.setBorder(BorderFactory.createLineBorder(Color.red));
+                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
+                }else{
+                    if(tipoCampo == ConstantesApp.CAMPO_NORMAL){
+                        componente.setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
+                        componente.setBackground(Color.white);
+                    }else if(tipoCampo == ConstantesApp.CAMPO_REQUERIDO){
+                        componente.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                        componente.setBackground(new Color(ConstantesApp.REQUIRED_R, ConstantesApp.REQUIRED_G, ConstantesApp.REQUIRED_B));
+                    }
+                }
+            }
+        }
+        
+        return mensaje;
+    }
+    
     
     public String cargarMembreteBarraTitulo(String acronimo, String usuario, int tipo) throws ExcepcionCampoVacio {
         if(acronimo == null || usuario == null || tipo < 0){
