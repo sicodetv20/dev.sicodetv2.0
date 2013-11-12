@@ -1,12 +1,19 @@
 package ve.com.fsjv.devsicodetv.controladores;
 
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -37,20 +44,24 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         this.procesos = new Procesos();
         this.eventos = new Eventos();
         this.formulario = (FichaDetenidoDialog) this.eventos.aplicarReadOnly(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, false, ConstantesApp.READONLY_DEFAULT);
+        
+        this.formulario.setTxtCodigoInterno(this.procesos.resaltarCampoRequerido(this.formulario.getTxtCodigoInterno()));
         this.formulario.setTxtCedulaIdentidad(this.procesos.resaltarCampoRequerido(this.formulario.getTxtCedulaIdentidad()));
         this.formulario.setTxtNombres(this.procesos.resaltarCampoRequerido(this.formulario.getTxtNombres()));
         this.formulario.setTxtApellidos(this.procesos.resaltarCampoRequerido(this.formulario.getTxtApellidos()));
-        this.formulario.setTxtFechaNacimiento(this.procesos.resaltarCampoRequerido(this.formulario.getTxtFechaNacimiento()));
         this.formulario.setTxtLugarNacimiento(this.procesos.resaltarCampoRequerido(this.formulario.getTxtLugarNacimiento()));
         this.formulario.setCmbSexo(this.procesos.resaltarCampoRequerido(this.formulario.getCmbSexo()));
+        this.formulario.setCmbAnio(this.procesos.resaltarCampoRequerido(this.formulario.getCmbAnio()));
+        this.formulario.setCmbMes(this.procesos.resaltarCampoRequerido(this.formulario.getCmbMes()));
+        this.formulario.setCmbDia(this.procesos.resaltarCampoRequerido(this.formulario.getCmbDia()));
+        this.formulario.setTxtEdad(this.procesos.resaltarCampoRequerido(this.formulario.getTxtEdad()));
         this.formulario.setCmbNacionalidad(this.procesos.resaltarCampoRequerido(this.formulario.getCmbNacionalidad()));
         this.formulario.setCmbColorCabello(this.procesos.resaltarCampoRequerido(this.formulario.getCmbColorCabello()));
         this.formulario.setCmbColorOjos(this.procesos.resaltarCampoRequerido(this.formulario.getCmbColorOjos()));
         this.formulario.setCmbColorPiel(this.procesos.resaltarCampoRequerido(this.formulario.getCmbColorPiel()));
         this.formulario.setCmbContextura(this.procesos.resaltarCampoRequerido(this.formulario.getCmbContextura()));
         this.formulario.setTxtEstatura(this.procesos.resaltarCampoRequerido(this.formulario.getTxtEstatura()));
-        this.formulario.getTxtFechaNacimiento().setText(this.procesos.obtenerFechaActual(ConstantesApp.TIPO_VALIDACION_FECHA));
-        
+        //this.formulario.getTxtFechaNacimiento().setText(this.procesos.obtenerFechaActual(ConstantesApp.TIPO_VALIDACION_FECHA));
         this.formulario.getBtnGuardar().addActionListener(this);
         
         //this.formulario.getTxtCedulaIdentidad().setText("1");
@@ -60,8 +71,11 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         //this.formulario.txtCedulaIdentidad.addKeyListener(this);
         //this.formulario.cmbNacionalidad.addKeyListener(this);
         this.formulario.setTitle(this.procesos.cargarMembreteBarraTitulo(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, "Administrador", ConstantesApp.TITULO_COMPLETO));
-        this.formulario.setSize(1150, 740);
+        this.formulario.setSize(1180, 740);
+        this.formulario.addKeyListener(this);
         this.formulario.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        
+        
         this.formulario.setVisible(true);
         
         
@@ -72,69 +86,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
             ExcepcionMinLength, ExcepcionFecha, ExcepcionFechaCompleta, ExcepcionHora, ExcepcionNumeroInvalido{
         ArrayList<String> listaErrores = new ArrayList<String>();
         //arreglo de resultado de la validacion
-        String[] arvJTextField;
-        if(this.formulario.getTxtCodigoInterno().getText().isEmpty()){
-            this.formulario.setTxtCodigoInterno(this.procesos.validarCampo(this.formulario.getTxtCodigoInterno(), ConstantesApp.TIPO_VALIDACION_VACIO, "txtCodigoInterno", this.formulario.getTxtCodigoInterno().getText().trim()));
-            if(this.formulario.getTxtCodigoInterno().getText() != null){
-                listaErrores.add(this.formulario.getTxtCodigoInterno().getText());
-                this.formulario.getTxtCodigoInterno().setText("");
-            }
-        }
-        if(this.formulario.getTxtCedulaIdentidad().getText().isEmpty()){
-            this.formulario.setTxtCedulaIdentidad(this.procesos.validarCampo(this.formulario.getTxtCedulaIdentidad(), ConstantesApp.TIPO_VALIDACION_VACIO, "txtCedulaIdentidad", this.formulario.getTxtCedulaIdentidad().getText().trim()));
-            if(this.formulario.getTxtCedulaIdentidad().getText() != null){
-                listaErrores.add(this.formulario.getTxtCedulaIdentidad().getText());
-                this.formulario.getTxtCedulaIdentidad().setText("");
-            }
-        }else{
-            this.formulario.setTxtCedulaIdentidad(this.procesos.validarCampo(this.formulario.getTxtCedulaIdentidad(), ConstantesApp.TIPO_VALIDACION_MINLENGTH, "txtCedulaIdentidad", this.formulario.getTxtCedulaIdentidad().getText().trim()));
-            arvJTextField = this.formulario.getTxtCedulaIdentidad().getText().split(ConstantesApp.CONCATENADOR);
-            if(arvJTextField.length > 1){
-                if(arvJTextField[1] != null || !arvJTextField[1].isEmpty()){
-                   this.formulario.getTxtCedulaIdentidad().setText(arvJTextField[0]);
-                    listaErrores.add(arvJTextField[1]);
-                }else{
-                    this.formulario.getTxtCedulaIdentidad().setText(arvJTextField[0]);
-                }
-            }
-        }
-        if(this.formulario.getTxtNombres().getText().isEmpty()){
-            this.formulario.setTxtNombres(this.procesos.validarCampo(this.formulario.getTxtNombres(), ConstantesApp.TIPO_VALIDACION_VACIO, "txtNombres", this.formulario.getTxtNombres().getText().trim()));
-            if(!this.formulario.getTxtNombres().getText().isEmpty()){
-                listaErrores.add(this.formulario.getTxtNombres().getText());
-                this.formulario.getTxtNombres().setText("");
-            }
-        }else{
-            
-            this.formulario.setTxtNombres(this.procesos.validarCampo(this.formulario.getTxtNombres(), ConstantesApp.TIPO_VALIDACION_MINLENGTH, "txtNombres", this.formulario.getTxtNombres().getText().trim()));
-            arvJTextField = this.formulario.getTxtNombres().getText().split(ConstantesApp.CONCATENADOR);
-            if(arvJTextField.length > 1){
-                if(arvJTextField[1] != null || !arvJTextField[1].isEmpty()){
-                   this.formulario.getTxtNombres().setText(arvJTextField[0]);
-                    listaErrores.add(arvJTextField[1]);
-                }else{
-                    this.formulario.getTxtNombres().setText(arvJTextField[0]);
-                }
-            }
-            
-            this.formulario.setTxtNombres(this.procesos.validarCampo(this.formulario.getTxtNombres(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH, "txtNombres", this.formulario.getTxtNombres().getText().trim()));
-            arvJTextField = this.formulario.getTxtNombres().getText().split(ConstantesApp.CONCATENADOR);
-            if(arvJTextField.length > 1){
-                if(arvJTextField[1] != null || !arvJTextField[1].isEmpty()){
-                   this.formulario.getTxtNombres().setText(arvJTextField[0]);
-                    listaErrores.add(arvJTextField[1]);
-                }else{
-                    this.formulario.getTxtNombres().setText(arvJTextField[0]);
-                }
-            }
-        
-        }
-        
-        
-        
-        
-        
-        
+        String[] arv;
         
         //arvCedula = this.formulario.getTxtCedulaIdentidad().getText().split("|");
         return listaErrores;
@@ -186,7 +138,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
     
     public void keyReleased(KeyEvent e) {
         if(this.procesos != null){
-            this.procesos.deshabilitarTeclas(e);
+                this.procesos.deshabilitarTeclas(e);
         }else{
             try {
                 throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_CLASE_PROCESOS_NULA);

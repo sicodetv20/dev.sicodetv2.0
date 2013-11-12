@@ -14,6 +14,8 @@ import java.awt.image.BufferedImage;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -105,21 +107,11 @@ public class Procesos {
     public void deshabilitarTeclas(KeyEvent e) {
         if ((e.getKeyCode() >= e.VK_F1 && e.getKeyCode() <= e.VK_F12) || e.getKeyCode() == e.VK_INSERT || e.getKeyCode() == e.VK_SCROLL_LOCK || e.getKeyCode() == e.VK_PAUSE) {
             e.consume();
-        } else {
-            if (e.getKeyCode() == e.VK_PRINTSCREEN) {
-                Rectangle screenRectangle = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-                Robot mr = null;
-                BufferedImage screenImage;
-                try {
-                    mr = new Robot();
-                } catch (Exception excep) {
-                    excep.printStackTrace();
-                }
-                screenImage = mr.createScreenCapture(screenRectangle);
-                StringSelection stringSelection = new StringSelection("");
-                Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-            }
-        }
+        } 
+    }
+    
+    public void limpiarClipboar(){
+        
     }
 
     public String generarCodigo(String acronimo, String tabla, String indice) {
@@ -156,171 +148,7 @@ public class Procesos {
         return cantidad;
     }
 
-    public JTextField validarCampo(JTextField componente1, int tipoValidacion, String nombreComponente, String valor)
-            throws ExcepcionComponenteNulo, ExcepcionMaxLength, ExcepcionMinLength,
-            ExcepcionFecha, ExcepcionFechaCompleta, ExcepcionHora, ExcepcionNumeroInvalido, ExcepcionCampoVacio {
-        JTextField componente;
-        java.util.Date jud = null;
-        String mensaje = ConstantesApp.INICIALIZAR_STRING;
-        if (componente1 != null) {
-            componente = componente1;
-            if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_VACIO) {
-                if (componente.getText().trim().isEmpty()) {
-                    componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
-                    componente.setText(mensaje);
-                    //throw new ExcepcionCampoVacio(mensaje);
-                }
-            } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_MAXLENGTH) {
-                if (componente.getText().trim().length() > ConstantesApp.MAXLENGTH) {
-                    componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_EXCEDE_MAXLENGTH + nombreComponente;
-                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                    //throw new ExcepcionMaxLength(mensaje);
-                }
-            } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_MINLENGTH) {
-                if (componente.getText().trim().length() < ConstantesApp.MINLENGTH) {
-                    componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_MENOR_MINLENGTH + nombreComponente;
-                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                    //throw new ExcepcionMinLength(mensaje);
-                }
-            } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_FECHA) {
-                jud = this.convertirStringDateFecha(componente.getText().trim(), tipoValidacion);
-                if (jud == null) {
-                    componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_FECHA_INVALIDO + nombreComponente;
-                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                    throw new ExcepcionFecha(mensaje);
-                }
-            } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_FECHA_HORA) {
-                jud = this.convertirStringDateFecha(componente.getText().trim(), tipoValidacion);
-                if (jud == null) {
-                    componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_FECHA_COMPLETA_INVALIDO + nombreComponente;
-                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                    throw new ExcepcionFechaCompleta(mensaje);
-                }
-            } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_HORA) {
-                jud = this.convertirStringDateFecha(componente.getText().trim(), tipoValidacion);
-                if (jud == null) {
-                    componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_HORA_INVALIDO + nombreComponente;
-                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                    throw new ExcepcionHora(mensaje);
-                }
-            } else if (tipoValidacion == ConstantesApp.TIPO_VALIDACION_NUMERICO) {
-                try {
-                    Integer.parseInt(componente.getText().trim());
-                } catch (NumberFormatException excep) {
-                    componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                    mensaje = ConstantesApp.MENSAJE_CAMPO_NUMERICO_INVALIDO + nombreComponente;
-                    componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                    throw new ExcepcionNumeroInvalido(mensaje);
-                }
-            }
-        } else {
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
-        }
-        return componente;
-    }
-
-    public JComboBox validarCampo(JComboBox componente1) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
-        JComboBox componente;
-        String mensaje = ConstantesApp.INICIALIZAR_STRING;
-        if (componente1 == null) {
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
-        } else {
-            componente = componente1;
-            if (componente.getSelectedItem().toString().trim().isEmpty()) {
-                componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + componente.getName();
-                componente.setSelectedItem(componente.getSelectedItem() + ConstantesApp.CONCATENADOR + mensaje);
-                throw new ExcepcionCampoVacio(mensaje);
-            }
-        }
-        return componente;
-    }
-
-    public JCheckBox validarCampo(JCheckBox componente1, String nombreComponente) throws ExcepcionComponenteNulo, ExcepcionCheckBoxNoSeleccionado {
-        JCheckBox componente;
-        String mensaje = ConstantesApp.INICIALIZAR_STRING;
-        if (componente1 == null) {
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
-        } else {
-            componente = componente1;
-            if (!componente.isSelected()) {
-                componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                mensaje = ConstantesApp.MENSAJE_CHECKBOX_NO_SELECCIONADO + componente.getName();
-                componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                throw new ExcepcionCheckBoxNoSeleccionado(mensaje);
-            }
-        }
-        return componente;
-    }
-
-    public JRadioButton validarCampo(JRadioButton componente1, String nombreComponente) throws ExcepcionComponenteNulo, ExcepcionCheckBoxNoSeleccionado {
-        JRadioButton componente;
-        String mensaje = ConstantesApp.INICIALIZAR_STRING;
-        if (componente1 == null) {
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
-        } else {
-            componente = componente1;
-            if (!componente.isSelected()) {
-                componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                mensaje = ConstantesApp.MENSAJE_CHECKBOX_NO_SELECCIONADO + nombreComponente;
-                componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                throw new ExcepcionCheckBoxNoSeleccionado(mensaje);
-            }
-        }
-        return componente;
-    }
-
-    public JTextArea validarCampo(JTextArea componente1, String nombreComponente) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
-        JTextArea componente;
-        String mensaje = ConstantesApp.INICIALIZAR_STRING;
-        if (componente1 == null) {
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
-        } else {
-            componente = componente1;
-            if (componente.getText().isEmpty()) {
-                componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                mensaje = ConstantesApp.MENSAJE_CHECKBOX_NO_SELECCIONADO + nombreComponente;
-                componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                throw new ExcepcionCampoVacio(mensaje);
-            }
-        }
-        return componente;
-    }
-
-    public JPasswordField validarCampo(JPasswordField componente1, String nombreComponente) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
-        JPasswordField componente;
-        String mensaje = ConstantesApp.INICIALIZAR_STRING;
-        if (componente1 == null) {
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
-        } else {
-            componente = componente1;
-            if (componente.getText().equals(null)) {
-                componente.setBorder(BorderFactory.createLineBorder(Color.RED));
-                componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-                mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
-                componente.setText(componente.getText() + ConstantesApp.CONCATENADOR + mensaje);
-                throw new ExcepcionCampoVacio(mensaje);
-            }
-        }
-        return componente;
-    }
+    
 
     public JPasswordField validarPasswordIguales(JPasswordField componente1, JPasswordField componente2) throws ExcepcionPasswordIguales {
         String bandera = String.valueOf(ConstantesApp.BANDERA_TRUE);
@@ -339,7 +167,7 @@ public class Procesos {
     public java.util.Date convertirStringDateFecha(String fecha, int tipo) throws ExcepcionCampoVacio {
         java.util.Date jud = null;
         if (fecha.isEmpty()) {
-            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
+            //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
         } else {
             SimpleDateFormat formatter = null;
             if (tipo == ConstantesApp.TIPO_VALIDACION_FECHA) {
@@ -362,7 +190,7 @@ public class Procesos {
     public String convertirDateStringFecha(java.util.Date fecha, int tipo) throws ExcepcionCampoVacio {
         String strFecha = ConstantesApp.INICIALIZAR_STRING;
         if (fecha == null) {
-            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
+            //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
         } else {
             Format formato = null;
             if (tipo == ConstantesApp.TIPO_VALIDACION_FECHA) {
@@ -380,7 +208,7 @@ public class Procesos {
     public java.sql.Date convertirUtilDateSQLDateFecha(java.util.Date jud) throws ExcepcionCampoVacio {
         java.sql.Date jsd = null;
         if (jud == null) {
-            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
+            //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
         } else {
             jsd = new java.sql.Date(jud.getTime());
         }
@@ -390,7 +218,7 @@ public class Procesos {
     public java.util.Date convertirSQLDateUtilDateFecha(java.sql.Date jsd) throws ExcepcionCampoVacio {
         java.util.Date jud = null;
         if (jsd == null) {
-            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
+            //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
         } else {
             jud = new java.util.Date(jsd.getTime());
         }
@@ -400,7 +228,7 @@ public class Procesos {
     public java.util.Date convertirSQLDateUtilDateFecha(java.sql.Timestamp jst) throws ExcepcionCampoVacio {
         java.util.Date jud = null;
         if (jst == null) {
-            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
+            //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
         } else {
             jud = new java.util.Date(jst.getTime());
         }

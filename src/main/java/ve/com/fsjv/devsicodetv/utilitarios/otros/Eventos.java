@@ -35,7 +35,10 @@ public class Eventos {
                 this.formFichaDetenido.getCmbNacionalidad().setSelectedIndex(0);
                 this.formFichaDetenido.getTxtReligion().setText("");
                 this.formFichaDetenido.getCmbEstadoCivil().setSelectedIndex(0);
-                this.formFichaDetenido.getTxtFechaNacimiento().setText("");
+                this.formFichaDetenido.getCmbAnio().setSelectedIndex(0);
+                this.formFichaDetenido.getCmbMes().setSelectedIndex(0);
+                this.formFichaDetenido.getCmbDia().setSelectedIndex(0);
+                this.formFichaDetenido.getTxtEdad().setText("");
                 this.formFichaDetenido.getTxtLugarNacimiento().setText("");
                 this.formFichaDetenido.getTxtDocumentoAnterior().setText("");
                 this.formFichaDetenido.getCmbReservista().setSelectedIndex(0);
@@ -80,13 +83,14 @@ public class Eventos {
                 this.formFichaDetenido.getTxtApellidos().setEditable(valor);
                 this.formFichaDetenido.getTxtAlias().setEditable(valor);
                 this.formFichaDetenido.getCmbSexo().setEnabled(valor);
-                
-                
+                this.formFichaDetenido.getCmbAnio().setEnabled(valor);
+                this.formFichaDetenido.getCmbMes().setEnabled(valor);
+                this.formFichaDetenido.getCmbDia().setEnabled(valor);
+                this.formFichaDetenido.getTxtEdad().setEditable(valor);
                 this.formFichaDetenido.getTxtPasaporte().setEditable(valor);
                 this.formFichaDetenido.getCmbNacionalidad().setEnabled(valor);
                 this.formFichaDetenido.getTxtReligion().setEditable(valor);
                 this.formFichaDetenido.getCmbEstadoCivil().setEnabled(valor);
-                this.formFichaDetenido.getTxtFechaNacimiento().setEditable(valor);
                 this.formFichaDetenido.getTxtLugarNacimiento().setEditable(valor);
                 this.formFichaDetenido.getTxtDocumentoAnterior().setEditable(valor);
                 this.formFichaDetenido.getCmbReservista().setEnabled(valor);
