@@ -5,35 +5,19 @@
 package ve.com.fsjv.devsicodetv.utilitarios.otros;
 
 import java.awt.Color;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.BorderFactory;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCheckBoxNoSeleccionado;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionFecha;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionFechaCompleta;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionHora;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMaxLength;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMinLength;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionNumeroInvalido;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionPasswordIguales;
 
 /**
@@ -51,7 +35,7 @@ public class Procesos {
             e.consume();
     }
     
-    public String validarCampo(JTextField componente, int tipoValidacion, String valor, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo {
+    public String validarCampo(JTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo {
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if(componente == null){
             throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
@@ -76,7 +60,72 @@ public class Procesos {
         return mensaje;
     }
     
-    public String validarCampo(JFormattedTextField componente, int tipoValidacion, String valor, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo{
+    public String validarLengthCampo(JTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo {
+        String mensaje = ConstantesApp.INICIALIZAR_STRING;
+        if(componente == null){
+            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
+        }else{
+            if(tipoValidacion == ConstantesApp.TIPO_VALIDACION_MAXLENGTH_CEDULA){
+                if(componente.getText().trim().replaceAll(" ", "").length() > ConstantesApp.MAXLENGTH_CEDULA){
+                    componente.setBorder(BorderFactory.createLineBorder(Color.red));
+                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_EXCEDE_MAXLENGTH_CEDULA + nombreComponente;
+                }else{
+                    if(tipoCampo == ConstantesApp.CAMPO_NORMAL){
+                        componente.setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
+                        componente.setBackground(Color.white);
+                    }else if(tipoCampo == ConstantesApp.CAMPO_REQUERIDO){
+                        componente.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                        componente.setBackground(new Color(ConstantesApp.REQUIRED_R, ConstantesApp.REQUIRED_G, ConstantesApp.REQUIRED_B));
+                    }
+                    mensaje = null;
+                }
+            }else if(tipoValidacion == ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO){
+                if(componente.getText().trim().replaceAll(" ", "").length() > ConstantesApp.MAXLENGTH_TITULO){
+                    componente.setBorder(BorderFactory.createLineBorder(Color.red));
+                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_EXCEDE_MAXLENGTH_TITULO + nombreComponente;
+                }else{
+                    if(tipoCampo == ConstantesApp.CAMPO_NORMAL){
+                        componente.setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
+                        componente.setBackground(Color.white);
+                    }else if(tipoCampo == ConstantesApp.CAMPO_REQUERIDO){
+                        componente.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                        componente.setBackground(new Color(ConstantesApp.REQUIRED_R, ConstantesApp.REQUIRED_G, ConstantesApp.REQUIRED_B));
+                    }
+                    mensaje = null;
+                }
+            }
+        }
+        return mensaje;
+    }
+    
+    public String validarCampo(JComboBox componente, int tipoValidacion, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo {
+        String mensaje = ConstantesApp.INICIALIZAR_STRING;
+        if(componente == null){
+            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
+        }else{
+            if(tipoValidacion==ConstantesApp.TIPO_VALIDACION_VACIO){
+                if(componente.getSelectedIndex() == 0){
+                    componente.setBorder(BorderFactory.createLineBorder(Color.red));
+                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
+                }else{
+                    if(tipoCampo == ConstantesApp.CAMPO_NORMAL){
+                        componente.setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
+                        componente.setBackground(Color.white);
+                    }else if(tipoCampo == ConstantesApp.CAMPO_REQUERIDO){
+                        componente.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                        componente.setBackground(new Color(ConstantesApp.REQUIRED_R, ConstantesApp.REQUIRED_G, ConstantesApp.REQUIRED_B));
+                    }
+                    mensaje = null;
+                }
+            }
+        }
+        return mensaje;
+    }
+    
+    public String validarCampo(JFormattedTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo{
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if(componente == null){
             throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
@@ -96,11 +145,21 @@ public class Procesos {
                     }
                 }
             }else if(tipoValidacion == ConstantesApp.TIPO_VALIDACION_TELEFONO){
-                if(componente.getText().trim().replaceAll(" ", "").length() <= 3){
+                int bandera = ConstantesApp.BANDERA_FALSE;
+                if(componente.getText().trim().replaceAll(" ", "").length() <= 3 && tipoCampo == ConstantesApp.CAMPO_REQUERIDO){
                     componente.setBorder(BorderFactory.createLineBorder(Color.red));
                     componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
                     mensaje = ConstantesApp.MENSAJE_CAMPO_VACIO + nombreComponente;
-                }else{
+                    bandera = ConstantesApp.BANDERA_TRUE;
+                }
+                if(componente.getText().trim().replaceAll(" ", "").length() > 3 && (componente.getText().trim().replaceAll(" ", "").length() < 14 || componente.getText().trim().replaceAll(" ", "").length() > 14)){
+                    componente.setBorder(BorderFactory.createLineBorder(Color.red));
+                    componente.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
+                    mensaje = ConstantesApp.MENSAJE_CAMPO_TELEFONO_ERRONEO + nombreComponente;
+                    bandera = ConstantesApp.BANDERA_TRUE;
+                }
+                
+                if(bandera == ConstantesApp.BANDERA_FALSE){
                     if(tipoCampo == ConstantesApp.CAMPO_NORMAL){
                         componente.setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
                         componente.setBackground(Color.white);
@@ -306,4 +365,76 @@ public class Procesos {
         }
         return jud;
     }
+    
+    public int obtenerAnioActual(){
+        Calendar c = Calendar.getInstance();
+        return c.get(Calendar.YEAR);
+    }
+    
+    public JComboBox llenarListaAnios(JComboBox componente){
+        
+        for(int i = ConstantesApp.ANIO_INICIAL; i <= this.obtenerAnioActual(); i++){
+            componente.addItem(i);
+        }
+        return componente;
+        
+    }
+    
+    public JComboBox llenarListaMeses(JComboBox componente){
+        for(int i = 1; i <= 12; i++)
+            componente.addItem(i);
+        return componente;
+    }
+    
+    public int obtenerCantidadDias(int mes, int anio){
+        int dias = 0;
+        int bandera_bisiesto = ConstantesApp.BANDERA_FALSE;
+        if(mes == 1){
+            dias = 31;
+        }else if(mes ==2){
+            bandera_bisiesto = this.calcularAnioBisiesto(anio);
+            if(bandera_bisiesto == ConstantesApp.BANDERA_TRUE)
+                dias = 29;
+            else
+                dias = 28;
+        }else if(dias == 3){
+            dias = 31;
+        }else if(dias == 4){
+            dias = 30;
+        }else if(dias == 5){
+            dias = 31;
+        }else if(dias == 6){
+            dias = 30;
+        }else if(dias == 7){
+            dias = 31;
+        }else if(dias == 8){
+            dias = 31;
+        }else if(dias == 9){
+            dias = 30;
+        }else if(dias == 10){
+            dias = 31;
+        }else if(dias == 11){
+            dias = 30;
+        }else if(dias == 12){
+            dias = 31;
+        }
+        return dias;
+        
+    }
+    
+    public JComboBox llenarDias(JComboBox componente, int mes, int anio){
+        System.out.println(mes + " - " + anio);
+        for(int i = 1; i <= this.obtenerCantidadDias(mes, anio); i++)
+            componente.addItem(i);
+        return componente;
+    }
+    
+    public int calcularAnioBisiesto(int anio){
+        if((( anio % 4 == 0) && (anio % 100 != 0)) || (anio % 400 == 0))
+            return ConstantesApp.BANDERA_TRUE;
+        else
+            return ConstantesApp.BANDERA_FALSE;
+    }
+    
+    
 }

@@ -75,12 +75,12 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         cmbReservista = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        txtAnio = new javax.swing.JTextField();
         cmbAnio = new javax.swing.JComboBox();
         cmbMes = new javax.swing.JComboBox();
         cmbDia = new javax.swing.JComboBox();
         jLabel15 = new javax.swing.JLabel();
         txtEdad = new javax.swing.JTextField();
+        txtAnio = new javax.swing.JFormattedTextField();
         panGaleria = new javax.swing.JPanel();
         panFoto1 = new javax.swing.JPanel();
         panDatosUbicacion = new javax.swing.JPanel();
@@ -337,6 +337,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         cmbSexo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
         cmbSexo.setLightWeightPopupEnabled(false);
 
+        txtPasaporte.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         txtPasaporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
@@ -375,9 +376,6 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         jLabel16.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel16.setText("Año:");
 
-        txtAnio.setEditable(false);
-        txtAnio.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-
         cmbAnio.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         cmbAnio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Año" }));
         cmbAnio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
@@ -385,16 +383,27 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         cmbMes.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         cmbMes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mes" }));
         cmbMes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
+        cmbMes.setEnabled(false);
 
         cmbDia.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dia" }));
         cmbDia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
+        cmbDia.setEnabled(false);
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel15.setText("Edad:");
 
         txtEdad.setEditable(false);
         txtEdad.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+
+        txtAnio.setEditable(false);
+        try {
+            txtAnio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtAnio.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtAnio.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
 
         javax.swing.GroupLayout panDatosPersonalesLayout = new javax.swing.GroupLayout(panDatosPersonales);
         panDatosPersonales.setLayout(panDatosPersonalesLayout);
@@ -420,7 +429,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel16)
                         .addGap(18, 18, 18)
-                        .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panDatosPersonalesLayout.createSequentialGroup()
                         .addComponent(txtCodigoInterno, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -866,10 +875,10 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                 .addComponent(jLabel34)
                 .addGap(18, 18, 18)
                 .addComponent(cmbGradoInstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel35)
                 .addGap(18, 18, 18)
-                .addComponent(txtProfesion)
+                .addComponent(txtProfesion, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panInformacionAdicionalLayout.setVerticalGroup(
@@ -892,7 +901,6 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         txtEstatusControl.setBackground(new java.awt.Color(175, 221, 233));
         txtEstatusControl.setFont(new java.awt.Font("Arial", 1, 32)); // NOI18N
         txtEstatusControl.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtEstatusControl.setText("ESTATUS DE CONTROL");
         txtEstatusControl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
         txtEstatusControl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1091,7 +1099,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
     public javax.swing.JPanel panInformacionAdicional;
     public javax.swing.JPanel panRasgosFisicos;
     private javax.swing.JTextField txtAlias;
-    private javax.swing.JTextField txtAnio;
+    private javax.swing.JFormattedTextField txtAnio;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCedulaIdentidad;
     private javax.swing.JTextField txtCicatriz;
@@ -1113,6 +1121,14 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField txtTelefonoEmergencia;
     private javax.swing.JFormattedTextField txtTelefonoHabitacion;
     // End of variables declaration//GEN-END:variables
+
+    public JFormattedTextField getTxtAnio() {
+        return txtAnio;
+    }
+
+    public void setTxtAnio(JFormattedTextField txtAnio) {
+        this.txtAnio = txtAnio;
+    }
 
     public JFormattedTextField getTxtEstatura() {
         return txtEstatura;
@@ -1416,14 +1432,6 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
 
     public void setTxtAlias(JTextField txtAlias) {
         this.txtAlias = txtAlias;
-    }
-
-    public JTextField getTxtAnio() {
-        return txtAnio;
-    }
-
-    public void setTxtAnio(JTextField txtAnio) {
-        this.txtAnio = txtAnio;
     }
 
     public JTextField getTxtApellidos() {

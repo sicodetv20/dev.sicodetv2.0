@@ -1,5 +1,8 @@
 package ve.com.fsjv.devsicodetv.utilitarios.otros;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -95,6 +98,8 @@ public class ConstantesApp {
     public static final String TITULO_VALIDACION = "Validacion Terminada";
     
     public static final String CONCATENADOR = "---";
+    
+    public static final int ANIO_INICIAL = 1940;
     
     public static final String MENSAJE_CAMPO_VACIO = "Codigo de Error 001: Campo vacio, componente referenciado: ";
     public static final String MENSAJE_CAMPO_EXCEDE_MAXLENGTH_TITULO = "Codigo de Error 002: El length del campo excede la cantidad de " + MAXLENGTH_TITULO + " Caracteres, componente referenciado: ";
