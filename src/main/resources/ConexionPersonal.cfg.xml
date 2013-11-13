@@ -4,9 +4,9 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://dev.sicodet:3307/personal</property>
-    <property name="hibernate.connection.username">user_sico</property>
-    <property name="hibernate.connection.password">sico15242874</property>
+    <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/sicodetpersonal</property>
+    <property name="hibernate.connection.username">persicodetdev</property>
+    <property name="hibernate.connection.password">persicodetdev15242874</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
     <property name="hibernate.current_session_context_class">thread</property>
