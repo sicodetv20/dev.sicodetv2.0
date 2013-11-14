@@ -36,6 +36,8 @@ public class Eventos {
                 this.formFichaDetenido.getTxtReligion().setText("");
                 this.formFichaDetenido.getCmbEstadoCivil().setSelectedIndex(0);
                 this.formFichaDetenido.getCmbAnio().setSelectedIndex(0);
+   
+                
                 this.formFichaDetenido.getCmbMes().setSelectedIndex(0);
                 this.formFichaDetenido.getCmbDia().setSelectedIndex(0);
                 this.formFichaDetenido.getTxtEdad().setText("");
