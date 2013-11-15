@@ -4,6 +4,7 @@
  */
 package ve.com.fsjv.devsicodetv.utilitarios.conexion;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -29,5 +30,15 @@ public class ConexionSeguridadUtil {
     
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+    
+    public static void closeQuietly(Session session) {
+        try {
+            if (session != null) {
+                session.close();
+            }
+        } catch (Exception e) {
+            // eat -it up
+        }
     }
 }

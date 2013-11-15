@@ -4,6 +4,7 @@
  */
 package ve.com.fsjv.devsicodetv.utilitarios.conexion;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -16,7 +17,7 @@ import org.hibernate.cfg.Configuration;
 public class ConexionPersonalUtil {
 
     private static final SessionFactory sessionFactory;
-    
+
     static {
         try {
             sessionFactory = new Configuration().configure("ConexionPersonal.cfg.xml").buildSessionFactory();
@@ -26,8 +27,18 @@ public class ConexionPersonalUtil {
             throw new ExceptionInInitializerError(ex);
         }
     }
-    
+
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+
+    public static void closeQuietly(Session session) {
+        try {
+            if (session != null) {
+                session.close();
+            }
+        } catch (Exception e) {
+            // eat -it up
+        }
     }
 }

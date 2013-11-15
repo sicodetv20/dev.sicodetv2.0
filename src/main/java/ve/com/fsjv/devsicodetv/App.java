@@ -15,7 +15,7 @@ import ve.com.fsjv.devsicodetv.controladores.MenuDialogManager;
  */
 public class App 
 {
-    public static void main( String[] args ) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException
     {
         /*
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -24,15 +24,15 @@ public class App
                     break;
                 }
             }*/
-        /*
-        Session sesion = ConexionSicodetUtil.getSessionFactory().openSession();
+        
+         Session sesion = ConexionSicodetUtil.getSessionFactory().openSession();
          try{
              sesion.getTransaction().begin();
              System.out.println("Session: " + sesion.getTransaction().toString());
          }catch(HibernateException excep){
              System.err.println("Exception: " + excep);
          }
-         
+         /*
          Session sesion2 = ConexionSeguridadUtil.getSessionFactory().openSession();
          try{
              sesion2.getTransaction().begin();
