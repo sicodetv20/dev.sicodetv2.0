@@ -1,30 +1,18 @@
 package ve.com.fsjv.devsicodetv.controladores;
 
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.Timer;
-import java.util.TimerTask;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionFecha;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionFechaCompleta;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionHora;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMaxLength;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionMinLength;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionNumeroInvalido;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.Eventos;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
@@ -39,7 +27,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
     private Procesos procesos;
     private Eventos eventos;
     
-    public FichaDetenidoDialogManager() throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
+    public FichaDetenidoDialogManager() throws ExcepcionComponenteNulo, ExcepcionCampoVacio, InterruptedException, InvocationTargetException {
         this.formulario = new FichaDetenidoDialog(new JFrame(), true);
         this.procesos = new Procesos();
         this.eventos = new Eventos();
@@ -77,12 +65,11 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         this.formulario.getTxtCedulaIdentidad().addKeyListener(this);
         this.formulario.setTitle(this.procesos.cargarMembreteBarraTitulo(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, "Administrador", ConstantesApp.TITULO_COMPLETO));
         this.formulario.setSize(1180, 740);
-        this.formulario.addKeyListener(this);
         this.formulario.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         
+        this.procesos.limpiarClipboard();
         
         this.formulario.setVisible(true);
-        
         
     }
     
@@ -322,7 +309,6 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
             }
         }
     }
-
     public void keyTyped(KeyEvent e) {
         if(e.getSource() == this.formulario.getTxtCedulaIdentidad()){
             this.procesos.permitirSoloNumeros(e);
@@ -330,15 +316,9 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        
     }
-    
-    public void keyReleased(KeyEvent e) {
-        if(this.procesos != null){
-                this.procesos.deshabilitarTeclas(e);
-        }else{
 
-        }
+    public void keyReleased(KeyEvent e) {
     }
     
 }

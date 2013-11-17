@@ -4,13 +4,28 @@
  */
 package ve.com.fsjv.devsicodetv.utilitarios.otros;
 
+import java.awt.AWTException;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.Transferable;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -33,6 +48,19 @@ public class Procesos {
         int tecla = (int)e.getKeyChar();
         if(tecla >= 97 && tecla <= 122 || tecla >= 65 && tecla <= 90)
             e.consume();
+    }
+    
+    public void limpiarClipboard(){
+        TimerTask timerTask = new TimerTask(){
+
+            @Override
+            public void run() {
+               ve.com.fsjv.devsicodetv.utilitarios.otros.Clipboard clipboard = new ve.com.fsjv.devsicodetv.utilitarios.otros.Clipboard();
+               clipboard.clear();
+            }
+        };
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(timerTask, 0, 1000);
     }
     
     public String validarCampo(JTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo){
@@ -227,16 +255,7 @@ public class Procesos {
         }
     }
 
-    public void deshabilitarTeclas(KeyEvent e) {
-        if ((e.getKeyCode() >= e.VK_F1 && e.getKeyCode() <= e.VK_F12) || e.getKeyCode() == e.VK_INSERT || e.getKeyCode() == e.VK_SCROLL_LOCK || e.getKeyCode() == e.VK_PAUSE) {
-            e.consume();
-        } 
-    }
     
-    public void limpiarClipboar(){
-        
-    }
-
     public String generarCodigo(String acronimo, String tabla, String indice) {
         String identificador = ConstantesApp.INICIALIZAR_STRING;
         String sql = ConstantesApp.INICIALIZAR_STRING;
