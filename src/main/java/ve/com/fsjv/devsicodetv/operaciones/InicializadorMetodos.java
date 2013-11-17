@@ -13,13 +13,13 @@ import java.util.List;
  */
 public interface InicializadorMetodos {
 
-    public List<Serializable> list(Class clazz);
+    public List<Serializable> listar(Class clase);
 
-    public Serializable load(Object args);
+    public Serializable cargar(Object args);
 
-    public Object insert(Serializable obj);
+    public Object agregar(Serializable obj);
 
-    public Object update(Serializable obj);
+    public Object actualizar(Serializable obj);
 
-    public Serializable findById(String clase, String id);
+    public Serializable consultarId(String clase, String id);
 }

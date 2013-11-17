@@ -19,7 +19,7 @@ import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionPersonalUtil;
 public class OperacionesBDPersonal implements InicializadorMetodos {
 
     @Override
-    public Serializable findById(String clase, String id) {
+    public Serializable consultarId(String clase, String id) {
         Transaction tx = null;
         Serializable obj;
         Session session = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
@@ -45,7 +45,7 @@ public class OperacionesBDPersonal implements InicializadorMetodos {
      * Serializable y se encuentre mapeado por Hibernate
      */
     @Override
-    public Object insert(Serializable obj) {
+    public Object agregar(Serializable obj) {
         Transaction tx = null;
         Session session = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
         try {
@@ -64,7 +64,7 @@ public class OperacionesBDPersonal implements InicializadorMetodos {
     }
 
     @Override
-    public List<Serializable> list(Class clazz) {
+    public List<Serializable> listar(Class clazz) {
         try {
             Session sesion = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
@@ -91,7 +91,7 @@ public class OperacionesBDPersonal implements InicializadorMetodos {
     }
 
     @Override
-    public Serializable load(Object clazz) {
+    public Serializable cargar(Object clazz) {
         try {
             Session sesion = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
@@ -106,7 +106,7 @@ public class OperacionesBDPersonal implements InicializadorMetodos {
     }
 
     @Override
-    public Object update(Serializable obj) {
+    public Object actualizar(Serializable obj) {
         Transaction tx = null;
         Session session = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
         try {

@@ -21,10 +21,10 @@ public class PruebaDao extends OperacionesBDSicodet {
         for(int i=0; i<objetos.size(); i++){
             Prueba pr1 = (Prueba) objetos.get(i);
             pr1.setDescripcion("nueva");
-            pruebaDao.update(pr1);
+            pruebaDao.actualizar(pr1);
             System.out.println(pr1.getDescripcion());
         }
-        //pruebaDao.insert(pr);
+        //pruebaDao.agregar(pr);
     }
             
 }

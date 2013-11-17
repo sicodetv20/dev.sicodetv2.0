@@ -19,7 +19,7 @@ import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
 public class OperacionesBDSicodet implements InicializadorMetodos {
 
     @Override
-    public Serializable findById(String clase, String id) {
+    public Serializable consultarId(String clase, String id) {
         Transaction tx = null;
         Serializable obj;
         Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
@@ -43,7 +43,7 @@ public class OperacionesBDSicodet implements InicializadorMetodos {
      * Serializable y se encuentre mapeado por Hibernate
      */
     @Override
-    public Object insert(Serializable obj) {
+    public Object agregar(Serializable obj) {
         Transaction tx = null;
         Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
         try {
@@ -62,11 +62,11 @@ public class OperacionesBDSicodet implements InicializadorMetodos {
     }
 
     @Override
-    public List<Serializable> list(Class clazz) {
+    public List<Serializable> listar(Class clase) {
         try {
             Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
-            List<Serializable> retorno = sesion.createQuery("from " + clazz.getName()).list();
+            List<Serializable> retorno = sesion.createQuery("from " + clase.getName()).list();
             sesion.getTransaction().commit();
             return retorno;
         } catch (Exception e) {
@@ -75,11 +75,11 @@ public class OperacionesBDSicodet implements InicializadorMetodos {
         }
     }
 
-    public List<Serializable> list(Class clazz, String whereClause) {
+    public List<Serializable> list(Class clase, String condicion) {
         try {
             Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
-            List<Serializable> retorno = sesion.createQuery("from " + clazz.getName() + " as v " + whereClause).list();
+            List<Serializable> retorno = sesion.createQuery("from " + clase.getName() + " as v " + condicion).list();
             sesion.getTransaction().commit();
             return retorno;
         } catch (Exception e) {
@@ -89,11 +89,11 @@ public class OperacionesBDSicodet implements InicializadorMetodos {
     }
 
     @Override
-    public Serializable load(Object clazz) {
+    public Serializable cargar(Object clase) {
         try {
             Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
-            Serializable obj = (Serializable) sesion.createCriteria(clazz.getClass());
+            Serializable obj = (Serializable) sesion.createCriteria(clase.getClass());
 
             sesion.close();
             return obj;
@@ -104,7 +104,7 @@ public class OperacionesBDSicodet implements InicializadorMetodos {
     }
 
     @Override
-    public Object update(Serializable obj) {
+    public Object actualizar(Serializable obj) {
         Transaction tx = null;
         Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
         try {
