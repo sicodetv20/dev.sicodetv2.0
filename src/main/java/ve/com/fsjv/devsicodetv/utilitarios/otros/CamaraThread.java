@@ -29,8 +29,8 @@ public class CamaraThread extends Thread{
         webcam = Webcam.getWebcams().get(camaraSeleccionar);
         webcam.setViewSize(resolucion);
         webcam.open();
-        capturarFotoDialog.getFotoPanel().setSize(resolucion);
-        capturarFotoDialog.repaint();
+        /*capturarFotoDialog.getFotoPanel().setSize(resolucion);
+        capturarFotoDialog.repaint();*/
         System.out.println(capturarFotoDialog.getFotoPanel().getSize());
     }
     
@@ -57,7 +57,9 @@ public class CamaraThread extends Thread{
         while(!detenerCamara){
             try {
                 imagenCamara = ImagenUtils.imagenZoomRecortada(webcam.getImage(), zoom);
-                capturarFotoDialog.getFotoPanel().setIcon(new ImageIcon(ImagenUtils.redimensionarImagen(imagenCamara,capturarFotoDialog.getFotoPanel().getWidth(),capturarFotoDialog.getFotoPanel().getHeight())));
+                System.out.println(imagenCamara);
+                //capturarFotoDialog.getFotoPanel().setIcon(new ImageIcon(ImagenUtils.redimensionarImagen(imagenCamara,capturarFotoDialog.getFotoPanel().getWidth(),capturarFotoDialog.getFotoPanel().getHeight())));
+                capturarFotoDialog.getFotoPanel().setIcon(new ImageIcon(imagenCamara));
                 Thread.sleep(200);
             } catch (Exception e) {
                 e.printStackTrace();
