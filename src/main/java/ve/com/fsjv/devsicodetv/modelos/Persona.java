@@ -68,6 +68,7 @@ public class Persona implements Serializable {
         this.codigoRelacional = codigoRelacional;
     }
 
+    @Column(name = "nacionalidad", nullable = false)
     public String getNacionalidad() {
         return nacionalidad;
     }
@@ -76,6 +77,7 @@ public class Persona implements Serializable {
         this.nacionalidad = nacionalidad;
     }
 
+    @Column(name = "cedula_identidad", nullable = false)
     public int getCedulaIdentidad() {
         return cedulaIdentidad;
     }
@@ -84,6 +86,7 @@ public class Persona implements Serializable {
         this.cedulaIdentidad = cedulaIdentidad;
     }
 
+    @Column(name = "nombres", nullable = false)
     public String getNombres() {
         return nombres;
     }
@@ -92,6 +95,7 @@ public class Persona implements Serializable {
         this.nombres = nombres;
     }
 
+    @Column(name = "apellidos", nullable = false)
     public String getApellidos() {
         return apellidos;
     }
@@ -100,6 +104,7 @@ public class Persona implements Serializable {
         this.apellidos = apellidos;
     }
 
+    @Column(name = "sexo", nullable = false)
     public String getSexo() {
         return sexo;
     }
@@ -108,6 +113,7 @@ public class Persona implements Serializable {
         this.sexo = sexo;
     }
 
+    @Column(name = "fecha_nacimiento", nullable = false)
     public java.util.Date getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -116,6 +122,7 @@ public class Persona implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    @Column(name = "lugar_nacimiento", nullable = false)
     public String getLugarNacimiento() {
         return lugarNacimiento;
     }
@@ -124,6 +131,7 @@ public class Persona implements Serializable {
         this.lugarNacimiento = lugarNacimiento;
     }
 
+    @Column(name = "estado_civil", nullable = false)
     public String getEstadoCivil() {
         return estadoCivil;
     }
@@ -132,6 +140,7 @@ public class Persona implements Serializable {
         this.estadoCivil = estadoCivil;
     }
 
+    @Column(name = "estatus", nullable = false)
     public int getEstatus() {
         return estatus;
     }
