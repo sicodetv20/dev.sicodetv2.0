@@ -45,9 +45,30 @@ public class CapturarFotoManager implements ActionListener {
         //this.capturarFotoDialog.setSize(1150, 740);
         this.capturarFotoDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         
-        this.camaraThread = new CamaraThread(capturarFotoDialog, 0, WebcamResolution.QVGA.getSize());
+        this.camaraThread = new CamaraThread(capturarFotoDialog, 0, WebcamResolution.VGA.getSize());
         camaraThread.start();
         this.capturarFotoDialog.setVisible(true);
+        activarTomarFoto();
+    }
+    
+    public void activarTomarFoto(){
+        this.capturarFotoDialog.getBtnCamara().setEnabled(true);
+        this.capturarFotoDialog.getBtnAceptar().setEnabled(false);
+        this.capturarFotoDialog.getBtnCancelar().setEnabled(false);
+        this.capturarFotoDialog.getBtnConfiguracion().setEnabled(true);
+        this.capturarFotoDialog.getBtnRecapturar().setEnabled(false);
+        this.capturarFotoDialog.getBtnZoomIn().setEnabled(true);
+        this.capturarFotoDialog.getBtnZoomOut().setEnabled(true);
+    }
+    
+    public void desactivarTomarFoto(){
+        this.capturarFotoDialog.getBtnCamara().setEnabled(false);
+        this.capturarFotoDialog.getBtnAceptar().setEnabled(true);
+        this.capturarFotoDialog.getBtnCancelar().setEnabled(true);
+        this.capturarFotoDialog.getBtnConfiguracion().setEnabled(true);
+        this.capturarFotoDialog.getBtnRecapturar().setEnabled(true);
+        this.capturarFotoDialog.getBtnZoomIn().setEnabled(false);
+        this.capturarFotoDialog.getBtnZoomOut().setEnabled(false);
     }
     
     public void actionPerformed(ActionEvent e) {
@@ -56,11 +77,12 @@ public class CapturarFotoManager implements ActionListener {
         }else if(e.getSource()== this.capturarFotoDialog.getBtnAceptar()){
             
         }else if(e.getSource()== this.capturarFotoDialog.getBtnCamara()){
-            
+            this.camaraThread.detenerCam();
+            desactivarTomarFoto();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnCancelar()){
             
         }else if(e.getSource()== this.capturarFotoDialog.getBtnRecapturar()){
-            
+            this.camaraThread.start();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnZoomIn()){
             this.camaraThread.zoomIn();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnZoomOut()){

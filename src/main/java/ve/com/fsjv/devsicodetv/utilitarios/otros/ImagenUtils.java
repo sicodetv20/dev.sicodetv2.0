@@ -33,6 +33,7 @@ public class ImagenUtils {
     public static BufferedImage redimensionarImagen(BufferedImage imagenRecortar, int width, int height) {
         BufferedImage imagen;
         try {
+            System.out.println(width+" "+height);
             imagen = Thumbnails.of(imagenRecortar)
                     .size(width, height)
                     .asBufferedImage();
