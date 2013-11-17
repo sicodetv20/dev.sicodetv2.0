@@ -10,19 +10,19 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSeguridadUtil;
+import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionPersonalUtil;
 
 /**
  *
  * @author Juan
  */
-public class OperacionesBDSeguridad implements InicializadorMetodos {
+public class PersonalDAO implements DAO {
 
     @Override
-    public Serializable consultarId(String clase, String id) {
+    public Serializable findById(String clase, String id) {
         Transaction tx = null;
         Serializable obj;
-        Session session = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+        Session session = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
         try {
             tx = session.beginTransaction();
             obj = (Serializable) session.load(clase, id);
@@ -33,7 +33,7 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
             }
             throw e;
         } finally {
-            ConexionSeguridadUtil.closeQuietly(session);
+            ConexionPersonalUtil.closeQuietly(session);
         }
         return obj;
 
@@ -45,9 +45,9 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
      * Serializable y se encuentre mapeado por Hibernate
      */
     @Override
-    public Object agregar(Serializable obj) {
+    public Object insert(Serializable obj) {
         Transaction tx = null;
-        Session session = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+        Session session = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
         try {
             tx = session.beginTransaction();
             session.save(obj);
@@ -58,15 +58,15 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
             }
             throw e;
         } finally {
-            ConexionSeguridadUtil.closeQuietly(session);
+            ConexionPersonalUtil.closeQuietly(session);
         }
         return obj;
     }
 
     @Override
-    public List<Serializable> listar(Class clazz) {
+    public List<Serializable> list(Class clazz) {
         try {
-            Session sesion = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+            Session sesion = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
             List<Serializable> retorno = sesion.createQuery("from " + clazz.getName()).list();
             sesion.getTransaction().commit();
@@ -79,7 +79,7 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
 
     public List<Serializable> list(Class clazz, String whereClause) {
         try {
-            Session sesion = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+            Session sesion = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
             List<Serializable> retorno = sesion.createQuery("from " + clazz.getName() + " as v " + whereClause).list();
             sesion.getTransaction().commit();
@@ -91,9 +91,9 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
     }
 
     @Override
-    public Serializable cargar(Object clazz) {
+    public Serializable load(Object clazz) {
         try {
-            Session sesion = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+            Session sesion = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
             Serializable obj = (Serializable) sesion.createCriteria(clazz.getClass());
 
@@ -106,9 +106,9 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
     }
 
     @Override
-    public Object actualizar(Serializable obj) {
+    public Object update(Serializable obj) {
         Transaction tx = null;
-        Session session = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+        Session session = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
         try {
             tx = session.beginTransaction();
             session.update(obj);
@@ -119,7 +119,7 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
             }
             throw e;
         } finally {
-            ConexionSeguridadUtil.closeQuietly(session);
+            ConexionPersonalUtil.closeQuietly(session);
         }
         return obj;
     }
@@ -127,7 +127,7 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
     public Serializable findById(Class clase, Serializable id) {
         Transaction tx = null;
         Serializable obj;
-        Session session = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+        Session session = ConexionPersonalUtil.getSessionFactory().getCurrentSession();
         try {
             tx = session.beginTransaction();
             obj = (Serializable) session.load(clase, id);
@@ -138,7 +138,7 @@ public class OperacionesBDSeguridad implements InicializadorMetodos {
             }
             throw e;
         } finally {
-            ConexionSeguridadUtil.closeQuietly(session);
+            ConexionPersonalUtil.closeQuietly(session);
         }
         return obj;
 

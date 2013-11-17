@@ -12,7 +12,7 @@ import ve.com.fsjv.devsicodetv.modelos.Prueba;
  *
  * @author Juan
  */
-public class PruebaDao extends OperacionesBDSicodet {
+public class PruebaDao extends SicodetDAO {
     
     public static void main( String[] args ){
         Prueba pr = new Prueba();
@@ -21,10 +21,10 @@ public class PruebaDao extends OperacionesBDSicodet {
         for(int i=0; i<objetos.size(); i++){
             Prueba pr1 = (Prueba) objetos.get(i);
             pr1.setDescripcion("nueva");
-            pruebaDao.actualizar(pr1);
+            pruebaDao.update(pr1);
             System.out.println(pr1.getDescripcion());
         }
-        //pruebaDao.agregar(pr);
+        //pruebaDao.insert(pr);
     }
             
 }
