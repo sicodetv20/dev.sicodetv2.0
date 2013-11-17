@@ -17,7 +17,7 @@ import javax.persistence.Table;
  * @author FAMILIA-SJ
  */
 @Entity
-@Table(name="persona", catalog="sicodetdev");
+@Table(name="persona", catalog="sicodetdev")
 public class Persona implements Serializable {
     private Integer IdPersona;
     private int codigoRelacional;
