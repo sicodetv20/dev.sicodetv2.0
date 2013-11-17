@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ve.com.fsjv.devsicodetv.daos;
+package ve.com.fsjv.devsicodetv.operaciones;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +16,7 @@ import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionPersonalUtil;
  *
  * @author Juan
  */
-public class PersonalDaoImpl implements BaseDao {
+public class OperacionesBDPersonal implements InicializadorMetodos {
 
     @Override
     public Serializable findById(String clase, String id) {

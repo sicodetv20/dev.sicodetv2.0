@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ve.com.fsjv.devsicodetv.daos;
+package ve.com.fsjv.devsicodetv.operaciones;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Juan
  */
-public interface BaseDao {
+public interface InicializadorMetodos {
 
     public List<Serializable> list(Class clazz);
 

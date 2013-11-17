@@ -52,7 +52,6 @@ public class Procesos {
     
     public void limpiarClipboard(){
         TimerTask timerTask = new TimerTask(){
-
             @Override
             public void run() {
                ve.com.fsjv.devsicodetv.utilitarios.otros.Clipboard clipboard = new ve.com.fsjv.devsicodetv.utilitarios.otros.Clipboard();

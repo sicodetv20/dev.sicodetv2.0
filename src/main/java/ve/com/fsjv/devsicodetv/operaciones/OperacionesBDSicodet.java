@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ve.com.fsjv.devsicodetv.daos;
+package ve.com.fsjv.devsicodetv.operaciones;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +16,7 @@ import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
  *
  * @author Juan
  */
-public class SicodetDaoImpl implements BaseDao {
+public class OperacionesBDSicodet implements InicializadorMetodos {
 
     @Override
     public Serializable findById(String clase, String id) {
@@ -36,8 +36,6 @@ public class SicodetDaoImpl implements BaseDao {
             ConexionSicodetUtil.closeQuietly(session);
         }
         return obj;
-
-        // return null;
     }
 
     /*

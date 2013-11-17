@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ve.com.fsjv.devsicodetv.daos;
+package ve.com.fsjv.devsicodetv.operaciones;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,7 +12,7 @@ import ve.com.fsjv.devsicodetv.modelos.Prueba;
  *
  * @author Juan
  */
-public class PruebaDao extends SicodetDaoImpl {
+public class PruebaDao extends OperacionesBDSicodet {
     
     public static void main( String[] args ){
         Prueba pr = new Prueba();
