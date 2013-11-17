@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ve.com.fsjv.devsicodetv.operaciones;
+package ve.com.fsjv.devsicodetv.DAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,19 +10,19 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSeguridadUtil;
+import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
 
 /**
  *
  * @author Juan
  */
-public class SeguridadDAO implements DAO {
+public class SicodetDAO implements DAO {
 
     @Override
     public Serializable findById(String clase, String id) {
         Transaction tx = null;
         Serializable obj;
-        Session session = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+        Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
         try {
             tx = session.beginTransaction();
             obj = (Serializable) session.load(clase, id);
@@ -33,11 +33,9 @@ public class SeguridadDAO implements DAO {
             }
             throw e;
         } finally {
-            ConexionSeguridadUtil.closeQuietly(session);
+            ConexionSicodetUtil.closeQuietly(session);
         }
         return obj;
-
-        // return null;
     }
 
     /*
@@ -47,7 +45,7 @@ public class SeguridadDAO implements DAO {
     @Override
     public Object insert(Serializable obj) {
         Transaction tx = null;
-        Session session = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+        Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
         try {
             tx = session.beginTransaction();
             session.save(obj);
@@ -58,17 +56,17 @@ public class SeguridadDAO implements DAO {
             }
             throw e;
         } finally {
-            ConexionSeguridadUtil.closeQuietly(session);
+            ConexionSicodetUtil.closeQuietly(session);
         }
         return obj;
     }
 
     @Override
-    public List<Serializable> list(Class clazz) {
+    public List<Serializable> list(Class clase) {
         try {
-            Session sesion = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+            Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
-            List<Serializable> retorno = sesion.createQuery("from " + clazz.getName()).list();
+            List<Serializable> retorno = sesion.createQuery("from " + clase.getName()).list();
             sesion.getTransaction().commit();
             return retorno;
         } catch (Exception e) {
@@ -77,11 +75,11 @@ public class SeguridadDAO implements DAO {
         }
     }
 
-    public List<Serializable> list(Class clazz, String whereClause) {
+    public List<Serializable> list(Class clase, String condicion) {
         try {
-            Session sesion = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+            Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
-            List<Serializable> retorno = sesion.createQuery("from " + clazz.getName() + " as v " + whereClause).list();
+            List<Serializable> retorno = sesion.createQuery("from " + clase.getName() + " as v " + condicion).list();
             sesion.getTransaction().commit();
             return retorno;
         } catch (Exception e) {
@@ -91,11 +89,11 @@ public class SeguridadDAO implements DAO {
     }
 
     @Override
-    public Serializable load(Object clazz) {
+    public Serializable load(Object clase) {
         try {
-            Session sesion = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+            Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
             sesion.beginTransaction();
-            Serializable obj = (Serializable) sesion.createCriteria(clazz.getClass());
+            Serializable obj = (Serializable) sesion.createCriteria(clase.getClass());
 
             sesion.close();
             return obj;
@@ -108,7 +106,7 @@ public class SeguridadDAO implements DAO {
     @Override
     public Object update(Serializable obj) {
         Transaction tx = null;
-        Session session = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+        Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
         try {
             tx = session.beginTransaction();
             session.update(obj);
@@ -119,7 +117,7 @@ public class SeguridadDAO implements DAO {
             }
             throw e;
         } finally {
-            ConexionSeguridadUtil.closeQuietly(session);
+            ConexionSicodetUtil.closeQuietly(session);
         }
         return obj;
     }
@@ -127,7 +125,7 @@ public class SeguridadDAO implements DAO {
     public Serializable findById(Class clase, Serializable id) {
         Transaction tx = null;
         Serializable obj;
-        Session session = ConexionSeguridadUtil.getSessionFactory().getCurrentSession();
+        Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
         try {
             tx = session.beginTransaction();
             obj = (Serializable) session.load(clase, id);
@@ -138,7 +136,7 @@ public class SeguridadDAO implements DAO {
             }
             throw e;
         } finally {
-            ConexionSeguridadUtil.closeQuietly(session);
+            ConexionSicodetUtil.closeQuietly(session);
         }
         return obj;
 
