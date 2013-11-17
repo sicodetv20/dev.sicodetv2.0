@@ -68,6 +68,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         this.formulario.getCmbReservista().addActionListener(this);
         this.formulario.getCmbAnio().addActionListener(this);
         this.formulario.getCmbMes().addActionListener(this);
+        this.formulario.getCmbDia().addActionListener(this);
         
         this.formulario.setCmbAnio(this.procesos.llenarListaAnios(this.formulario.getCmbAnio()));
         this.formulario.setCmbMes(this.procesos.llenarListaMeses(this.formulario.getCmbMes()));
@@ -85,9 +86,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         
     }
     
-    public ArrayList<String> validarCampos() 
-            throws ExcepcionCampoVacio, ExcepcionComponenteNulo, ExcepcionMaxLength, 
-            ExcepcionMinLength, ExcepcionFecha, ExcepcionFechaCompleta, ExcepcionHora, ExcepcionNumeroInvalido{
+    public ArrayList<String> validarCampos(){
         ArrayList<String> listaErrores = new ArrayList<String>();
         //arreglo de resultado de la validacion
         String[] arv;
@@ -263,8 +262,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
     
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.formulario.getBtnGuardar()){
-            try {
-                ArrayList<String> listaErrores = this.validarCampos();
+            ArrayList<String> listaErrores = this.validarCampos();
                 String mensaje = ConstantesApp.VALIDACION_EXITOSA;
                 String tituloMensaje = ConstantesApp.TITULO_VALIDACION;
                 int iconoMensaje = JOptionPane.INFORMATION_MESSAGE;
@@ -276,24 +274,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
                     }
                 }
                 JOptionPane.showMessageDialog(this.formulario, mensaje, tituloMensaje, iconoMensaje);
-                //JOptionPane.showMessageDialog(this.formulario, "Hi");
-            } catch (ExcepcionCampoVacio ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExcepcionComponenteNulo ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExcepcionMaxLength ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExcepcionMinLength ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExcepcionFecha ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExcepcionFechaCompleta ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExcepcionHora ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExcepcionNumeroInvalido ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }else if(e.getSource() == this.formulario.getCmbReservista()){
             if(this.formulario.getCmbReservista().getSelectedItem().toString().toLowerCase().equals("si")){
                 this.formulario.getTxtAnio().setEditable(ConstantesApp.EDITABLE);
@@ -303,21 +284,41 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
             }
         }else if(e.getSource() == this.formulario.getCmbAnio()){
             if(this.formulario.getCmbAnio().getSelectedIndex() > 0){
+                this.formulario.getTxtEdad().setText(ConstantesApp.INICIALIZAR_STRING);
                 this.formulario.getCmbMes().setSelectedIndex(0);
+                this.formulario.getCmbMes().setEnabled(ConstantesApp.EDITABLE);
                 this.formulario.getCmbDia().setSelectedIndex(0);
                 this.formulario.getCmbDia().setEnabled(ConstantesApp.NO_EDITABLE);
-                this.formulario.getCmbMes().setEnabled(ConstantesApp.EDITABLE);
             }else{
+                this.formulario.getTxtEdad().setText(ConstantesApp.INICIALIZAR_STRING);
                 this.formulario.getCmbMes().setSelectedIndex(0);
                 this.formulario.getCmbMes().setEnabled(ConstantesApp.NO_EDITABLE);
+                this.formulario.getCmbDia().setSelectedIndex(0);
+                this.formulario.getCmbDia().setEnabled(ConstantesApp.NO_EDITABLE);
             }
         }else if(e.getSource() == this.formulario.getCmbMes()){
             if(this.formulario.getCmbMes().getSelectedIndex() > 0){
-                this.formulario.setCmbDia(this.procesos.llenarDias(this.formulario.getCmbDia(), Integer.parseInt(this.formulario.getCmbMes().getSelectedItem().toString()),Integer.parseInt(this.formulario.getCmbAnio().getSelectedItem().toString())));
+                this.formulario.getTxtEdad().setText(ConstantesApp.INICIALIZAR_STRING);
+                this.formulario.getCmbDia().removeAllItems();
+                this.formulario.getCmbDia().addItem("Dia");
+                this.formulario.setCmbDia(this.procesos.llenarDias(
+                        this.formulario.getCmbDia(), 
+                        Integer.parseInt(this.formulario.getCmbMes().getSelectedItem().toString()), 
+                        Integer.parseInt(this.formulario.getCmbAnio().getSelectedItem().toString())));
+                this.formulario.getCmbDia().setSelectedIndex(0);
                 this.formulario.getCmbDia().setEnabled(ConstantesApp.EDITABLE);
             }else{
+                this.formulario.getTxtEdad().setText(ConstantesApp.INICIALIZAR_STRING);
                 this.formulario.getCmbDia().setSelectedIndex(0);
                 this.formulario.getCmbDia().setEnabled(ConstantesApp.NO_EDITABLE);
+            }
+        }else if(e.getSource() == this.formulario.getCmbDia()){
+            if(this.formulario.getCmbDia().getSelectedIndex() > 0){
+                String fecha = this.formulario.getCmbDia().getSelectedItem().toString() + "/" + this.formulario.getCmbMes().getSelectedItem().toString() + "/" + this.formulario.getCmbAnio().getSelectedItem().toString();
+                int edad = this.procesos.calcularTiempoAnios(fecha);
+                this.formulario.getTxtEdad().setText(String.valueOf(edad));
+            }else{
+                this.formulario.getTxtEdad().setText(ConstantesApp.INICIALIZAR_STRING);
             }
         }
     }
@@ -336,11 +337,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         if(this.procesos != null){
                 this.procesos.deshabilitarTeclas(e);
         }else{
-            try {
-                throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_CLASE_PROCESOS_NULA);
-            } catch (ExcepcionComponenteNulo ex) {
-                Logger.getLogger(FichaDetenidoDialogManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
         }
     }
     

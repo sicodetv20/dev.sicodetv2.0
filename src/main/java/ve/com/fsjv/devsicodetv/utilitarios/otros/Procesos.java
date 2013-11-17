@@ -35,10 +35,9 @@ public class Procesos {
             e.consume();
     }
     
-    public String validarCampo(JTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo {
+    public String validarCampo(JTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo){
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if(componente == null){
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
         }else{
             if(tipoValidacion==ConstantesApp.TIPO_VALIDACION_VACIO){
                 if(componente.getText().trim().equals("")){
@@ -60,10 +59,9 @@ public class Procesos {
         return mensaje;
     }
     
-    public String validarLengthCampo(JTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo {
+    public String validarLengthCampo(JTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo){
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if(componente == null){
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
         }else{
             if(tipoValidacion == ConstantesApp.TIPO_VALIDACION_MAXLENGTH_CEDULA){
                 if(componente.getText().trim().replaceAll(" ", "").length() > ConstantesApp.MAXLENGTH_CEDULA){
@@ -100,10 +98,9 @@ public class Procesos {
         return mensaje;
     }
     
-    public String validarCampo(JComboBox componente, int tipoValidacion, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo {
+    public String validarCampo(JComboBox componente, int tipoValidacion, String nombreComponente, int tipoCampo){
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if(componente == null){
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
         }else{
             if(tipoValidacion==ConstantesApp.TIPO_VALIDACION_VACIO){
                 if(componente.getSelectedIndex() == 0){
@@ -125,10 +122,9 @@ public class Procesos {
         return mensaje;
     }
     
-    public String validarCampo(JFormattedTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo) throws ExcepcionComponenteNulo{
+    public String validarCampo(JFormattedTextField componente, int tipoValidacion, String nombreComponente, int tipoCampo){
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if(componente == null){
-            throw new ExcepcionComponenteNulo(ConstantesApp.MENSAJE_COMPONENTE_NULO);
         }else{
             if(tipoValidacion == ConstantesApp.TIPO_VALIDACION_DECIMAL){
                 if(componente.getText().trim().replaceAll(" ", "").length() <= 1){
@@ -194,15 +190,11 @@ public class Procesos {
         
     }
     
-    public String obtenerFechaActual(int tipo) throws ExcepcionCampoVacio {
-        if(tipo <= 0){
-            throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
-        }else{
-            String fecha = ConstantesApp.INICIALIZAR_STRING;
-            java.util.Date jud = new java.util.Date();
-            fecha = this.convertirDateStringFecha(jud, tipo);
-            return fecha;
-        }
+    public String obtenerFechaActual(int tipo) {
+        String fecha = ConstantesApp.INICIALIZAR_STRING;
+        java.util.Date jud = new java.util.Date();
+        fecha = this.convertirDateStringFecha(jud, tipo);
+        return fecha;
     }
 
     public JTextField resaltarCampoRequerido(JTextField componente1) throws ExcepcionComponenteNulo {
@@ -281,7 +273,7 @@ public class Procesos {
 
     
 
-    public JPasswordField validarPasswordIguales(JPasswordField componente1, JPasswordField componente2) throws ExcepcionPasswordIguales {
+    public JPasswordField validarPasswordIguales(JPasswordField componente1, JPasswordField componente2) {
         String bandera = String.valueOf(ConstantesApp.BANDERA_TRUE);
         String mensaje = ConstantesApp.INICIALIZAR_STRING;
         if (componente1.getText().toLowerCase().trim().equals(componente2.getText().toLowerCase().trim())) {
@@ -290,12 +282,11 @@ public class Procesos {
             mensaje = bandera + ConstantesApp.CONCATENADOR + mensaje;
             componente2.setBorder(BorderFactory.createLineBorder(Color.RED));
             componente2.setBackground(new Color(ConstantesApp.BACKGROUND_ERROR_R, ConstantesApp.BACKGROUND_ERROR_G, ConstantesApp.BACKGROUND_ERROR_B));
-            throw new ExcepcionPasswordIguales(mensaje);
         }
         return componente2;
     }
 
-    public java.util.Date convertirStringDateFecha(String fecha, int tipo) throws ExcepcionCampoVacio {
+    public java.util.Date convertirStringDateFecha(String fecha, int tipo){
         java.util.Date jud = null;
         if (fecha.isEmpty()) {
             //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
@@ -318,7 +309,7 @@ public class Procesos {
         return jud;
     }
 
-    public String convertirDateStringFecha(java.util.Date fecha, int tipo) throws ExcepcionCampoVacio {
+    public String convertirDateStringFecha(java.util.Date fecha, int tipo) {
         String strFecha = ConstantesApp.INICIALIZAR_STRING;
         if (fecha == null) {
             //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
@@ -336,30 +327,27 @@ public class Procesos {
         return strFecha;
     }
 
-    public java.sql.Date convertirUtilDateSQLDateFecha(java.util.Date jud) throws ExcepcionCampoVacio {
+    public java.sql.Date convertirUtilDateSQLDateFecha(java.util.Date jud){
         java.sql.Date jsd = null;
         if (jud == null) {
-            //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
         } else {
             jsd = new java.sql.Date(jud.getTime());
         }
         return jsd;
     }
 
-    public java.util.Date convertirSQLDateUtilDateFecha(java.sql.Date jsd) throws ExcepcionCampoVacio {
+    public java.util.Date convertirSQLDateUtilDateFecha(java.sql.Date jsd){
         java.util.Date jud = null;
         if (jsd == null) {
-            //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
         } else {
             jud = new java.util.Date(jsd.getTime());
         }
         return jud;
     }
 
-    public java.util.Date convertirSQLDateUtilDateFecha(java.sql.Timestamp jst) throws ExcepcionCampoVacio {
+    public java.util.Date convertirSQLDateUtilDateFecha(java.sql.Timestamp jst){
         java.util.Date jud = null;
         if (jst == null) {
-            //throw new ExcepcionCampoVacio(ConstantesApp.MENSAJE_CAMPO_VACIO);
         } else {
             jud = new java.util.Date(jst.getTime());
         }
@@ -391,39 +379,38 @@ public class Procesos {
         int bandera_bisiesto = ConstantesApp.BANDERA_FALSE;
         if(mes == 1){
             dias = 31;
+        }else if(mes == 3){
+            dias = 31;
+        }else if(mes == 4){
+            dias = 30;
+        }else if(mes == 5){
+            dias = 31;
+        }else if(mes == 6){
+            dias = 30;
+        }else if(mes == 7){
+            dias = 31;
+        }else if(mes == 8){
+            dias = 31;
+        }else if(mes == 9){
+            dias = 30;
+        }else if(mes == 10){
+            dias = 31;
+        }else if(mes == 11){
+            dias = 30;
+        }else if(mes == 12){
+            dias = 31;
         }else if(mes ==2){
             bandera_bisiesto = this.calcularAnioBisiesto(anio);
             if(bandera_bisiesto == ConstantesApp.BANDERA_TRUE)
                 dias = 29;
             else
                 dias = 28;
-        }else if(dias == 3){
-            dias = 31;
-        }else if(dias == 4){
-            dias = 30;
-        }else if(dias == 5){
-            dias = 31;
-        }else if(dias == 6){
-            dias = 30;
-        }else if(dias == 7){
-            dias = 31;
-        }else if(dias == 8){
-            dias = 31;
-        }else if(dias == 9){
-            dias = 30;
-        }else if(dias == 10){
-            dias = 31;
-        }else if(dias == 11){
-            dias = 30;
-        }else if(dias == 12){
-            dias = 31;
         }
         return dias;
         
     }
     
     public JComboBox llenarDias(JComboBox componente, int mes, int anio){
-        System.out.println(mes + " - " + anio);
         for(int i = 1; i <= this.obtenerCantidadDias(mes, anio); i++)
             componente.addItem(i);
         return componente;
@@ -434,6 +421,23 @@ public class Procesos {
             return ConstantesApp.BANDERA_TRUE;
         else
             return ConstantesApp.BANDERA_FALSE;
+    }
+    
+    public int calcularTiempoAnios(String fechaFinal){
+        String fechaInicio = this.obtenerFechaActual(ConstantesApp.TIPO_VALIDACION_FECHA);
+        String[] fecha1 = fechaInicio.split("/");
+        String[] fecha2 = fechaFinal.split("/");
+        int anios = Integer.parseInt(fecha1[2])-Integer.parseInt(fecha2[2]);
+        int mes = Integer.parseInt(fecha1[1])-Integer.parseInt(fecha2[1]);
+        if(mes<0){
+            anios = anios-1;
+        }else if(mes==0){
+            int dia = Integer.parseInt(fecha1[0])-Integer.parseInt(fecha2[0]);
+            if(dia<0){
+                anios = anios -1;
+            }
+        }
+        return anios;
     }
     
     
