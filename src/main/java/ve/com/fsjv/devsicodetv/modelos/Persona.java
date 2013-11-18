@@ -59,7 +59,7 @@ public class Persona implements Serializable {
         this.IdPersona = IdPersona;
     }
 
-    @Column(name = "codigo_relacional", nullable = false)
+    @Column(name = "codigo_relacional", nullable = true)
     public int getCodigoRelacional() {
         return codigoRelacional;
     }
@@ -68,7 +68,7 @@ public class Persona implements Serializable {
         this.codigoRelacional = codigoRelacional;
     }
 
-    @Column(name = "nacionalidad", nullable = false)
+    @Column(name = "nacionalidad", nullable = true)
     public String getNacionalidad() {
         return nacionalidad;
     }
@@ -77,7 +77,7 @@ public class Persona implements Serializable {
         this.nacionalidad = nacionalidad;
     }
 
-    @Column(name = "cedula_identidad", nullable = false)
+    @Column(name = "cedula_identidad", nullable = true)
     public int getCedulaIdentidad() {
         return cedulaIdentidad;
     }

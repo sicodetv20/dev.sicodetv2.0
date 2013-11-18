@@ -4,11 +4,22 @@
  */
 package ve.com.fsjv.devsicodetv.modelos;
 
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author FAMILIA-SJ
  */
-public class FichaDetenido {
+@Entity
+@Table(name="ficha_detenido", catalog="sicodetdev")
+public class FichaDetenido implements Serializable {
     
     private int id;
     private String codigoInterno;
@@ -41,6 +52,9 @@ public class FichaDetenido {
     private String vivienda;
     private int estatus;
 
+    @Id
+    @GeneratedValue(strategy=IDENTITY)
+    @Column(name="idficha_detenido", unique=true, nullable=true)
     public int getId() {
         return id;
     }
@@ -49,6 +63,7 @@ public class FichaDetenido {
         this.id = id;
     }
 
+    @Column(name="codigo_interno", nullable=true)
     public String getCodigoInterno() {
         return codigoInterno;
     }
@@ -57,6 +72,7 @@ public class FichaDetenido {
         this.codigoInterno = codigoInterno;
     }
 
+    @Column(name="codigo_relacional", nullable=true)
     public String getCodigoRelacional() {
         return codigoRelacional;
     }
@@ -65,6 +81,7 @@ public class FichaDetenido {
         this.codigoRelacional = codigoRelacional;
     }
 
+    @Column(name="alias", nullable=false)
     public String getAlias() {
         return alias;
     }
@@ -73,6 +90,7 @@ public class FichaDetenido {
         this.alias = alias;
     }
 
+    @Column(name="anio_reservista", nullable=false)
     public int getAnioReservista() {
         return anioReservista;
     }
@@ -81,6 +99,7 @@ public class FichaDetenido {
         this.anioReservista = anioReservista;
     }
 
+    @Column(name="cicatriz", nullable=false)
     public String getCicatriz() {
         return cicatriz;
     }
@@ -89,6 +108,7 @@ public class FichaDetenido {
         this.cicatriz = cicatriz;
     }
 
+    @Column(name="color_cabello", nullable=false)
     public String getColorCabello() {
         return colorCabello;
     }
@@ -97,6 +117,7 @@ public class FichaDetenido {
         this.colorCabello = colorCabello;
     }
 
+    @Column(name="color_ojos", nullable=false)
     public String getColorOjos() {
         return colorOjos;
     }
@@ -105,6 +126,7 @@ public class FichaDetenido {
         this.colorOjos = colorOjos;
     }
 
+    @Column(name="color_piel", nullable=false)
     public String getColorPiel() {
         return colorPiel;
     }
@@ -113,6 +135,7 @@ public class FichaDetenido {
         this.colorPiel = colorPiel;
     }
 
+    @Column(name="contextura", nullable=false)
     public String getContextura() {
         return contextura;
     }
@@ -121,6 +144,7 @@ public class FichaDetenido {
         this.contextura = contextura;
     }
 
+    @Column(name="direccion_actual", nullable=false)
     public String getDireccionActual() {
         return direccionActual;
     }
@@ -129,6 +153,7 @@ public class FichaDetenido {
         this.direccionActual = direccionActual;
     }
 
+    @Column(name="direccion_anterior", nullable=false)
     public String getDireccionAnterior() {
         return direccionAnterior;
     }
@@ -137,6 +162,7 @@ public class FichaDetenido {
         this.direccionAnterior = direccionAnterior;
     }
 
+    @Column(name="direccion_emergencia", nullable=false)
     public String getDireccionEmergencia() {
         return direccionEmergencia;
     }
@@ -145,6 +171,7 @@ public class FichaDetenido {
         this.direccionEmergencia = direccionEmergencia;
     }
 
+    @Column(name="documento_anterior", nullable=false)
     public String getDocumentoAnterior() {
         return documentoAnterior;
     }
@@ -153,6 +180,7 @@ public class FichaDetenido {
         this.documentoAnterior = documentoAnterior;
     }
 
+    @Column(name="estatura", nullable=false)
     public float getEstatura() {
         return estatura;
     }
@@ -161,6 +189,7 @@ public class FichaDetenido {
         this.estatura = estatura;
     }
 
+    @Column(name="estatus_control", nullable=false)
     public String getEstatusControl() {
         return estatusControl;
     }
@@ -169,6 +198,7 @@ public class FichaDetenido {
         this.estatusControl = estatusControl;
     }
 
+    @Column(name="grado_instruccion", nullable=false)
     public String getGradoInstruccion() {
         return gradoInstruccion;
     }
@@ -177,6 +207,7 @@ public class FichaDetenido {
         this.gradoInstruccion = gradoInstruccion;
     }
 
+    @Column(name="lentes", nullable=false)
     public String getLentes() {
         return lentes;
     }
@@ -185,6 +216,7 @@ public class FichaDetenido {
         this.lentes = lentes;
     }
 
+    @Column(name="pasaporte", nullable=false)
     public String getPasaporte() {
         return pasaporte;
     }
@@ -193,6 +225,7 @@ public class FichaDetenido {
         this.pasaporte = pasaporte;
     }
 
+    @Column(name="profesion", nullable=false)
     public String getProfesion() {
         return profesion;
     }
@@ -201,6 +234,7 @@ public class FichaDetenido {
         this.profesion = profesion;
     }
 
+    @Column(name="religion", nullable=false)
     public String getReligion() {
         return religion;
     }
@@ -209,6 +243,7 @@ public class FichaDetenido {
         this.religion = religion;
     }
 
+    @Column(name="reservista", nullable=false)
     public String getReservista() {
         return reservista;
     }
@@ -217,6 +252,7 @@ public class FichaDetenido {
         this.reservista = reservista;
     }
 
+    @Column(name="senias_particulares", nullable=false)
     public String getSeniasParticulares() {
         return seniasParticulares;
     }
@@ -225,6 +261,7 @@ public class FichaDetenido {
         this.seniasParticulares = seniasParticulares;
     }
 
+    @Column(name="telefono_celular", nullable=false)
     public String getTelefonoCelular() {
         return telefonoCelular;
     }
@@ -233,6 +270,7 @@ public class FichaDetenido {
         this.telefonoCelular = telefonoCelular;
     }
 
+    @Column(name="telefono_habitacion", nullable=false)
     public String getTelefonoHabitacion() {
         return telefonoHabitacion;
     }
@@ -241,6 +279,7 @@ public class FichaDetenido {
         this.telefonoHabitacion = telefonoHabitacion;
     }
 
+    @Column(name="telefono_emergencia", nullable=false)
     public String getTelefonoEmergencia() {
         return telefonoEmergencia;
     }
@@ -249,6 +288,7 @@ public class FichaDetenido {
         this.telefonoEmergencia = telefonoEmergencia;
     }
 
+    @Column(name="tipo_vivienda", nullable=false)
     public String getTipoVivienda() {
         return tipoVivienda;
     }
@@ -257,6 +297,7 @@ public class FichaDetenido {
         this.tipoVivienda = tipoVivienda;
     }
 
+    @Column(name="tipo_nariz", nullable=false)
     public String getTipoNariz() {
         return tipoNariz;
     }
@@ -265,6 +306,7 @@ public class FichaDetenido {
         this.tipoNariz = tipoNariz;
     }
 
+    @Column(name="vivienda", nullable=false)
     public String getVivienda() {
         return vivienda;
     }
@@ -273,6 +315,7 @@ public class FichaDetenido {
         this.vivienda = vivienda;
     }
 
+    @Column(name="estatus", nullable=false)
     public int getEstatus() {
         return estatus;
     }
@@ -280,6 +323,5 @@ public class FichaDetenido {
     public void setEstatus(int estatus) {
         this.estatus = estatus;
     }
-   
     
 }
