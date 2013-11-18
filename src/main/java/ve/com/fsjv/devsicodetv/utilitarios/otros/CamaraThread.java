@@ -19,6 +19,7 @@ import ve.com.fsjv.devsicodetv.vistas.CapturarFotoDialog;
 public class CamaraThread extends Thread{
     
     private boolean detenerCamara = false;
+    private boolean obtenerImagen = true;
     private CapturarFotoDialog capturarFotoDialog;
     private Webcam webcam;
     private int zoom = 1;
@@ -38,6 +39,14 @@ public class CamaraThread extends Thread{
         detenerCamara = true;
     }
     
+    public void detenerImagen(){
+        obtenerImagen = false;
+    }
+    
+    public void seguirImagen(){
+        obtenerImagen = true;
+    }
+    
     public void zoomIn(){
         zoom++;
         if(zoom>1){
@@ -51,15 +60,21 @@ public class CamaraThread extends Thread{
             capturarFotoDialog.getBtnZoomOut().setEnabled(false);
         }
     }
+
+    public BufferedImage getImagenCamara() {
+        return imagenCamara;
+    }
     
     @Override
     public void run(){
         while(!detenerCamara){
             try {
-                imagenCamara = ImagenUtils.imagenZoomRecortada(webcam.getImage(), zoom);
-                System.out.println(imagenCamara);
-                //capturarFotoDialog.getFotoPanel().setIcon(new ImageIcon(ImagenUtils.redimensionarImagen(imagenCamara,capturarFotoDialog.getFotoPanel().getWidth(),capturarFotoDialog.getFotoPanel().getHeight())));
-                capturarFotoDialog.getFotoPanel().setIcon(new ImageIcon(imagenCamara));
+                if(obtenerImagen){
+                    imagenCamara = ImagenUtils.imagenZoomRecortada(webcam.getImage(), zoom);
+                    System.out.println(imagenCamara);
+                    //capturarFotoDialog.getFotoPanel().setIcon(new ImageIcon(ImagenUtils.redimensionarImagen(imagenCamara,capturarFotoDialog.getFotoPanel().getWidth(),capturarFotoDialog.getFotoPanel().getHeight())));
+                    capturarFotoDialog.getFotoPanel().setIcon(new ImageIcon(imagenCamara));
+                }
                 Thread.sleep(200);
             } catch (Exception e) {
                 e.printStackTrace();

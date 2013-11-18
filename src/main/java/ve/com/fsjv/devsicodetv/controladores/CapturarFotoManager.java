@@ -4,10 +4,12 @@
  */
 package ve.com.fsjv.devsicodetv.controladores;
 
-import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JDialog;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
@@ -27,7 +29,8 @@ public class CapturarFotoManager implements ActionListener {
     private final Procesos procesos;
     private final Eventos eventos;
     private CamaraThread camaraThread;
-    
+    private List<BufferedImage> listaImagenes;
+            
     public CapturarFotoManager () throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
         this.capturarFotoDialog = new CapturarFotoDialog(null, true);
         this.procesos = new Procesos();
@@ -48,6 +51,8 @@ public class CapturarFotoManager implements ActionListener {
         this.camaraThread = new CamaraThread(capturarFotoDialog, 0, WebcamResolution.VGA.getSize());
         camaraThread.start();
         this.capturarFotoDialog.setVisible(true);
+        this.listaImagenes = new ArrayList<BufferedImage>();
+        this.capturarFotoDialog.getBtnCancelar().setVisible(false);
         activarTomarFoto();
     }
     
@@ -75,14 +80,17 @@ public class CapturarFotoManager implements ActionListener {
         if(e.getSource()== this.capturarFotoDialog.getBtnConfiguracion()){
             
         }else if(e.getSource()== this.capturarFotoDialog.getBtnAceptar()){
-            
+            this.listaImagenes.add(this.camaraThread.getImagenCamara());
+            this.camaraThread.seguirImagen();
+            activarTomarFoto();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnCamara()){
-            this.camaraThread.detenerCam();
+            this.camaraThread.detenerImagen();
             desactivarTomarFoto();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnCancelar()){
             
         }else if(e.getSource()== this.capturarFotoDialog.getBtnRecapturar()){
-            this.camaraThread.start();
+            this.camaraThread.seguirImagen();
+            activarTomarFoto();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnZoomIn()){
             this.camaraThread.zoomIn();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnZoomOut()){
