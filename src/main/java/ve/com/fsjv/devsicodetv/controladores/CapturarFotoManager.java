@@ -15,7 +15,6 @@ import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.CamaraThread;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Eventos;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
 import ve.com.fsjv.devsicodetv.vistas.CapturarFotoDialog;
 
@@ -27,14 +26,12 @@ public class CapturarFotoManager implements ActionListener {
 
     private CapturarFotoDialog capturarFotoDialog;
     private final Procesos procesos;
-    private final Eventos eventos;
     private CamaraThread camaraThread;
     private List<BufferedImage> listaImagenes;
             
     public CapturarFotoManager () throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
         this.capturarFotoDialog = new CapturarFotoDialog(null, true);
         this.procesos = new Procesos();
-        this.eventos = new Eventos();
         
         this.capturarFotoDialog.getBtnAceptar().addActionListener(this);
         this.capturarFotoDialog.getBtnCamara().addActionListener(this);

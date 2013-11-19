@@ -46,6 +46,9 @@ public class ConstantesApp {
     public static final String MODULO_ULTIMOS_AGREGADOS = "Ultimos Registros Agregados";
     public static final String MODULO_BUSQUEDAS_DETENIDOS = "Busqueda de Detenido";
     
+    public static final String TABLA_FICHA_DETENIDO = "ficha_detenido";
+    public static final String TABLA_PERSONA = "persona";
+    
     public static final boolean NO_EDITABLE = false;
     public static final boolean EDITABLE = true;
     public static final String EN_BLANCO = "";

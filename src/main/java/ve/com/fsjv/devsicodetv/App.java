@@ -25,13 +25,14 @@ public class App
                 }
             }*/
         
+        /*
          Session sesion = ConexionSicodetUtil.getSessionFactory().openSession();
          try{
              sesion.getTransaction().begin();
              System.out.println("Session: " + sesion.getTransaction().toString());
          }catch(HibernateException excep){
              System.err.println("Exception: " + excep);
-         }
+         }*/
          /*
          Session sesion2 = ConexionSeguridadUtil.getSessionFactory().openSession();
          try{

@@ -144,4 +144,8 @@ public class PersonalDAO implements DAO {
 
         // return null;
     }
+
+    public int count(String clase) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

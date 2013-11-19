@@ -10,6 +10,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
 import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
 
 /**
@@ -17,8 +18,22 @@ import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
  * @author Juan
  */
 public class SicodetDAO implements DAO {
-
+    
     @Override
+    public int count(String clase) {
+        Transaction tx = null;
+        Serializable obj;
+        Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
+        int cantidad = 0;
+        try{
+            tx = session.beginTransaction();
+            cantidad = session.createQuery("from " + clase).list().size();
+        }catch(HibernateException e){
+        }
+        return cantidad;
+    }
+    
+    
     public Serializable findById(String clase, String id) {
         Transaction tx = null;
         Serializable obj;
@@ -142,4 +157,6 @@ public class SicodetDAO implements DAO {
 
         // return null;
     }
+
+    
 }

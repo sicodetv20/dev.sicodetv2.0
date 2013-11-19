@@ -313,6 +313,7 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
         txtCodigoInterno.setBackground(new java.awt.Color(255, 255, 255));
         txtCodigoInterno.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigoInterno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
+        txtCodigoInterno.setEnabled(false);
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel11.setText("Cedula de Identidad:");
@@ -526,11 +527,12 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
                     .addComponent(txtDocumentoAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbReservista, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
+                .addGroup(panDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
-                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbReservista, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
+                        .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -1576,5 +1578,13 @@ public class FichaDetenidoDialog extends javax.swing.JDialog {
 
     public void setTxtTelefonoHabitacion(JFormattedTextField txtTelefonoHabitacion) {
         this.txtTelefonoHabitacion = txtTelefonoHabitacion;
+    }
+
+    public javax.swing.JButton getBtnGaleria() {
+        return btnGaleria;
+    }
+
+    public void setBtnGaleria(javax.swing.JButton btnGaleria) {
+        this.btnGaleria = btnGaleria;
     }
 }
