@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
@@ -47,26 +49,28 @@ public class CapturarFotoManager implements ActionListener {
         
         this.camaraThread = new CamaraThread(capturarFotoDialog, 0, WebcamResolution.VGA.getSize());
         camaraThread.start();
-        this.capturarFotoDialog.setVisible(true);
         this.listaImagenes = new ArrayList<BufferedImage>();
-        this.capturarFotoDialog.getBtnCancelar().setVisible(false);
+        //this.capturarFotoDialog.getBtnCancelar().setVisible(false);
         activarTomarFoto();
+        System.out.println("pasa por aqui");
+        this.capturarFotoDialog.setVisible(true);
+        
     }
     
-    public void activarTomarFoto(){
+    private void activarTomarFoto(){
         this.capturarFotoDialog.getBtnCamara().setEnabled(true);
         this.capturarFotoDialog.getBtnAceptar().setEnabled(false);
-        this.capturarFotoDialog.getBtnCancelar().setEnabled(false);
+        this.capturarFotoDialog.getBtnCancelar().setEnabled(true);
         this.capturarFotoDialog.getBtnConfiguracion().setEnabled(true);
         this.capturarFotoDialog.getBtnRecapturar().setEnabled(false);
         this.capturarFotoDialog.getBtnZoomIn().setEnabled(true);
         this.capturarFotoDialog.getBtnZoomOut().setEnabled(true);
     }
     
-    public void desactivarTomarFoto(){
+    private void desactivarTomarFoto(){
         this.capturarFotoDialog.getBtnCamara().setEnabled(false);
         this.capturarFotoDialog.getBtnAceptar().setEnabled(true);
-        this.capturarFotoDialog.getBtnCancelar().setEnabled(true);
+        this.capturarFotoDialog.getBtnCancelar().setEnabled(false);
         this.capturarFotoDialog.getBtnConfiguracion().setEnabled(true);
         this.capturarFotoDialog.getBtnRecapturar().setEnabled(true);
         this.capturarFotoDialog.getBtnZoomIn().setEnabled(false);
@@ -84,7 +88,11 @@ public class CapturarFotoManager implements ActionListener {
             this.camaraThread.detenerImagen();
             desactivarTomarFoto();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnCancelar()){
-            
+            try {
+                new ListaFotosManager(listaImagenes);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }else if(e.getSource()== this.capturarFotoDialog.getBtnRecapturar()){
             this.camaraThread.seguirImagen();
             activarTomarFoto();
@@ -98,5 +106,6 @@ public class CapturarFotoManager implements ActionListener {
     
     public static void main(String args[]) throws ExcepcionCampoVacio, ExcepcionComponenteNulo {
         new CapturarFotoManager();
+        System.exit(0);
     }
 }
