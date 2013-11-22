@@ -4,6 +4,11 @@
  */
 package ve.com.fsjv.devsicodetv.vistas;
 
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JToolBar;
+
 /**
  *
  * @author Juan
@@ -29,9 +34,10 @@ public class GaleriaFotosDialog extends javax.swing.JDialog {
 
         fotoPanel = new javax.swing.JLabel();
         panBarraHerramientas = new javax.swing.JToolBar();
-        btnConfiguracion = new javax.swing.JButton();
-        btnAceptar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
+        btnPrimero = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
+        btnUltima = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         labelTituloFoto = new javax.swing.JLabel();
 
@@ -41,41 +47,53 @@ public class GaleriaFotosDialog extends javax.swing.JDialog {
 
         panBarraHerramientas.setRollover(true);
 
-        btnConfiguracion.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnConfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/historiales.png"))); // NOI18N
-        btnConfiguracion.setToolTipText("Configuracion");
-        btnConfiguracion.setFocusPainted(false);
-        btnConfiguracion.setFocusable(false);
-        btnConfiguracion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnConfiguracion.setMaximumSize(new java.awt.Dimension(42, 37));
-        btnConfiguracion.setMinimumSize(new java.awt.Dimension(42, 37));
-        btnConfiguracion.setPreferredSize(new java.awt.Dimension(42, 37));
-        btnConfiguracion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnConfiguracion);
+        btnPrimero.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnPrimero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/historiales.png"))); // NOI18N
+        btnPrimero.setToolTipText("Ir al inicio");
+        btnPrimero.setFocusPainted(false);
+        btnPrimero.setFocusable(false);
+        btnPrimero.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPrimero.setMaximumSize(new java.awt.Dimension(42, 37));
+        btnPrimero.setMinimumSize(new java.awt.Dimension(42, 37));
+        btnPrimero.setPreferredSize(new java.awt.Dimension(42, 37));
+        btnPrimero.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panBarraHerramientas.add(btnPrimero);
 
-        btnAceptar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/Add.png"))); // NOI18N
-        btnAceptar.setToolTipText("Aceptar");
-        btnAceptar.setFocusPainted(false);
-        btnAceptar.setFocusable(false);
-        btnAceptar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAceptar.setMaximumSize(new java.awt.Dimension(42, 37));
-        btnAceptar.setMinimumSize(new java.awt.Dimension(42, 37));
-        btnAceptar.setPreferredSize(new java.awt.Dimension(42, 37));
-        btnAceptar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnAceptar);
+        btnAtras.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/Add.png"))); // NOI18N
+        btnAtras.setToolTipText("Atras");
+        btnAtras.setFocusPainted(false);
+        btnAtras.setFocusable(false);
+        btnAtras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAtras.setMaximumSize(new java.awt.Dimension(42, 37));
+        btnAtras.setMinimumSize(new java.awt.Dimension(42, 37));
+        btnAtras.setPreferredSize(new java.awt.Dimension(42, 37));
+        btnAtras.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panBarraHerramientas.add(btnAtras);
 
-        btnCancelar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/delete.png"))); // NOI18N
-        btnCancelar.setToolTipText("Ver lista Fotos");
-        btnCancelar.setFocusPainted(false);
-        btnCancelar.setFocusable(false);
-        btnCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCancelar.setMaximumSize(new java.awt.Dimension(42, 37));
-        btnCancelar.setMinimumSize(new java.awt.Dimension(42, 37));
-        btnCancelar.setPreferredSize(new java.awt.Dimension(42, 37));
-        btnCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panBarraHerramientas.add(btnCancelar);
+        btnSiguiente.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/delete.png"))); // NOI18N
+        btnSiguiente.setToolTipText("Siguiente");
+        btnSiguiente.setFocusPainted(false);
+        btnSiguiente.setFocusable(false);
+        btnSiguiente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSiguiente.setMaximumSize(new java.awt.Dimension(42, 37));
+        btnSiguiente.setMinimumSize(new java.awt.Dimension(42, 37));
+        btnSiguiente.setPreferredSize(new java.awt.Dimension(42, 37));
+        btnSiguiente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panBarraHerramientas.add(btnSiguiente);
+
+        btnUltima.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnUltima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/delete.png"))); // NOI18N
+        btnUltima.setToolTipText("ir al final");
+        btnUltima.setFocusPainted(false);
+        btnUltima.setFocusable(false);
+        btnUltima.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnUltima.setMaximumSize(new java.awt.Dimension(42, 37));
+        btnUltima.setMinimumSize(new java.awt.Dimension(42, 37));
+        btnUltima.setPreferredSize(new java.awt.Dimension(42, 37));
+        btnUltima.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panBarraHerramientas.add(btnUltima);
         panBarraHerramientas.add(filler1);
 
         labelTituloFoto.setText("jLabel1");
@@ -146,10 +164,76 @@ public class GaleriaFotosDialog extends javax.swing.JDialog {
             }
         });
     }
+
+    public JButton getBtnAtras() {
+        return btnAtras;
+    }
+
+    public void setBtnAtras(JButton btnAtras) {
+        this.btnAtras = btnAtras;
+    }
+
+    public JButton getBtnPrimero() {
+        return btnPrimero;
+    }
+
+    public void setBtnPrimero(JButton btnPrimero) {
+        this.btnPrimero = btnPrimero;
+    }
+
+    public JButton getBtnSiguiente() {
+        return btnSiguiente;
+    }
+
+    public void setBtnSiguiente(JButton btnSiguiente) {
+        this.btnSiguiente = btnSiguiente;
+    }
+
+    public JButton getBtnUltima() {
+        return btnUltima;
+    }
+
+    public void setBtnUltima(JButton btnUltima) {
+        this.btnUltima = btnUltima;
+    }
+
+    public Box.Filler getFiller1() {
+        return filler1;
+    }
+
+    public void setFiller1(Box.Filler filler1) {
+        this.filler1 = filler1;
+    }
+
+    public JLabel getFotoPanel() {
+        return fotoPanel;
+    }
+
+    public void setFotoPanel(JLabel fotoPanel) {
+        this.fotoPanel = fotoPanel;
+    }
+
+    public JLabel getLabelTituloFoto() {
+        return labelTituloFoto;
+    }
+
+    public void setLabelTituloFoto(JLabel labelTituloFoto) {
+        this.labelTituloFoto = labelTituloFoto;
+    }
+
+    public JToolBar getPanBarraHerramientas() {
+        return panBarraHerramientas;
+    }
+
+    public void setPanBarraHerramientas(JToolBar panBarraHerramientas) {
+        this.panBarraHerramientas = panBarraHerramientas;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnConfiguracion;
+    private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnPrimero;
+    private javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnUltima;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel fotoPanel;
     private javax.swing.JLabel labelTituloFoto;

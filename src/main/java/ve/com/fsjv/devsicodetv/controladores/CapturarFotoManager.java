@@ -89,7 +89,10 @@ public class CapturarFotoManager implements ActionListener {
             desactivarTomarFoto();
         }else if(e.getSource()== this.capturarFotoDialog.getBtnCancelar()){
             try {
-                new ListaFotosManager(listaImagenes);
+                this.camaraThread.detenerImagen();
+                //new ListaFotosManager(listaImagenes);
+                new GaleriaFotosManager(listaImagenes);
+                this.camaraThread.seguirImagen();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
