@@ -27,11 +27,13 @@ public class Persona implements Serializable {
     private String nombres;
     private String apellidos;
     private String sexo;
-    private java.util.Date fechaNacimiento;
+    private java.sql.Date fechaNacimiento;
     private String lugarNacimiento; 
+    private String estadoCivil;
+    private int estatus;
     
     public Persona(Integer idPersona, int codigoRelacional, String nacionalidad, int cedulaIdentidad, 
-            String nombres, String apellidos, String sexo, Date fechaNacimiento, String lugarNacimiento, String estadoCivil, int estatus) {
+            String nombres, String apellidos, String sexo, java.sql.Date fechaNacimiento, String lugarNacimiento, String estadoCivil, int estatus) {
         this.idPersona = idPersona;
         this.codigoRelacional = codigoRelacional;
         this.nacionalidad = nacionalidad;
@@ -44,10 +46,6 @@ public class Persona implements Serializable {
         this.estadoCivil = estadoCivil;
         this.estatus = estatus;
     }
-    private String estadoCivil;
-    private int estatus;
-    
-    
     
     public Persona(){}
 
@@ -122,7 +120,7 @@ public class Persona implements Serializable {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(java.util.Date fechaNacimiento) {
+    public void setFechaNacimiento(java.sql.Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

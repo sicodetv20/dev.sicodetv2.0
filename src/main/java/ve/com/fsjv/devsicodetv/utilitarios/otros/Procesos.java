@@ -264,29 +264,21 @@ public class Procesos {
         SicodetDAO obj = new SicodetDAO();
         String tabla = ConstantesApp.INICIALIZAR_STRING;
         String condicion = ConstantesApp.INICIALIZAR_STRING;
-                
         if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
             tabla = "ficha_detenido";
-            condicion = "where codigo_detenido = ";
+            condicion = " codigo_detenido = ";
         }
         cantidad = obj.count(tabla);
-        
         codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
-        
         cantidad = obj.count(tabla, condicion + codigo);
-        
         if(cantidad > 0){
             cantidad = obj.count(tabla);
             cantidad++;
             codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
         }
-        
-        
         return codigo;
     }
     
-    
-    //public String concatenarCodigo(String acronimo, String tabla, String indice) {
     public Integer concatenarCodigo(int indice, int cantidad, int bandera, int cantidadId) {
         Integer identificador = 0;
         String concatenar = ConstantesApp.INICIALIZAR_STRING;

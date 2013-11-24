@@ -119,8 +119,12 @@ public class ConstantesApp {
     
     public static final int ANIO_INICIAL = 1940;
     
-    public static final String ESTATUS_LIBRE = "LIBRE";
-    public static final String ESTATUS_SIN_ASIGNAR = "SIN ASIGNAR";
+    public static final String ESTATUS_DETENIDO_EN_LIBERTAD = "EN LIBERTAD";
+    public static final int ESTATUS_DETENIDO_EN_LIBERTAD_VALUE = 1;
+    public static final String ESTATUS_DETENIDO_SIN_ASIGNAR = "SIN ASIGNAR";
+    public static final int ESTATUS_DETENIDO_SIN_ASIGNAR_VALUE = 2;
+    public static final String ESTATUS_PERSONA_ACTIVO = "ACTIVO";
+    public static final int ESTATUS_PERSONA_ACTIVO_VALUE = 1;
     
     public static final int BANDERA_CODIGO_INTERNO = 1;
     public static final int BANDERA_CODIGO_RELACIONAL = 0;

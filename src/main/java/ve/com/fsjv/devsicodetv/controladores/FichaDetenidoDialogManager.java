@@ -10,7 +10,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ve.com.fsjv.devsicodetv.controladores.eventos.FichaDetenidoDialogEvents;
-import ve.com.fsjv.devsicodetv.controladores.eventos.FichaDetenidoDialogValidations;
+import ve.com.fsjv.devsicodetv.controladores.eventos.FichaDetenidoDialogValidates;
+import ve.com.fsjv.devsicodetv.controladores.eventos.FichaDetenidoDialogMethods;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
@@ -25,14 +26,16 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
     private FichaDetenidoDialog formulario;
     private Procesos procesos;
     private Integer codigo;
+    private FichaDetenidoDialogMethods metodos;
     private FichaDetenidoDialogEvents eventos;
-    private FichaDetenidoDialogValidations validaciones;
+    private FichaDetenidoDialogValidates validaciones;
     
     public FichaDetenidoDialogManager() throws ExcepcionComponenteNulo, ExcepcionCampoVacio, InterruptedException, InvocationTargetException {
         this.formulario = new FichaDetenidoDialog(new JFrame(), true);
         this.procesos = new Procesos();
         this.eventos = new FichaDetenidoDialogEvents(this.formulario, this.procesos);
-        this.validaciones = new FichaDetenidoDialogValidations(this.formulario, this.procesos);
+        this.validaciones = new FichaDetenidoDialogValidates(this.formulario, this.procesos);
+        this.metodos = new FichaDetenidoDialogMethods(this.formulario, this.procesos);
         this.eventos.iniciarBotones();
         this.formulario.setTitle(this.procesos.cargarMembreteBarraTitulo(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, "Administrador", ConstantesApp.TITULO_COMPLETO));
         this.formulario.setSize(1180, 740);
@@ -51,7 +54,6 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         this.formulario.getBtnGuardar().addActionListener(this);
         this.formulario.setVisible(true);         
     }
-    
     
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.formulario.getBtnNuevo()){
@@ -78,7 +80,10 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
                 JOptionPane.showMessageDialog(this.formulario, mensaje, tituloMensaje, iconoMensaje);
                 int respuesta = JOptionPane.showConfirmDialog(formulario, "Desea guardar los cambios realizados?", tituloMensaje, iconoMensaje);
                 if(respuesta == JOptionPane.YES_OPTION){
-                    JOptionPane.showMessageDialog(this.formulario, "Datos guardados con exito!", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                    boolean resultado = this.metodos.guardar(this.codigo);
+                    if(resultado){
+                        JOptionPane.showMessageDialog(this.formulario, "Datos guardados con exito!", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                    }
                 }else if(respuesta == JOptionPane.CANCEL_OPTION){
                     this.eventos.eventoCancelar();
                 }

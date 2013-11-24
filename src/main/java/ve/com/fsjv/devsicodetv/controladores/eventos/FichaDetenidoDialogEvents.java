@@ -200,6 +200,7 @@ public class FichaDetenidoDialogEvents {
         this.formulario.setCmbContextura(this.procesos.resaltarCampoRequerido(this.formulario.getCmbContextura()));
         this.formulario.setCmbTipoNariz(this.procesos.resaltarCampoRequerido(this.formulario.getCmbTipoNariz()));
         this.formulario.setTxtEstatura(this.procesos.resaltarCampoRequerido(this.formulario.getTxtEstatura()));
+        this.formulario.setCmbEstadoCivil(this.procesos.resaltarCampoRequerido(this.formulario.getCmbEstadoCivil()));
     }
     
     public void iniciarBotones(){

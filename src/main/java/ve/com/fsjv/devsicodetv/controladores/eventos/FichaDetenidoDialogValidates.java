@@ -14,11 +14,11 @@ import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
  *
  * @author FAMILIA-SJ
  */
-public class FichaDetenidoDialogValidations {
+public class FichaDetenidoDialogValidates {
     private FichaDetenidoDialog formulario;
     private Procesos procesos;
     
-    public FichaDetenidoDialogValidations(FichaDetenidoDialog formulario, Procesos procesos){
+    public FichaDetenidoDialogValidates(FichaDetenidoDialog formulario, Procesos procesos){
         this.formulario = formulario;
         this.procesos = procesos;
     }

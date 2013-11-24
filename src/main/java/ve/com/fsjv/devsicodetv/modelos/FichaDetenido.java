@@ -5,7 +5,6 @@
 package ve.com.fsjv.devsicodetv.modelos;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import ve.com.fsjv.devsicodetv.modelos.Persona;
 
 /**
  *
@@ -24,12 +22,49 @@ import ve.com.fsjv.devsicodetv.modelos.Persona;
 @Entity
 @Table(name="ficha_detenido", catalog="sicodetdev")
 public class FichaDetenido implements Serializable {
+
+    public FichaDetenido() {
+    }
+
+    public FichaDetenido(Integer id, Integer codigoInterno, Integer codigoRelacional, String alias, Integer anioReservista, String cicatriz, String colorCabello, String colorOjos, String colorPiel, String contextura, String direccionActual, String direccionAnterior, String direccionEmergencia, String documentoAnterior, float estatura, String estatusControl, String gradoInstruccion, String lentes, String pasaporte, String profesion, String religion, String reservista, String seniasParticulares, String telefonoCelular, String telefonoHabitacion, String telefonoEmergencia, String tipoVivienda, String tipoNariz, String vivienda, int estatus, Persona persona) {
+        this.id = id;
+        this.codigoInterno = codigoInterno;
+        this.codigoRelacional = codigoRelacional;
+        this.alias = alias;
+        this.anioReservista = anioReservista;
+        this.cicatriz = cicatriz;
+        this.colorCabello = colorCabello;
+        this.colorOjos = colorOjos;
+        this.colorPiel = colorPiel;
+        this.contextura = contextura;
+        this.direccionActual = direccionActual;
+        this.direccionAnterior = direccionAnterior;
+        this.direccionEmergencia = direccionEmergencia;
+        this.documentoAnterior = documentoAnterior;
+        this.estatura = estatura;
+        this.estatusControl = estatusControl;
+        this.gradoInstruccion = gradoInstruccion;
+        this.lentes = lentes;
+        this.pasaporte = pasaporte;
+        this.profesion = profesion;
+        this.religion = religion;
+        this.reservista = reservista;
+        this.seniasParticulares = seniasParticulares;
+        this.telefonoCelular = telefonoCelular;
+        this.telefonoHabitacion = telefonoHabitacion;
+        this.telefonoEmergencia = telefonoEmergencia;
+        this.tipoVivienda = tipoVivienda;
+        this.tipoNariz = tipoNariz;
+        this.vivienda = vivienda;
+        this.estatus = estatus;
+        this.persona = persona;
+    }
     
-    private int id;
-    private String codigoInterno;
-    private String codigoRelacional;
+    private Integer id;
+    private Integer codigoInterno;
+    private Integer codigoRelacional;
     private String alias;
-    private int anioReservista;
+    private Integer anioReservista;
     private String cicatriz;
     private String colorCabello;
     private String colorOjos;
@@ -69,20 +104,20 @@ public class FichaDetenido implements Serializable {
     }
 
     @Column(name="codigo_interno", nullable=true)
-    public String getCodigoInterno() {
+    public int getCodigoInterno() {
         return codigoInterno;
     }
 
-    public void setCodigoInterno(String codigoInterno) {
+    public void setCodigoInterno(int codigoInterno) {
         this.codigoInterno = codigoInterno;
     }
 
     @Column(name="codigo_relacional", nullable=true)
-    public String getCodigoRelacional() {
+    public int getCodigoRelacional() {
         return codigoRelacional;
     }
 
-    public void setCodigoRelacional(String codigoRelacional) {
+    public void setCodigoRelacional(int codigoRelacional) {
         this.codigoRelacional = codigoRelacional;
     }
 

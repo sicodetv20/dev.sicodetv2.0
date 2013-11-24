@@ -27,7 +27,9 @@ public class SicodetDAO implements DAO {
             tx = sesion.beginTransaction();
             cantidad = sesion.createQuery("from " + clase).list().size();
         }catch(HibernateException e){
-            System.err.println(e.getMessage());
+            //System.err.println(e.getMessage());
+        }finally{
+            ConexionSicodetUtil.closeQuietly(sesion);
         }
         return cantidad;
     }
@@ -41,7 +43,9 @@ public class SicodetDAO implements DAO {
             tx = sesion.beginTransaction();
             cantidad = sesion.createQuery("from " + clase + " where " + condicion).list().size();
         }catch(HibernateException e){
-            System.err.println(e.getMessage());
+            //System.err.println(e.getMessage());
+        }finally{
+            ConexionSicodetUtil.closeQuietly(sesion);
         }
         return cantidad;
     }
