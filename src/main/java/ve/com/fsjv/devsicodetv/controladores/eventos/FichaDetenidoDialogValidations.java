@@ -32,11 +32,6 @@ public class FichaDetenidoDialogValidations {
         if(resultado != null){
             listaErrores.add(resultado);
         }
-        /*
-        resultado = this.procesos.validarCampo(this.formulario.getTxtCedulaIdentidad(), ConstantesApp.TIPO_VALIDACION_VACIO, "Cedula de Identidad", ConstantesApp.CAMPO_NORMAL);
-        if(resultado != null){
-            listaErrores.add(resultado);
-        }*/
         
         if(!this.formulario.getTxtCedulaIdentidad().getText().trim().equals("")){
             resultado = this.procesos.validarLengthCampo(this.formulario.getTxtCedulaIdentidad(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_CEDULA, "Cedula de Identidad", ConstantesApp.CAMPO_NORMAL);
