@@ -6,14 +6,12 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/sicodetdev</property>
     <property name="hibernate.connection.username">sicodetdev</property>
-    <property name="hibernate.connection.password">sicodetdev15242874
-    </property>
+    <property name="hibernate.connection.password">sicodetdev15242874</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
     <property name="hibernate.current_session_context_class">thread</property>
     
-    <mapping class="ve.com.fsjv.devsicodetv.modelos.Prueba"/>
     <mapping class="ve.com.fsjv.devsicodetv.modelos.Persona" />
-    <mapping class="ve.com.fsjv.devsicodetv.modelos.FichaDetenido" />
+    
   </session-factory>
 </hibernate-configuration>

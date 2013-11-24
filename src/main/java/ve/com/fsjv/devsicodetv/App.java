@@ -9,6 +9,11 @@ import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
 import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSeguridadUtil;
 import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionPersonalUtil;
 import ve.com.fsjv.devsicodetv.controladores.MenuDialogManager;
+import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
+import ve.com.fsjv.devsicodetv.modelos.*;
+import ve.com.fsjv.devsicodetv.DAO.*;
+import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
+
 /**
  * Hello world!
  *
@@ -25,31 +30,8 @@ public class App
                 }
             }*/
         
-        /*
-         Session sesion = ConexionSicodetUtil.getSessionFactory().openSession();
-         try{
-             sesion.getTransaction().begin();
-             System.out.println("Session: " + sesion.getTransaction().toString());
-         }catch(HibernateException excep){
-             System.err.println("Exception: " + excep);
-         }*/
-         /*
-         Session sesion2 = ConexionSeguridadUtil.getSessionFactory().openSession();
-         try{
-             sesion2.getTransaction().begin();
-             System.out.println("Session: " + sesion2.getTransaction().toString());
-         }catch(HibernateException excep){
-             System.err.println("Exception: " + excep);
-         }
-         
-         Session sesion3 = ConexionPersonalUtil.getSessionFactory().openSession();
-         try{
-             sesion3.getTransaction().begin();
-             System.out.println("Session: " + sesion3.getTransaction().toString());
-         }catch(HibernateException excep){
-             System.err.println("Exception: " + excep);
-         }
-         */
-         MenuDialogManager app = new MenuDialogManager();
+        MenuDialogManager app = new MenuDialogManager();
+        
     }
 }
+ 

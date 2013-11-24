@@ -4,11 +4,10 @@
  */
 package ve.com.fsjv.devsicodetv.DAO;
 
-import ve.com.fsjv.devsicodetv.DAO.SicodetDAO;
 /**
  *
  * @author FAMILIA-SJ
  */
-public class FichaDetenidoDAO extends SicodetDAO {
+public class PersonaDAO extends SicodetDAO {
     
 }

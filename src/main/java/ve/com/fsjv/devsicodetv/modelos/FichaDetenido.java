@@ -6,12 +6,16 @@ package ve.com.fsjv.devsicodetv.modelos;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import ve.com.fsjv.devsicodetv.modelos.Persona;
 
 /**
  *
@@ -51,7 +55,8 @@ public class FichaDetenido implements Serializable {
     private String tipoNariz;
     private String vivienda;
     private int estatus;
-
+    private Persona persona;
+    
     @Id
     @GeneratedValue(strategy=IDENTITY)
     @Column(name="idficha_detenido", unique=true, nullable=true)
@@ -322,6 +327,15 @@ public class FichaDetenido implements Serializable {
 
     public void setEstatus(int estatus) {
         this.estatus = estatus;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "ficha_detenido", cascade = CascadeType.ALL)
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
     
 }

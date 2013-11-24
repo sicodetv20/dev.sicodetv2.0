@@ -16,6 +16,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,6 +32,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import ve.com.fsjv.devsicodetv.DAO.FichaDetenidoDAO;
+import ve.com.fsjv.devsicodetv.DAO.SicodetDAO;
+import ve.com.fsjv.devsicodetv.modelos.FichaDetenido;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionPasswordIguales;
@@ -254,42 +258,49 @@ public class Procesos {
         }
     }
 
-    
-    public String generarCodigo(String acronimo, String tabla, String indice) {
-        String identificador = ConstantesApp.INICIALIZAR_STRING;
-        String sql = ConstantesApp.INICIALIZAR_STRING;
-        int cantidad = this.obtenerCantidad(sql);
-        identificador = this.concatenarCodigo(acronimo, indice, cantidad);
-        int bandera = this.chequearCodigo(identificador);
-        if (bandera > 0) {
+    public int generarCodigo(String acronimo, int indice, int bandera){
+        int cantidad = 0;
+        int codigo = 0;
+        SicodetDAO obj = new SicodetDAO();
+        String tabla = ConstantesApp.INICIALIZAR_STRING;
+        String condicion = ConstantesApp.INICIALIZAR_STRING;
+                
+        if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
+            tabla = "ficha_detenido";
+            condicion = "where codigo_detenido = ";
+        }
+        cantidad = obj.count(tabla);
+        
+        codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
+        
+        cantidad = obj.count(tabla, condicion + codigo);
+        
+        if(cantidad > 0){
+            cantidad = obj.count(tabla);
             cantidad++;
-            identificador = this.concatenarCodigo(acronimo, indice, cantidad);
+            codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
+        }
+        
+        
+        return codigo;
+    }
+    
+    
+    //public String concatenarCodigo(String acronimo, String tabla, String indice) {
+    public Integer concatenarCodigo(int indice, int cantidad, int bandera, int cantidadId) {
+        Integer identificador = 0;
+        String concatenar = ConstantesApp.INICIALIZAR_STRING;
+        cantidad++;
+        concatenar = String.valueOf(indice) + String.valueOf(cantidad);
+        if(bandera == ConstantesApp.BANDERA_CODIGO_INTERNO)
+            identificador = Integer.parseInt(concatenar);
+        else if(bandera==ConstantesApp.BANDERA_CODIGO_RELACIONAL){
+            cantidadId++;
+            String str = concatenar + cantidadId;
+            identificador = Integer.parseInt(str);
         }
         return identificador;
     }
-
-    public String concatenarCodigo(String acronimo, String indice, int cantidad) {
-        String concatenar = ConstantesApp.INICIALIZAR_STRING;
-        if (indice == null) {
-            concatenar = acronimo + cantidad;
-        } else {
-            concatenar = acronimo + indice + cantidad;
-        }
-        return concatenar;
-    }
-
-    public int chequearCodigo(String identificador) {
-        int chequeado = ConstantesApp.BANDERA_FALSE;
-        return chequeado;
-    }
-
-    public int obtenerCantidad(String sql) {
-        int cantidad = ConstantesApp.BANDERA_FALSE;
-        cantidad++;
-        return cantidad;
-    }
-
-    
 
     public JPasswordField validarPasswordIguales(JPasswordField componente1, JPasswordField componente2) {
         String bandera = String.valueOf(ConstantesApp.BANDERA_TRUE);

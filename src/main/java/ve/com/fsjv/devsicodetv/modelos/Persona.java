@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -19,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="persona", catalog="sicodetdev")
 public class Persona implements Serializable {
-    private Integer IdPersona;
+    private Integer idPersona;
     private int codigoRelacional;
     private String nacionalidad;
     private int cedulaIdentidad;
@@ -27,9 +28,11 @@ public class Persona implements Serializable {
     private String apellidos;
     private String sexo;
     private java.util.Date fechaNacimiento;
+    private String lugarNacimiento; 
     
-    private String lugarNacimiento; public Persona(Integer IdPersona, int codigoRelacional, String nacionalidad, int cedulaIdentidad, String nombres, String apellidos, String sexo, Date fechaNacimiento, String lugarNacimiento, String estadoCivil, int estatus) {
-        this.IdPersona = IdPersona;
+    public Persona(Integer idPersona, int codigoRelacional, String nacionalidad, int cedulaIdentidad, 
+            String nombres, String apellidos, String sexo, Date fechaNacimiento, String lugarNacimiento, String estadoCivil, int estatus) {
+        this.idPersona = idPersona;
         this.codigoRelacional = codigoRelacional;
         this.nacionalidad = nacionalidad;
         this.cedulaIdentidad = cedulaIdentidad;
@@ -51,12 +54,12 @@ public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy=IDENTITY)
     @Column(name="idpersona", unique=true, nullable=true)
-    public int getIdPersona() {
-        return IdPersona;
+    public Integer getIdPersona() {
+        return idPersona;
     }
 
-    public void setIdPersona(int IdPersona) {
-        this.IdPersona = IdPersona;
+    public void setIdPersona(Integer IdPersona) {
+        this.idPersona = IdPersona;
     }
 
     @Column(name = "codigo_relacional", nullable = true)
@@ -114,6 +117,7 @@ public class Persona implements Serializable {
     }
 
     @Column(name = "fecha_nacimiento", nullable = false)
+    @Temporal(javax.persistence.TemporalType.DATE)
     public java.util.Date getFechaNacimiento() {
         return fechaNacimiento;
     }

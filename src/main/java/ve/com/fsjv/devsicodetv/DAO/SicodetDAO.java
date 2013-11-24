@@ -6,11 +6,9 @@ package ve.com.fsjv.devsicodetv.DAO;
 
 import java.io.Serializable;
 import java.util.List;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Projections;
 import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
 
 /**
@@ -21,14 +19,29 @@ public class SicodetDAO implements DAO {
     
     @Override
     public int count(String clase) {
+        int cantidad = 0;
         Transaction tx = null;
         Serializable obj;
-        Session session = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
-        int cantidad = 0;
+        Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
         try{
-            tx = session.beginTransaction();
-            cantidad = session.createQuery("from " + clase).list().size();
+            tx = sesion.beginTransaction();
+            cantidad = sesion.createQuery("from " + clase).list().size();
         }catch(HibernateException e){
+            System.err.println(e.getMessage());
+        }
+        return cantidad;
+    }
+    
+    public int count(String clase, String condicion) {
+        int cantidad = 0;
+        Transaction tx = null;
+        Serializable obj;
+        Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
+        try{
+            tx = sesion.beginTransaction();
+            cantidad = sesion.createQuery("from " + clase + " where " + condicion).list().size();
+        }catch(HibernateException e){
+            System.err.println(e.getMessage());
         }
         return cantidad;
     }

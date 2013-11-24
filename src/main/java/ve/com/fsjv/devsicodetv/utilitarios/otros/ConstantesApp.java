@@ -27,6 +27,21 @@ public class ConstantesApp {
     public static final String ACRONIMO_MODULO_ORGANISMO = "ORG";
     public static final String ACRONIMO_MODULO_EVIDENCIAS = "EVI";
     
+    public static final int ACRONIMO_INDICE_NULO = 0;
+    public static final int ACRONIMO_INDICE_MODULO_FICHA_DETENIDO = 1;
+    public static final int ACRONIMO_INDICE_MODULO_SALIDA = 2;
+    public static final int ACRONIMO_INDICE_MODULO_TRASLADO = 3;
+    public static final int ACRONIMO_INDICE_MODULO_REGISTRAR_CAUSA = 4;
+    public static final int ACRONIMO_INDICE_MODULO_NIVEL_CALABOZO = 5;
+    public static final int ACRONIMO_INDICE_MODULO_CELDA = 6;
+    public static final int ACRONIMO_INDICE_MODULO_TIPO_SALIDA = 7;
+    public static final int ACRONIMO_INDICE_MODULO_SUB_TIPO_SALIDA = 8;
+    public static final int ACRONIMO_INDICE_MODULO_TIPO_TRASLADO = 9;
+    public static final int ACRONIMO_INDICE_MODULO_SUB_TIPO_TRASLADO = 10;
+    public static final int ACRONIMO_INDICE_MODULO_ASIGNACION_CELDA = 11;
+    public static final int ACRONIMO_INDICE_MODULO_ORGANISMO = 12;
+    public static final int ACRONIMO_INDICE_MODULO_EVIDENCIAS = 13;
+    
     public static final String APLICACION = "Sicodet v2.0";
     
     public static final String MODULO_FICHA_DETENIDO = "Ficha de Detenido";
@@ -107,6 +122,8 @@ public class ConstantesApp {
     public static final String ESTATUS_LIBRE = "LIBRE";
     public static final String ESTATUS_SIN_ASIGNAR = "SIN ASIGNAR";
     
+    public static final int BANDERA_CODIGO_INTERNO = 1;
+    public static final int BANDERA_CODIGO_RELACIONAL = 0;
     
     
     public static final String MENSAJE_CAMPO_VACIO = "Codigo de Error 001: Campo vacio, componente referenciado: ";
