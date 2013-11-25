@@ -21,11 +21,11 @@ public class SicodetDAO implements DAO {
     public int count(String clase) {
         int cantidad = 0;
         Transaction tx = null;
-        Serializable obj;
         Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
         try{
             tx = sesion.beginTransaction();
             cantidad = sesion.createQuery("from " + clase).list().size();
+            sesion.getTransaction().commit();
         }catch(HibernateException e){
             //System.err.println(e.getMessage());
         }finally{
@@ -42,6 +42,7 @@ public class SicodetDAO implements DAO {
         try{
             tx = sesion.beginTransaction();
             cantidad = sesion.createQuery("from " + clase + " where " + condicion).list().size();
+            tx.commit();
         }catch(HibernateException e){
             //System.err.println(e.getMessage());
         }finally{

@@ -4,12 +4,17 @@
  */
 package ve.com.fsjv.devsicodetv.modelos;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -31,6 +36,7 @@ public class Persona implements Serializable {
     private String lugarNacimiento; 
     private String estadoCivil;
     private int estatus;
+    private Set<FichaDetenido> fichaDetenido;
     
     public Persona(Integer idPersona, int codigoRelacional, String nacionalidad, int cedulaIdentidad, 
             String nombres, String apellidos, String sexo, java.sql.Date fechaNacimiento, String lugarNacimiento, String estadoCivil, int estatus) {
@@ -51,7 +57,7 @@ public class Persona implements Serializable {
 
     @Id
     @GeneratedValue(strategy=IDENTITY)
-    @Column(name="idpersona", unique=true, nullable=true)
+    @Column(name="idpersona", unique=true, nullable=false)
     public Integer getIdPersona() {
         return idPersona;
     }
@@ -60,7 +66,7 @@ public class Persona implements Serializable {
         this.idPersona = IdPersona;
     }
 
-    @Column(name = "codigo_relacional", nullable = true)
+    @Column(name = "codigo_relacional", nullable = false)
     public int getCodigoRelacional() {
         return codigoRelacional;
     }
@@ -69,7 +75,7 @@ public class Persona implements Serializable {
         this.codigoRelacional = codigoRelacional;
     }
 
-    @Column(name = "nacionalidad", nullable = true)
+    @Column(name = "nacionalidad", nullable = false)
     public String getNacionalidad() {
         return nacionalidad;
     }
@@ -78,7 +84,7 @@ public class Persona implements Serializable {
         this.nacionalidad = nacionalidad;
     }
 
-    @Column(name = "cedula_identidad", nullable = true)
+    @Column(name = "cedula_identidad", nullable = false)
     public int getCedulaIdentidad() {
         return cedulaIdentidad;
     }
@@ -149,6 +155,15 @@ public class Persona implements Serializable {
 
     public void setEstatus(int estatus) {
         this.estatus = estatus;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "persona", cascade = CascadeType.ALL)
+    public Set<FichaDetenido> getFichaDetenido() {
+        return fichaDetenido;
+    }
+
+    public void setFichaDetenido(Set<FichaDetenido> fichaDetenido) {
+        this.fichaDetenido = fichaDetenido;
     }
     
 }

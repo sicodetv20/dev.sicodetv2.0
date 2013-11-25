@@ -261,20 +261,17 @@ public class Procesos {
     public int generarCodigo(String acronimo, int indice, int bandera){
         int cantidad = 0;
         int codigo = 0;
-        SicodetDAO obj = new SicodetDAO();
-        String tabla = ConstantesApp.INICIALIZAR_STRING;
-        String condicion = ConstantesApp.INICIALIZAR_STRING;
         if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
-            tabla = "ficha_detenido";
-            condicion = " codigo_detenido = ";
-        }
-        cantidad = obj.count(tabla);
-        codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
-        cantidad = obj.count(tabla, condicion + codigo);
-        if(cantidad > 0){
-            cantidad = obj.count(tabla);
-            cantidad++;
+            FichaDetenidoDAO fdDAO = new FichaDetenidoDAO();
+            cantidad = fdDAO.count(ConstantesApp.TABLA_FICHA_DETENIDO);
             codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
+            String condicion = " codigo_detenido = " + String.valueOf(codigo); 
+            cantidad = fdDAO.count(ConstantesApp.TABLA_FICHA_DETENIDO, condicion);
+            if(cantidad > 0){
+                cantidad = fdDAO.count(ConstantesApp.TABLA_FICHA_DETENIDO);
+                cantidad++;
+                codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
+            }
         }
         return codigo;
     }

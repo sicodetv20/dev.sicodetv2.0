@@ -23,7 +23,6 @@ public class App
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException
     {
         MenuDialogManager app = new MenuDialogManager();
-        
     }
 }
  
