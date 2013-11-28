@@ -1,13 +1,12 @@
 package ve.com.fsjv.devsicodetv.controladores.eventos;
 
-import javax.swing.JOptionPane;
-import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
+import ve.com.fsjv.devsicodetv.DAO.FichaDetenidoDAO;
+import ve.com.fsjv.devsicodetv.DAO.PersonaDAO;
 import ve.com.fsjv.devsicodetv.modelos.FichaDetenido;
 import ve.com.fsjv.devsicodetv.modelos.Persona;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
-import ve.com.fsjv.devsicodetv.DAO.FichaDetenidoDAO;
-import ve.com.fsjv.devsicodetv.DAO.PersonaDAO;
+import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
+import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
 /**
  *
  * @author FAMILIA-SJ

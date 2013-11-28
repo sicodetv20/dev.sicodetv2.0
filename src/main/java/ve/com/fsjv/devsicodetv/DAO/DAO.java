@@ -23,5 +23,4 @@ public interface DAO {
 
     public Serializable findById(String clase, String id);
     
-    public int count(String clase);
 }

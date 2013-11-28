@@ -4,18 +4,8 @@
  */
 package ve.com.fsjv.devsicodetv.utilitarios.otros;
 
-import java.awt.AWTException;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.Transferable;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.text.Format;
 import java.text.ParseException;
@@ -24,20 +14,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import ve.com.fsjv.devsicodetv.DAO.FichaDetenidoDAO;
-import ve.com.fsjv.devsicodetv.DAO.SicodetDAO;
 import ve.com.fsjv.devsicodetv.modelos.FichaDetenido;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionPasswordIguales;
 
 /**
  *
@@ -263,15 +248,21 @@ public class Procesos {
         int codigo = 0;
         if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
             FichaDetenidoDAO fdDAO = new FichaDetenidoDAO();
-            cantidad = fdDAO.count(ConstantesApp.TABLA_FICHA_DETENIDO);
+            ArrayList<Serializable> list = new ArrayList<Serializable>();
+            list = (ArrayList<Serializable>) fdDAO.list(FichaDetenido.class);
+            cantidad = list.size();
             codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
+            
+            /*
             String condicion = " codigo_detenido = " + String.valueOf(codigo); 
-            cantidad = fdDAO.count(ConstantesApp.TABLA_FICHA_DETENIDO, condicion);
+            list = (ArrayList<Serializable>) fdDAO.list(FichaDetenido.class, condicion);
+            cantidad = list.size();
             if(cantidad > 0){
-                cantidad = fdDAO.count(ConstantesApp.TABLA_FICHA_DETENIDO);
+                list = (ArrayList<Serializable>) fdDAO.list(FichaDetenido.class);
+                cantidad = list.size();
                 cantidad++;
                 codigo = this.concatenarCodigo(indice, cantidad, bandera, 0);
-            }
+            }*/
         }
         return codigo;
     }

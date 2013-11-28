@@ -17,41 +17,6 @@ import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
  */
 public class SicodetDAO implements DAO {
     
-    @Override
-    public int count(String clase) {
-        int cantidad = 0;
-        Transaction tx = null;
-        Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
-        try{
-            tx = sesion.beginTransaction();
-            cantidad = sesion.createQuery("from " + clase).list().size();
-            sesion.getTransaction().commit();
-        }catch(HibernateException e){
-            //System.err.println(e.getMessage());
-        }finally{
-            ConexionSicodetUtil.closeQuietly(sesion);
-        }
-        return cantidad;
-    }
-    
-    public int count(String clase, String condicion) {
-        int cantidad = 0;
-        Transaction tx = null;
-        Serializable obj;
-        Session sesion = ConexionSicodetUtil.getSessionFactory().getCurrentSession();
-        try{
-            tx = sesion.beginTransaction();
-            cantidad = sesion.createQuery("from " + clase + " where " + condicion).list().size();
-            tx.commit();
-        }catch(HibernateException e){
-            //System.err.println(e.getMessage());
-        }finally{
-            ConexionSicodetUtil.closeQuietly(sesion);
-        }
-        return cantidad;
-    }
-    
-    
     public Serializable findById(String clase, String id) {
         Transaction tx = null;
         Serializable obj;

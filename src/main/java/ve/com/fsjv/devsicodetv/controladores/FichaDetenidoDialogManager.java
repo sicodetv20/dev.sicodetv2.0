@@ -83,6 +83,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
                     boolean resultado = this.metodos.guardar(this.codigo);
                     if(resultado){
                         JOptionPane.showMessageDialog(this.formulario, "Datos guardados con exito!", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                        this.formulario.getBtnAgregarCausa().setEnabled(ConstantesApp.EDITABLE);
                     }
                 }else if(respuesta == JOptionPane.CANCEL_OPTION){
                     this.eventos.eventoCancelar();
