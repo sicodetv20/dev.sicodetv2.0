@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -52,6 +54,7 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         this.formulario.getBtnNuevo().addActionListener(this);
         this.formulario.getBtnCancelar().addActionListener(this);
         this.formulario.getBtnGuardar().addActionListener(this);
+        this.formulario.getBtnBuscar().addActionListener(this);
         this.formulario.setVisible(true);         
     }
     
@@ -62,6 +65,10 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
                 this.codigo = this.procesos.generarCodigo(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO, ConstantesApp.ACRONIMO_INDICE_MODULO_FICHA_DETENIDO, ConstantesApp.BANDERA_CODIGO_INTERNO);
                 this.formulario.getTxtCodigoInterno().setText(this.codigo.toString());
             } catch (ExcepcionComponenteNulo ex) { }
+        }else if(e.getSource() == this.formulario.getBtnBuscar()){
+            try {
+                BusquedaDetenidosDialogManager busqueda = new BusquedaDetenidosDialogManager();
+            } catch (ExcepcionCampoVacio ex) { }
         }else if(e.getSource() == this.formulario.getBtnCancelar()){
             this.eventos.eventoCancelar();
         }else if(e.getSource() == this.formulario.getBtnGuardar()){

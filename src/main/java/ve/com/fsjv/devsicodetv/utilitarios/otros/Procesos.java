@@ -196,6 +196,8 @@ public class Procesos {
             if(tipo==ConstantesApp.TITULO_DOBLE || tipo == ConstantesApp.TITULO_COMPLETO){
                 if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_FICHA_DETENIDO)){
                     titulo = titulo + " - " + ConstantesApp.MODULO_FICHA_DETENIDO;
+                }else if(acronimo.equals(ConstantesApp.ACRONIMO_MODULO_BUSQUEDA_DETENIDOS)){
+                    titulo = titulo + " - " + ConstantesApp.MODULO_BUSQUEDAS_DETENIDOS;
                 }
             }
             if(tipo==ConstantesApp.TITULO_COMPLETO){

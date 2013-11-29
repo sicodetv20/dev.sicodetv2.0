@@ -26,6 +26,7 @@ public class ConstantesApp {
     public static final String ACRONIMO_MODULO_ASIGNACION_CELDA = "ACC";
     public static final String ACRONIMO_MODULO_ORGANISMO = "ORG";
     public static final String ACRONIMO_MODULO_EVIDENCIAS = "EVI";
+    public static final String ACRONIMO_MODULO_BUSQUEDA_DETENIDOS = "BDE";
     
     public static final int ACRONIMO_INDICE_NULO = 0;
     public static final int ACRONIMO_INDICE_MODULO_FICHA_DETENIDO = 1;
@@ -41,6 +42,7 @@ public class ConstantesApp {
     public static final int ACRONIMO_INDICE_MODULO_ASIGNACION_CELDA = 11;
     public static final int ACRONIMO_INDICE_MODULO_ORGANISMO = 12;
     public static final int ACRONIMO_INDICE_MODULO_EVIDENCIAS = 13;
+    public static final int ACRONIMO_INDICE_MODULO_BUSQUEDA_DETENIDOS = 14;
     
     public static final String APLICACION = "Sicodet v2.0";
     
