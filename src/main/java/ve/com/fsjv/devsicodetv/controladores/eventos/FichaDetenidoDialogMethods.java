@@ -20,7 +20,6 @@ public class FichaDetenidoDialogMethods {
     }
     
     public boolean guardar(int codigo){
-        System.out.println(codigo);
         Persona p = new Persona();
         FichaDetenido fd = new FichaDetenido();
         PersonaDAO pDAO = new PersonaDAO();
