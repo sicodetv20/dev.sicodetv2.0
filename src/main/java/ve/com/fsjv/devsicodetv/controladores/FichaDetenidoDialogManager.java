@@ -91,6 +91,8 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
                     if(resultado){
                         JOptionPane.showMessageDialog(this.formulario, "Datos guardados con exito!", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                         this.formulario.getBtnAgregarCausa().setEnabled(ConstantesApp.EDITABLE);
+                        this.formulario.getBtnCamara().setEnabled(ConstantesApp.EDITABLE);
+                        this.formulario.getBtnGaleria().setEnabled(ConstantesApp.EDITABLE);
                     }
                 }else if(respuesta == JOptionPane.CANCEL_OPTION){
                     this.eventos.eventoCancelar();
