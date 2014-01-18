@@ -4,17 +4,23 @@
  */
 package ve.com.fsjv.devsicodetv.controladores;
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableModel;
 import ve.com.fsjv.devsicodetv.controladores.eventos.BusquedaDetenidosDialogEvents;
 import ve.com.fsjv.devsicodetv.controladores.eventos.BusquedaDetenidosDialogMethods;
 import ve.com.fsjv.devsicodetv.controladores.eventos.BusquedaDetenidosDialogValidates;
+import ve.com.fsjv.devsicodetv.modelos.FichaDetenido;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
@@ -25,12 +31,13 @@ import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
  *
  * @author FAMILIA-SJ
  */
-public class BusquedaDetenidosDialogManager implements ActionListener  {
+public class BusquedaDetenidosDialogManager implements ActionListener {
     private BusquedaDetenidosDialog formulario;
     private Procesos procesos;
     private BusquedaDetenidosDialogEvents eventos;
     private BusquedaDetenidosDialogValidates validaciones;
     private BusquedaDetenidosDialogMethods metodos;
+    private List<FichaDetenido> listaBusqueda;
     
     public BusquedaDetenidosDialogManager() throws ExcepcionCampoVacio {
         this.formulario = new BusquedaDetenidosDialog(new JFrame(), true);
@@ -55,6 +62,11 @@ public class BusquedaDetenidosDialogManager implements ActionListener  {
         this.formulario.getRadRasgoFisico().addActionListener(this);
         this.formulario.getBtnReiniciar().addActionListener(this);
         this.formulario.getBtnBuscar().addActionListener(this);
+        
+        this.formulario.getTabResultados().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.formulario.getTabResultados().setColumnSelectionAllowed(false);
+        this.formulario.getTabResultados().setRowSelectionAllowed(true);
+        this.formulario.getTabResultados().addMouseListener(new TableMouseListener());
         this.formulario.setVisible(true);
         
     }
@@ -85,11 +97,107 @@ public class BusquedaDetenidosDialogManager implements ActionListener  {
                 JOptionPane.showMessageDialog(this.formulario, mensaje, tituloMensaje, iconoMensaje);
                 int respuesta = JOptionPane.showConfirmDialog(this.formulario, "Desea Iniciar la busqueda?", tituloMensaje, iconoMensaje);
                 if(respuesta == JOptionPane.YES_OPTION){
-                    //this.metodos.buscar(this.formulario.getTxtvalor().getText().trim());
+                    System.out.println(this.formulario.getRadAlias().isSelected());
+                    String campoBusqueda = "";
+                    if(this.formulario.getRadAlias().isSelected()){
+                        campoBusqueda = "alias";
+                    }else if(this.formulario.getRadApellidos().isSelected()){
+                        campoBusqueda = "apellidos";
+                    }else if(this.formulario.getRadCedulaIdentidad().isSelected()){
+                        campoBusqueda = "cedulaIdentidad";
+                    }else if(this.formulario.getRadNombres().isSelected()){
+                        campoBusqueda = "nombres";
+                    }else if(this.formulario.getRadNombresApellidos().isSelected()){
+                        campoBusqueda = "ambos";
+                    }else if(this.formulario.getRadNroControl().isSelected()){
+                        campoBusqueda = "idPersona";
+                    }else if(this.formulario.getRadPasaporte().isSelected()){
+                        campoBusqueda = "pasaporte";
+                    }else if(this.formulario.getRadRasgoFisico().isSelected()){
+                        campoBusqueda = "rasgo";
+                    }
+                    listaBusqueda = this.metodos.buscar(campoBusqueda, this.formulario.getTxtvalor().getText().trim());
+                    TableModel model = new FichaTableModel(listaBusqueda);
+                    //System.out.println("ape "+listaBusqueda.get(0).getPersona().getApellidos());
+                    this.formulario.getTabResultados().setModel(model);
                 }else if(respuesta == JOptionPane.CANCEL_OPTION)
                     this.eventos.iniciarFormulario();
             }
         }
     }
     
+    private void obtenerSeleccion(int row){
+        FichaTableModel model = (FichaTableModel) this.formulario.getTabResultados().getModel();
+        
+        System.out.println(model.get(row));
+    }
+    
+    public static void main(String args[]) throws ExcepcionCampoVacio, ExcepcionComponenteNulo, Exception {
+        BusquedaDetenidosDialogManager busqueda = new BusquedaDetenidosDialogManager();
+    }
+    
+    class FichaTableModel extends AbstractTableModel {
+
+        List<FichaDetenido> values;
+
+        public FichaTableModel(List<FichaDetenido> valuesInfo) {
+            this.values = valuesInfo;
+        }
+
+        public int getColumnCount() {
+            return 3;
+        }
+
+        public int getRowCount() {
+            return (values != null) ? (values.size()) : (0);
+        }
+
+        @Override
+        public String getColumnName(int column) {
+            switch (column) {
+                case 0:
+                    return "Cedula";
+                case 1:
+                    return "Nombre";
+                case 2:
+                    return "Apellido";
+
+            }
+            return "??";
+        }
+
+        public Object getValueAt(int row, int column) {
+            FichaDetenido info = get(row);
+            if (info != null) {
+                switch (column) {
+                    case 0:
+                        return info.getPersona().getCedulaIdentidad();
+                    case 1:
+                        return info.getPersona().getNombres();
+                    case 2:
+                        return info.getPersona().getApellidos();
+                }
+            }
+            return "col(" + column + ")??";
+            //return valuesTables.get(row);
+        }
+
+        public FichaDetenido get(int row) {
+            if (row >= 0 && row < values.size()) {
+                return (FichaDetenido) values.get(row);
+            } else {
+                return null;
+            }
+        }
+    }
+    
+    private class TableMouseListener extends MouseAdapter {
+        public void mouseClicked(MouseEvent e) {
+            if (e.getClickCount() == 2) {
+                Point p = e.getPoint();
+                int row = formulario.getTabResultados().rowAtPoint(p);
+                obtenerSeleccion(row);
+            }
+        }
+    }
 }
