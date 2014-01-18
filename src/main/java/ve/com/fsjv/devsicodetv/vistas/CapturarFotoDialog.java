@@ -72,7 +72,7 @@ public class CapturarFotoDialog extends javax.swing.JDialog {
         panBarraHerramientas.add(btnAceptar);
 
         btnCancelar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/delete.png"))); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/gallery-2-small.png"))); // NOI18N
         btnCancelar.setToolTipText("Ver lista Fotos");
         btnCancelar.setFocusPainted(false);
         btnCancelar.setFocusable(false);

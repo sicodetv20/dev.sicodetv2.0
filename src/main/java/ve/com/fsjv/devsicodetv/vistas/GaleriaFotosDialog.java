@@ -48,7 +48,7 @@ public class GaleriaFotosDialog extends javax.swing.JDialog {
         panBarraHerramientas.setRollover(true);
 
         btnPrimero.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnPrimero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/historiales.png"))); // NOI18N
+        btnPrimero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/prev.png"))); // NOI18N
         btnPrimero.setToolTipText("Ir al inicio");
         btnPrimero.setFocusPainted(false);
         btnPrimero.setFocusable(false);
@@ -60,7 +60,7 @@ public class GaleriaFotosDialog extends javax.swing.JDialog {
         panBarraHerramientas.add(btnPrimero);
 
         btnAtras.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/Add.png"))); // NOI18N
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/first.png"))); // NOI18N
         btnAtras.setToolTipText("Atras");
         btnAtras.setFocusPainted(false);
         btnAtras.setFocusable(false);
@@ -72,7 +72,7 @@ public class GaleriaFotosDialog extends javax.swing.JDialog {
         panBarraHerramientas.add(btnAtras);
 
         btnSiguiente.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/delete.png"))); // NOI18N
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/last.png"))); // NOI18N
         btnSiguiente.setToolTipText("Siguiente");
         btnSiguiente.setFocusPainted(false);
         btnSiguiente.setFocusable(false);
@@ -84,7 +84,7 @@ public class GaleriaFotosDialog extends javax.swing.JDialog {
         panBarraHerramientas.add(btnSiguiente);
 
         btnUltima.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnUltima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/delete.png"))); // NOI18N
+        btnUltima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utilitarios/imgs/next.png"))); // NOI18N
         btnUltima.setToolTipText("ir al final");
         btnUltima.setFocusPainted(false);
         btnUltima.setFocusable(false);
