@@ -90,8 +90,8 @@ public class CapturarFotoManager implements ActionListener {
         }else if(e.getSource()== this.capturarFotoDialog.getBtnCancelar()){
             try {
                 this.camaraThread.detenerImagen();
-                //new ListaFotosManager(listaImagenes);
-                new GaleriaFotosManager(listaImagenes);
+                new ListaFotosManager(listaImagenes);
+                //new GaleriaFotosManager(listaImagenes);
                 this.camaraThread.seguirImagen();
             } catch (Exception ex) {
                 ex.printStackTrace();
