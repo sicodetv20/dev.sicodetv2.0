@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.CamaraThread;
@@ -30,10 +31,13 @@ public class CapturarFotoManager implements ActionListener {
     private final Procesos procesos;
     private CamaraThread camaraThread;
     private List<BufferedImage> listaImagenes;
+    private int detenido;
             
-    public CapturarFotoManager () throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
+    public CapturarFotoManager (int detenido) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
         this.capturarFotoDialog = new CapturarFotoDialog(null, true);
         this.procesos = new Procesos();
+        this.detenido = detenido;
+        JOptionPane.showMessageDialog(this.capturarFotoDialog, "id del detenido: " + detenido);
         
         this.capturarFotoDialog.getBtnAceptar().addActionListener(this);
         this.capturarFotoDialog.getBtnCamara().addActionListener(this);
@@ -107,8 +111,4 @@ public class CapturarFotoManager implements ActionListener {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public static void main(String args[]) throws ExcepcionCampoVacio, ExcepcionComponenteNulo {
-        new CapturarFotoManager();
-        System.exit(0);
-    }
 }

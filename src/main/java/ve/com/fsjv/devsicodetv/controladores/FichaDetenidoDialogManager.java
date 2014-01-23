@@ -55,6 +55,8 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
         this.formulario.getBtnCancelar().addActionListener(this);
         this.formulario.getBtnGuardar().addActionListener(this);
         this.formulario.getBtnBuscar().addActionListener(this);
+        this.formulario.getBtnCamara().addActionListener(this);
+        
         this.formulario.setVisible(true);         
     }
     
@@ -142,6 +144,12 @@ public class FichaDetenidoDialogManager implements ActionListener, KeyListener {
                 this.formulario.getTxtEdad().setText(String.valueOf(edad));
             }else{
                 this.formulario.getTxtEdad().setText(ConstantesApp.INICIALIZAR_STRING);
+            }
+        }else if(e.getSource() == this.formulario.getBtnCamara()){
+            try{
+                CapturarFotoManager camara = new CapturarFotoManager(Integer.valueOf(this.formulario.getTxtCodigoInterno().getText()));
+            } catch(Exception excep){
+                
             }
         }
     }
