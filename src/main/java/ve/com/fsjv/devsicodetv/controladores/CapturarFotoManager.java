@@ -14,6 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import ve.com.fsjv.devsicodetv.controladores.eventos.CapturarFotoMethods;
+import ve.com.fsjv.devsicodetv.modelos.FichaDetenido;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
 import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
 import ve.com.fsjv.devsicodetv.utilitarios.otros.CamaraThread;
@@ -32,11 +34,16 @@ public class CapturarFotoManager implements ActionListener {
     private CamaraThread camaraThread;
     private List<BufferedImage> listaImagenes;
     private int detenido;
-            
-    public CapturarFotoManager (int detenido) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
+    private FichaDetenido fichaDetenido;
+    private CapturarFotoMethods eventos;
+    
+    public CapturarFotoManager (FichaDetenido detenido) throws ExcepcionComponenteNulo, ExcepcionCampoVacio {
+        this.fichaDetenido = fichaDetenido;
         this.capturarFotoDialog = new CapturarFotoDialog(null, true);
         this.procesos = new Procesos();
-        this.detenido = detenido;
+        this.eventos = new CapturarFotoMethods(this.capturarFotoDialog, this.procesos);
+        
+        //this.detenido = detenido;
         JOptionPane.showMessageDialog(this.capturarFotoDialog, "id del detenido: " + detenido);
         
         this.capturarFotoDialog.getBtnAceptar().addActionListener(this);
@@ -110,5 +117,4 @@ public class CapturarFotoManager implements ActionListener {
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
