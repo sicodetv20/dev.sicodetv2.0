@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -57,6 +59,7 @@ public class Prueba implements Serializable {
     }
 
     @Column(name = "descripcion", nullable = false)
+    @Size(min=10)
     public String getDescripcion() {
         return descripcion;
     }

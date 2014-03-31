@@ -8,13 +8,14 @@
     <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/sicodetdev</property>
     <property name="hibernate.connection.username">sicodetdev</property>
     <property name="hibernate.connection.password">sicodetdev15242874</property>-->
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3310/sicodetdev</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sicodetdev</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">bassess15242874</property>
+    <property name="hibernate.connection.password">nirvana</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="ve.com.fsjv.devsicodetv.modelos.Persona" />
     <mapping class="ve.com.fsjv.devsicodetv.modelos.FichaDetenido" />
+    <mapping class="ve.com.fsjv.devsicodetv.modelos.Prueba" />
   </session-factory>
 </hibernate-configuration>
