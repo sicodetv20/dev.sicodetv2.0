@@ -1,7 +1,7 @@
 package ve.com.fsjv.devsicodetv;
 
 import javax.swing.UnsupportedLookAndFeelException;
-import ve.com.fsjv.devsicodetv.controladores.MenuDialogManager;
+import ve.com.fsjv.devsicodetv.controllers.MenuDialogManager;
 
 /**
  * Hello world!

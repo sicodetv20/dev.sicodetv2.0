@@ -6,9 +6,9 @@ package ve.com.fsjv.devsicodetv.controladores.eventos;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
-import ve.com.fsjv.devsicodetv.modelos.FichaDetenido;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
-import ve.com.fsjv.devsicodetv.vistas.CapturarFotoDialog;
+import ve.com.fsjv.devsicodetv.models.FichaDetenido;
+import ve.com.fsjv.devsicodetv.utils.others.Utils;
+import ve.com.fsjv.devsicodetv.views.CapturarFotoDialog;
 
 /**
  *
@@ -17,9 +17,9 @@ import ve.com.fsjv.devsicodetv.vistas.CapturarFotoDialog;
 public class CapturarFotoMethods {
 
     private CapturarFotoDialog capturarFotoDialog;
-    private Procesos procesos;
+    private Utils procesos;
     
-    public CapturarFotoMethods(CapturarFotoDialog dialog, Procesos procesos) {
+    public CapturarFotoMethods(CapturarFotoDialog dialog, Utils procesos) {
         this.capturarFotoDialog = dialog;
         this.procesos = procesos;
     }

@@ -5,10 +5,10 @@
 package ve.com.fsjv.devsicodetv;
 
 import ve.com.fsjv.devsicodetv.DAO.FichaDetenidoDAO;
-import ve.com.fsjv.devsicodetv.controladores.CapturarFotoManager;
-import ve.com.fsjv.devsicodetv.modelos.FichaDetenido;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionCampoVacio;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
+import ve.com.fsjv.devsicodetv.controllers.CapturarFotoManager;
+import ve.com.fsjv.devsicodetv.models.FichaDetenido;
+import ve.com.fsjv.devsicodetv.utils.exceptions.ExcepcionCampoVacio;
+import ve.com.fsjv.devsicodetv.utils.exceptions.ExcepcionComponenteNulo;
 
 /**
  *

@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import ve.com.fsjv.devsicodetv.DAO.FichaDetenidoDAO;
-import ve.com.fsjv.devsicodetv.modelos.FichaDetenido;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
-import ve.com.fsjv.devsicodetv.vistas.BusquedaDetenidosDialog;
+import ve.com.fsjv.devsicodetv.models.FichaDetenido;
+import ve.com.fsjv.devsicodetv.utils.others.Utils;
+import ve.com.fsjv.devsicodetv.views.BusquedaDetenidosDialog;
 
 /**
  *
@@ -19,10 +19,10 @@ import ve.com.fsjv.devsicodetv.vistas.BusquedaDetenidosDialog;
  */
 public class BusquedaDetenidosDialogMethods {
     private BusquedaDetenidosDialog formulario;
-    private Procesos procesos;
+    private Utils procesos;
     private FichaDetenidoDAO fichaDetenidoDAO = new FichaDetenidoDAO();
     
-    public BusquedaDetenidosDialogMethods(BusquedaDetenidosDialog formulario, Procesos procesos){
+    public BusquedaDetenidosDialogMethods(BusquedaDetenidosDialog formulario, Utils procesos){
         this.formulario = formulario;
         this.procesos = procesos;
     }

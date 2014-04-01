@@ -10,7 +10,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionPersonalUtil;
+import ve.com.fsjv.devsicodetv.utils.connect.ConexionPersonalUtil;
 
 /**
  *

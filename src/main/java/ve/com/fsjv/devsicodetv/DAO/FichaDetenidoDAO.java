@@ -7,7 +7,7 @@ package ve.com.fsjv.devsicodetv.DAO;
 import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Session;
-import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
+import ve.com.fsjv.devsicodetv.utils.connect.ConexionSicodetUtil;
 /**
  *
  * @author FAMILIA-SJ

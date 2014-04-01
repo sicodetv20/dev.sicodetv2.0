@@ -6,9 +6,9 @@ package ve.com.fsjv.devsicodetv.controladores.eventos;
 
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
-import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
+import ve.com.fsjv.devsicodetv.utils.others.ConstantsApp;
+import ve.com.fsjv.devsicodetv.utils.others.Utils;
+import ve.com.fsjv.devsicodetv.views.FichaDetenidoDialog;
 
 /**
  *
@@ -16,9 +16,9 @@ import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
  */
 public class FichaDetenidoDialogValidates {
     private FichaDetenidoDialog formulario;
-    private Procesos procesos;
+    private Utils procesos;
     
-    public FichaDetenidoDialogValidates(FichaDetenidoDialog formulario, Procesos procesos){
+    public FichaDetenidoDialogValidates(FichaDetenidoDialog formulario, Utils procesos){
         this.formulario = formulario;
         this.procesos = procesos;
     }
@@ -27,165 +27,165 @@ public class FichaDetenidoDialogValidates {
         ArrayList<String> listaErrores = new ArrayList<String>();
         //arreglo de resultado de la validacion
         String[] arv;
-        String resultado = ConstantesApp.INICIALIZAR_STRING;
-        resultado = this.procesos.validarCampo(this.formulario.getTxtCodigoInterno(), ConstantesApp.TIPO_VALIDACION_VACIO, "Codigo Interno", ConstantesApp.CAMPO_REQUERIDO);
+        String resultado = ConstantsApp.INICIALIZAR_STRING;
+        resultado = this.procesos.validarCampo(this.formulario.getTxtCodigoInterno(), ConstantsApp.TIPO_VALIDACION_VACIO, "Codigo Interno", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
         if(!this.formulario.getTxtCedulaIdentidad().getText().trim().equals("")){
-            resultado = this.procesos.validarLengthCampo(this.formulario.getTxtCedulaIdentidad(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_CEDULA, "Cedula de Identidad", ConstantesApp.CAMPO_NORMAL);
+            resultado = this.procesos.validarLengthCampo(this.formulario.getTxtCedulaIdentidad(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_CEDULA, "Cedula de Identidad", ConstantsApp.CAMPO_NORMAL);
             if(resultado != null){
                 listaErrores.add(resultado);
             }
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getTxtNombres(), ConstantesApp.TIPO_VALIDACION_VACIO, "Nombres", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getTxtNombres(), ConstantsApp.TIPO_VALIDACION_VACIO, "Nombres", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         if(!this.formulario.getTxtNombres().getText().trim().equals("")){
-            resultado = this.procesos.validarLengthCampo(this.formulario.getTxtNombres(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Nombres", ConstantesApp.CAMPO_REQUERIDO);
+            resultado = this.procesos.validarLengthCampo(this.formulario.getTxtNombres(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Nombres", ConstantsApp.CAMPO_REQUERIDO);
             if(resultado != null){
                 listaErrores.add(resultado);
             }
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getTxtApellidos(), ConstantesApp.TIPO_VALIDACION_VACIO, "Apellidos", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getTxtApellidos(), ConstantsApp.TIPO_VALIDACION_VACIO, "Apellidos", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
         if(!this.formulario.getTxtApellidos().getText().trim().equals("")){
-            resultado = this.procesos.validarLengthCampo(this.formulario.getTxtApellidos(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Apellidos", ConstantesApp.CAMPO_REQUERIDO);
+            resultado = this.procesos.validarLengthCampo(this.formulario.getTxtApellidos(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Apellidos", ConstantsApp.CAMPO_REQUERIDO);
             if(resultado != null){
                 listaErrores.add(resultado);
             }
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getTxtLugarNacimiento(), ConstantesApp.TIPO_VALIDACION_VACIO, "Lugar de Nacimiento", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getTxtLugarNacimiento(), ConstantsApp.TIPO_VALIDACION_VACIO, "Lugar de Nacimiento", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
         if(!this.formulario.getTxtLugarNacimiento().getText().trim().equals("")){
-            resultado = this.procesos.validarLengthCampo(this.formulario.getTxtLugarNacimiento(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Lugar Nacimiento", ConstantesApp.CAMPO_REQUERIDO);
+            resultado = this.procesos.validarLengthCampo(this.formulario.getTxtLugarNacimiento(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Lugar Nacimiento", ConstantsApp.CAMPO_REQUERIDO);
             if(resultado != null){
                 listaErrores.add(resultado);
             }
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getTxtEdad(), ConstantesApp.TIPO_VALIDACION_VACIO, "Edad", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getTxtEdad(), ConstantsApp.TIPO_VALIDACION_VACIO, "Edad", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
-        resultado = this.procesos.validarCampo(this.formulario.getTxtEstatura(), ConstantesApp.TIPO_VALIDACION_DECIMAL, "Estatura", ConstantesApp.CAMPO_REQUERIDO);
-        if(resultado != null){
-            listaErrores.add(resultado);
-        }
-        
-        resultado = this.procesos.validarCampo(this.formulario.getCmbSexo(), ConstantesApp.TIPO_VALIDACION_VACIO, "Sexo", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getTxtEstatura(), ConstantsApp.TIPO_VALIDACION_DECIMAL, "Estatura", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbNacionalidad(), ConstantesApp.TIPO_VALIDACION_VACIO, "Nacionalidad", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbSexo(), ConstantsApp.TIPO_VALIDACION_VACIO, "Sexo", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbEstadoCivil(), ConstantesApp.TIPO_VALIDACION_VACIO, "Estado Civil", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbNacionalidad(), ConstantsApp.TIPO_VALIDACION_VACIO, "Nacionalidad", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbColorOjos(), ConstantesApp.TIPO_VALIDACION_VACIO, "Color de Ojos", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbEstadoCivil(), ConstantsApp.TIPO_VALIDACION_VACIO, "Estado Civil", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbColorPiel(), ConstantesApp.TIPO_VALIDACION_VACIO, "Color de Piel", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbColorOjos(), ConstantsApp.TIPO_VALIDACION_VACIO, "Color de Ojos", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbColorCabello(), ConstantesApp.TIPO_VALIDACION_VACIO, "Color de Cabello", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbColorPiel(), ConstantsApp.TIPO_VALIDACION_VACIO, "Color de Piel", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbTipoNariz(), ConstantesApp.TIPO_VALIDACION_VACIO, "Tipo de Nariz", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbColorCabello(), ConstantsApp.TIPO_VALIDACION_VACIO, "Color de Cabello", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbContextura(), ConstantesApp.TIPO_VALIDACION_VACIO, "Contextura", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbTipoNariz(), ConstantsApp.TIPO_VALIDACION_VACIO, "Tipo de Nariz", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbAnio(), ConstantesApp.TIPO_VALIDACION_VACIO, "Año (Fecha de Nacimiento)", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbContextura(), ConstantsApp.TIPO_VALIDACION_VACIO, "Contextura", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbMes(), ConstantesApp.TIPO_VALIDACION_VACIO, "Mes (Fecha de Nacimiento)", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbAnio(), ConstantsApp.TIPO_VALIDACION_VACIO, "Año (Fecha de Nacimiento)", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getCmbDia(), ConstantesApp.TIPO_VALIDACION_VACIO, "Dia (Fecha de Nacimiento)", ConstantesApp.CAMPO_REQUERIDO);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbMes(), ConstantsApp.TIPO_VALIDACION_VACIO, "Mes (Fecha de Nacimiento)", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtAlias(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Alias", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarCampo(this.formulario.getCmbDia(), ConstantsApp.TIPO_VALIDACION_VACIO, "Dia (Fecha de Nacimiento)", ConstantsApp.CAMPO_REQUERIDO);
+        if(resultado != null){
+            listaErrores.add(resultado);
+        }
+        
+        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtAlias(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Alias", ConstantsApp.CAMPO_NORMAL);
             if(resultado != null){
                 listaErrores.add(resultado);
             }
         
-        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtPasaporte(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Pasaporte", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtPasaporte(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Pasaporte", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtReligion(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Religion", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtReligion(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Religion", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
         
-        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtDocumentoAnterior(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Docu. Anterior", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtDocumentoAnterior(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Docu. Anterior", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtCicatriz(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Cicatriz", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtCicatriz(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Cicatriz", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtSeniasParticulares(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Señas Part.", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtSeniasParticulares(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Señas Part.", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtProfesion(), ConstantesApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Profesion", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarLengthCampo(this.formulario.getTxtProfesion(), ConstantsApp.TIPO_VALIDACION_MAXLENGTH_TITULO, "Profesion", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getTxtTelefonoCelular(), ConstantesApp.TIPO_VALIDACION_TELEFONO, "Telefono Celular", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarCampo(this.formulario.getTxtTelefonoCelular(), ConstantsApp.TIPO_VALIDACION_TELEFONO, "Telefono Celular", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getTxtTelefonoEmergencia(), ConstantesApp.TIPO_VALIDACION_TELEFONO, "Telefono de Emergencia", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarCampo(this.formulario.getTxtTelefonoEmergencia(), ConstantsApp.TIPO_VALIDACION_TELEFONO, "Telefono de Emergencia", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }
         
-        resultado = this.procesos.validarCampo(this.formulario.getTxtTelefonoHabitacion(), ConstantesApp.TIPO_VALIDACION_TELEFONO, "Telefono de Habitacion", ConstantesApp.CAMPO_NORMAL);
+        resultado = this.procesos.validarCampo(this.formulario.getTxtTelefonoHabitacion(), ConstantsApp.TIPO_VALIDACION_TELEFONO, "Telefono de Habitacion", ConstantsApp.CAMPO_NORMAL);
         if(resultado != null){
             listaErrores.add(resultado);
         }

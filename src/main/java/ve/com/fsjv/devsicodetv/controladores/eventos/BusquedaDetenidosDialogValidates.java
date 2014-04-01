@@ -5,9 +5,9 @@
 package ve.com.fsjv.devsicodetv.controladores.eventos;
 
 import java.util.ArrayList;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
-import ve.com.fsjv.devsicodetv.vistas.BusquedaDetenidosDialog;
+import ve.com.fsjv.devsicodetv.utils.others.ConstantsApp;
+import ve.com.fsjv.devsicodetv.utils.others.Utils;
+import ve.com.fsjv.devsicodetv.views.BusquedaDetenidosDialog;
 
 /**
  *
@@ -15,9 +15,9 @@ import ve.com.fsjv.devsicodetv.vistas.BusquedaDetenidosDialog;
  */
 public class BusquedaDetenidosDialogValidates {
     private BusquedaDetenidosDialog formulario;
-    private Procesos procesos;
+    private Utils procesos;
     
-    public BusquedaDetenidosDialogValidates(BusquedaDetenidosDialog formulario, Procesos procesos){
+    public BusquedaDetenidosDialogValidates(BusquedaDetenidosDialog formulario, Utils procesos){
         this.formulario = formulario;
         this.procesos = procesos;
     }
@@ -26,8 +26,8 @@ public class BusquedaDetenidosDialogValidates {
         ArrayList<String> listaErrores = new ArrayList<String>();
         //arreglo de resultado de la validacion
         String[] arv;
-        String resultado = ConstantesApp.INICIALIZAR_STRING;
-        resultado = this.procesos.validarCampo(this.formulario.getTxtvalor(), ConstantesApp.TIPO_VALIDACION_VACIO, "Valor de Busqueda", ConstantesApp.CAMPO_REQUERIDO);
+        String resultado = ConstantsApp.INICIALIZAR_STRING;
+        resultado = this.procesos.validarCampo(this.formulario.getTxtvalor(), ConstantsApp.TIPO_VALIDACION_VACIO, "Valor de Busqueda", ConstantsApp.CAMPO_REQUERIDO);
         if(resultado != null){
             listaErrores.add(resultado);
         }

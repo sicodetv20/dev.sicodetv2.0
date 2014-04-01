@@ -7,10 +7,10 @@ package ve.com.fsjv.devsicodetv.controladores.eventos;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
-import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
+import ve.com.fsjv.devsicodetv.utils.exceptions.ExcepcionComponenteNulo;
+import ve.com.fsjv.devsicodetv.utils.others.ConstantsApp;
+import ve.com.fsjv.devsicodetv.utils.others.Utils;
+import ve.com.fsjv.devsicodetv.views.FichaDetenidoDialog;
 
 /**
  *
@@ -18,9 +18,9 @@ import ve.com.fsjv.devsicodetv.vistas.FichaDetenidoDialog;
  */
 public class FichaDetenidoDialogEvents {
     private FichaDetenidoDialog formulario;
-    private Procesos procesos;
+    private Utils procesos;
     
-    public FichaDetenidoDialogEvents(FichaDetenidoDialog formulario, Procesos procesos){
+    public FichaDetenidoDialogEvents(FichaDetenidoDialog formulario, Utils procesos){
         this.formulario = formulario;
         this.procesos = procesos;
     }
@@ -65,7 +65,7 @@ public class FichaDetenidoDialogEvents {
     }
     
     public void aplicarReadOnly(boolean valor, int tipo) {
-        if (tipo == ConstantesApp.READONLY_DEFAULT) {
+        if (tipo == ConstantsApp.READONLY_DEFAULT) {
             this.cargarDialogBlanco();
         }
         this.formulario.getTxtCedulaIdentidad().setEditable(valor);
@@ -106,43 +106,43 @@ public class FichaDetenidoDialogEvents {
     
     public void iniciarCampos(){
         this.cargarDialogBlanco();
-        this.formulario.getTxtCodigoInterno().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtCedulaIdentidad().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtNombres().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtApellidos().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtAlias().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtPasaporte().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtReligion().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtCodigoInterno().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbSexo().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbNacionalidad().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbEstadoCivil().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbAnio().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbMes().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbDia().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbColorCabello().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbColorPiel().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbTipoNariz().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbLentes().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbColorOjos().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbContextura().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbVivienda().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbTipoVivienda().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getCmbGradoInstruccion().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtEdad().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtAnio().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtCicatriz().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtSeniasParticulares().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtLugarNacimiento().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtDocumentoAnterior().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtTelefonoCelular().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtTelefonoHabitacion().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtTelefonoEmergencia().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtEstatura().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtProfesion().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtDireccionAnterior().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtDireccionActual().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
-        this.formulario.getTxtDireccionEmergencia().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
+        this.formulario.getTxtCodigoInterno().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtCedulaIdentidad().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtNombres().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtApellidos().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtAlias().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtPasaporte().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtReligion().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtCodigoInterno().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbSexo().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbNacionalidad().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbEstadoCivil().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbAnio().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbMes().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbDia().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbColorCabello().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbColorPiel().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbTipoNariz().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbLentes().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbColorOjos().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbContextura().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbVivienda().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbTipoVivienda().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getCmbGradoInstruccion().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtEdad().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtAnio().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtCicatriz().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtSeniasParticulares().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtLugarNacimiento().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtDocumentoAnterior().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtTelefonoCelular().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtTelefonoHabitacion().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtTelefonoEmergencia().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtEstatura().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtProfesion().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtDireccionAnterior().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtDireccionActual().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
+        this.formulario.getTxtDireccionEmergencia().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
         
         this.formulario.getTxtCodigoInterno().setBackground(Color.white);
         this.formulario.getTxtCedulaIdentidad().setBackground(Color.white);
@@ -204,7 +204,7 @@ public class FichaDetenidoDialogEvents {
     }
     
     public void iniciarBotones(){
-        this.aplicarReadOnly(false, ConstantesApp.READONLY_DEFAULT);
+        this.aplicarReadOnly(false, ConstantsApp.READONLY_DEFAULT);
         this.formulario.getBtnBuscar().setEnabled(true);
         this.formulario.getBtnNuevo().setEnabled(true);
         
@@ -256,7 +256,7 @@ public class FichaDetenidoDialogEvents {
     
     public void eventoBuscar() throws ExcepcionComponenteNulo{
         this.resaltarCampos();
-        this.aplicarReadOnly(true, ConstantesApp.READONLY_DATA);
+        this.aplicarReadOnly(true, ConstantsApp.READONLY_DATA);
         this.formulario.getBtnBuscar().setEnabled(false);
         this.formulario.getBtnNuevo().setEnabled(false);
         

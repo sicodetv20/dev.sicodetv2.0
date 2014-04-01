@@ -7,26 +7,26 @@ package ve.com.fsjv.devsicodetv.controladores.eventos;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.table.DefaultTableModel;
-import ve.com.fsjv.devsicodetv.utilitarios.excepciones.ExcepcionComponenteNulo;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.ConstantesApp;
-import ve.com.fsjv.devsicodetv.utilitarios.otros.Procesos;
-import ve.com.fsjv.devsicodetv.vistas.BusquedaDetenidosDialog;
+import ve.com.fsjv.devsicodetv.utils.exceptions.ExcepcionComponenteNulo;
+import ve.com.fsjv.devsicodetv.utils.others.ConstantsApp;
+import ve.com.fsjv.devsicodetv.utils.others.Utils;
+import ve.com.fsjv.devsicodetv.views.BusquedaDetenidosDialog;
 
 /**
  *
  * @author FAMILIA-SJ
  */
     public class BusquedaDetenidosDialogEvents {
-    private Procesos procesos;
+    private Utils procesos;
     private BusquedaDetenidosDialog formulario;
     
-    public BusquedaDetenidosDialogEvents(BusquedaDetenidosDialog formulario, Procesos procesos){
+    public BusquedaDetenidosDialogEvents(BusquedaDetenidosDialog formulario, Utils procesos){
         this.formulario = formulario;
         this.procesos = procesos;
     }
     
     public void iniciarCampos(){
-        this.formulario.getTxtvalor().setBorder(BorderFactory.createLineBorder(new Color(ConstantesApp.BORDER_COLOR_R, ConstantesApp.BORDER_COLOR_G, ConstantesApp.BORDER_COLOR_B)));
+        this.formulario.getTxtvalor().setBorder(BorderFactory.createLineBorder(new Color(ConstantsApp.BORDER_COLOR_R, ConstantsApp.BORDER_COLOR_G, ConstantsApp.BORDER_COLOR_B)));
         this.formulario.getTxtvalor().setBackground(Color.white);
     }
     
@@ -38,33 +38,33 @@ import ve.com.fsjv.devsicodetv.vistas.BusquedaDetenidosDialog;
         this.limpiarFormulario();
         this.limpiarJTable();
         this.iniciarCampos();
-        this.formulario.getRadAlias().setSelected(ConstantesApp.NO_EDITABLE);
-        this.formulario.getRadApellidos().setSelected(ConstantesApp.NO_EDITABLE);
-        this.formulario.getRadCedulaIdentidad().setSelected(ConstantesApp.NO_EDITABLE);
-        this.formulario.getRadNombres().setSelected(ConstantesApp.NO_EDITABLE);
-        this.formulario.getRadNombresApellidos().setSelected(ConstantesApp.NO_EDITABLE);
-        this.formulario.getRadNroControl().setSelected(ConstantesApp.NO_EDITABLE);
-        this.formulario.getRadPasaporte().setSelected(ConstantesApp.NO_EDITABLE);
-        this.formulario.getRadRasgoFisico().setSelected(ConstantesApp.NO_EDITABLE);
-        this.formulario.getTxtvalor().setEditable(ConstantesApp.NO_EDITABLE);
-        this.formulario.getBtnBuscar().setEnabled(ConstantesApp.NO_EDITABLE);
-        this.formulario.getBtnReiniciar().setEnabled(ConstantesApp.NO_EDITABLE);
-        this.formulario.getTabResultados().setEnabled(ConstantesApp.NO_EDITABLE);
+        this.formulario.getRadAlias().setSelected(ConstantsApp.NO_EDITABLE);
+        this.formulario.getRadApellidos().setSelected(ConstantsApp.NO_EDITABLE);
+        this.formulario.getRadCedulaIdentidad().setSelected(ConstantsApp.NO_EDITABLE);
+        this.formulario.getRadNombres().setSelected(ConstantsApp.NO_EDITABLE);
+        this.formulario.getRadNombresApellidos().setSelected(ConstantsApp.NO_EDITABLE);
+        this.formulario.getRadNroControl().setSelected(ConstantsApp.NO_EDITABLE);
+        this.formulario.getRadPasaporte().setSelected(ConstantsApp.NO_EDITABLE);
+        this.formulario.getRadRasgoFisico().setSelected(ConstantsApp.NO_EDITABLE);
+        this.formulario.getTxtvalor().setEditable(ConstantsApp.NO_EDITABLE);
+        this.formulario.getBtnBuscar().setEnabled(ConstantsApp.NO_EDITABLE);
+        this.formulario.getBtnReiniciar().setEnabled(ConstantsApp.NO_EDITABLE);
+        this.formulario.getTabResultados().setEnabled(ConstantsApp.NO_EDITABLE);
     }
     
     public void habilitarFormulario() throws ExcepcionComponenteNulo{
         this.limpiarFormulario();
         this.limpiarJTable();
         this.resaltarCampos();
-        this.formulario.getTxtvalor().setEditable(ConstantesApp.EDITABLE);
-        this.formulario.getTxtvalor().setEnabled(ConstantesApp.EDITABLE);
-        this.formulario.getBtnBuscar().setEnabled(ConstantesApp.EDITABLE);
-        this.formulario.getBtnReiniciar().setEnabled(ConstantesApp.EDITABLE);
-        this.formulario.getTabResultados().setEnabled(ConstantesApp.EDITABLE);
+        this.formulario.getTxtvalor().setEditable(ConstantsApp.EDITABLE);
+        this.formulario.getTxtvalor().setEnabled(ConstantsApp.EDITABLE);
+        this.formulario.getBtnBuscar().setEnabled(ConstantsApp.EDITABLE);
+        this.formulario.getBtnReiniciar().setEnabled(ConstantsApp.EDITABLE);
+        this.formulario.getTabResultados().setEnabled(ConstantsApp.EDITABLE);
     }
     
     public void limpiarFormulario(){
-        this.formulario.getTxtvalor().setText(ConstantesApp.INICIALIZAR_STRING);
+        this.formulario.getTxtvalor().setText(ConstantsApp.INICIALIZAR_STRING);
     }
     
     public void limpiarJTable(){

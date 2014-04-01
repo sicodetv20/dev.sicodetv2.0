@@ -9,7 +9,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import ve.com.fsjv.devsicodetv.utilitarios.conexion.ConexionSicodetUtil;
+import ve.com.fsjv.devsicodetv.utils.connect.ConexionSicodetUtil;
 
 /**
  *

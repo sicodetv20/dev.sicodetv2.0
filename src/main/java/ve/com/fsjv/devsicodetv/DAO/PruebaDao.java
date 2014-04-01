@@ -11,7 +11,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import ve.com.fsjv.devsicodetv.modelos.Prueba;
+import ve.com.fsjv.devsicodetv.models.Prueba;
 
 /**
  *
