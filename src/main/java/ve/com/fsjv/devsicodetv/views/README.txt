@@ -1,1 +1,0 @@
-Directorio destinado para alojar todas las interfaces utilizadas en la aplicación.

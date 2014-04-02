@@ -1,18 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ve.com.fsjv.devsicodetv.controllers.login;
 
-import ve.com.fsjv.devsicodetv.controllers.cause.*;
-import ve.com.fsjv.devsicodetv.controllers.block.*;
+import ve.com.fsjv.devsicodetv.views.LoginDialog;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 /**
  *
- * @author FAMILIA-SJ
+ * @author TecnoSoluciones-NS
  */
 public class DialogManager {
-    
+    private LoginDialog form;
+    public DialogManager(){
+        this.form = new LoginDialog(new JFrame(), true);
+        this.form.setTitle("Inicio de Sesion");
+        this.form.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        this.form.setVisible(true);
+    }
 }

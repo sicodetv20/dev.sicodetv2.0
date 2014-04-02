@@ -1,15 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ve.com.fsjv.devsicodetv.controllers.block;
+
+import ve.com.fsjv.devsicodetv.views.BlockDialog;
+import javax.swing.JFrame;
+import javax.swing.JDialog;
 
 /**
  *
- * @author FAMILIA-SJ
+ * @author Tecnosoluciones-NS
  */
 public class DialogManager {
-    
+    private BlockDialog form;
+    public DialogManager(){
+        this.form = new BlockDialog(new JFrame(), true);
+        this.form.setTitle("Bloques y Secciones de Celdas");
+        this.form.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        this.form.setVisible(true);
+    }
 }

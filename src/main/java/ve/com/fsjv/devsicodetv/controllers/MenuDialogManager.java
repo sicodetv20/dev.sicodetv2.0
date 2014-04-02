@@ -1,7 +1,7 @@
 package ve.com.fsjv.devsicodetv.controllers;
 
 import javax.swing.JDialog;
-import ve.com.fsjv.devsicodetv.views.MenuDialog;
+import ve.com.fsjv.devsicodetv.views.Menu2Dialog;
 import ve.com.fsjv.devsicodetv.controllers.FichaDetenidoDialogManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
  * @author franklin
  */
 public class MenuDialogManager implements ActionListener {
-    private MenuDialog formulario;
+    private Menu2Dialog formulario;
     
     public MenuDialogManager(){
-        this.formulario = new MenuDialog();
+        this.formulario = new Menu2Dialog();
         this.formulario.setVisible(true);
         this.formulario.btnFichaDetenido.addActionListener(this);
         

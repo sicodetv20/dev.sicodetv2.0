@@ -1,18 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ve.com.fsjv.devsicodetv.controllers.foodDelivery;
 
-import ve.com.fsjv.devsicodetv.controllers.cause.*;
-import ve.com.fsjv.devsicodetv.controllers.block.*;
+import ve.com.fsjv.devsicodetv.views.FoodDeliveryDialog;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 /**
  *
- * @author FAMILIA-SJ
+ * @author TecnoSoluciones-NS
  */
 public class DialogManager {
-    
+    private FoodDeliveryDialog form;
+    public DialogManager(){
+        this.form = new FoodDeliveryDialog(new JFrame(), true);
+        this.form.setTitle("Entrega de Comidas");
+        this.form.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        this.form.setVisible(true);
+    }
 }
