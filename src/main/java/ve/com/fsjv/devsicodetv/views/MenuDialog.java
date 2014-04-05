@@ -1,5 +1,9 @@
 package ve.com.fsjv.devsicodetv.views;
 
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
 /**
  *
  * @author TecnoSoluciones-NS
@@ -22,22 +26,599 @@ public class MenuDialog extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuMainProcess = new javax.swing.JMenu();
+        itemRecord = new javax.swing.JMenuItem();
+        itemOutput = new javax.swing.JMenuItem();
+        itemTransfer = new javax.swing.JMenuItem();
+        itemFoodDelivery = new javax.swing.JMenuItem();
+        itemVisit = new javax.swing.JMenuItem();
+        menuMainSearch = new javax.swing.JMenu();
+        itemFindByPhoto = new javax.swing.JMenuItem();
+        itemSimpleSearch = new javax.swing.JMenuItem();
+        itemAdvancedSearch = new javax.swing.JMenuItem();
+        menuMainReports = new javax.swing.JMenu();
+        menuMainRecents = new javax.swing.JMenu();
+        itemLastRecordSelected = new javax.swing.JMenuItem();
+        itemLastTransferAdded = new javax.swing.JMenuItem();
+        itemLastVisitAdded = new javax.swing.JMenuItem();
+        itemLastFoodDeliveryAdded = new javax.swing.JMenuItem();
+        itemLastOutputAdded = new javax.swing.JMenuItem();
+        itemTrasferPending = new javax.swing.JMenuItem();
+        itemVisitActives = new javax.swing.JMenuItem();
+        menuMainMonitor = new javax.swing.JMenu();
+        itemVisitActiveMonitor = new javax.swing.JMenuItem();
+        itemTransferPendingMonitor = new javax.swing.JMenuItem();
+        itemPersonArrestedMonitor = new javax.swing.JMenuItem();
+        menuMainOthers = new javax.swing.JMenu();
+        itemCrimeType = new javax.swing.JMenuItem();
+        itemOutputType = new javax.swing.JMenuItem();
+        itemOutputTopic = new javax.swing.JMenuItem();
+        itemTransferType = new javax.swing.JMenuItem();
+        itemTransferTopic = new javax.swing.JMenuItem();
+        itemOrganization = new javax.swing.JMenuItem();
+        itemBlock = new javax.swing.JMenuItem();
+        itemCell = new javax.swing.JMenuItem();
+        itemVisitType = new javax.swing.JMenuItem();
+        menuMainManagement = new javax.swing.JMenu();
+        itemUpdatePassword = new javax.swing.JMenuItem();
+        itemEditProfile = new javax.swing.JMenuItem();
+        itemUser = new javax.swing.JMenuItem();
+        menuMainRoleAndPermission = new javax.swing.JMenu();
+        itemRole = new javax.swing.JMenuItem();
+        itemPermission = new javax.swing.JMenuItem();
+        menuMainExit = new javax.swing.JMenu();
+        itemExit = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        menuMainProcess.setText("Procesos");
+
+        itemRecord.setText("Ficha del detenido");
+        itemRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRecordActionPerformed(evt);
+            }
+        });
+        menuMainProcess.add(itemRecord);
+
+        itemOutput.setText("Salida de detenido");
+        menuMainProcess.add(itemOutput);
+
+        itemTransfer.setText("Traslado de detenido");
+        menuMainProcess.add(itemTransfer);
+
+        itemFoodDelivery.setText("Entrega de comida");
+        menuMainProcess.add(itemFoodDelivery);
+
+        itemVisit.setText("Visita");
+        menuMainProcess.add(itemVisit);
+
+        jMenuBar1.add(menuMainProcess);
+
+        menuMainSearch.setText("Busqueda de detenidos");
+
+        itemFindByPhoto.setText("Por foto");
+        menuMainSearch.add(itemFindByPhoto);
+
+        itemSimpleSearch.setText("Simple");
+        menuMainSearch.add(itemSimpleSearch);
+
+        itemAdvancedSearch.setText("Avanzada");
+        menuMainSearch.add(itemAdvancedSearch);
+
+        jMenuBar1.add(menuMainSearch);
+
+        menuMainReports.setText("Reportes");
+        jMenuBar1.add(menuMainReports);
+
+        menuMainRecents.setText("Recientes");
+
+        itemLastRecordSelected.setText("Ultimas fichas seleccionadas");
+        itemLastRecordSelected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemLastRecordSelectedActionPerformed(evt);
+            }
+        });
+        menuMainRecents.add(itemLastRecordSelected);
+
+        itemLastTransferAdded.setText("Ultimos traslados registrados");
+        menuMainRecents.add(itemLastTransferAdded);
+
+        itemLastVisitAdded.setText("Ultimas Visitas registradas");
+        menuMainRecents.add(itemLastVisitAdded);
+
+        itemLastFoodDeliveryAdded.setText("Ultimas comidas entregadas");
+        menuMainRecents.add(itemLastFoodDeliveryAdded);
+
+        itemLastOutputAdded.setText("Ultimas Salidas registradas");
+        menuMainRecents.add(itemLastOutputAdded);
+
+        itemTrasferPending.setText("Traslados pendientes");
+        menuMainRecents.add(itemTrasferPending);
+
+        itemVisitActives.setText("Visitas activas");
+        menuMainRecents.add(itemVisitActives);
+
+        jMenuBar1.add(menuMainRecents);
+
+        menuMainMonitor.setText("Monitoreo");
+
+        itemVisitActiveMonitor.setText("Visitas activas");
+        menuMainMonitor.add(itemVisitActiveMonitor);
+
+        itemTransferPendingMonitor.setText("Traslados pendientes");
+        menuMainMonitor.add(itemTransferPendingMonitor);
+
+        itemPersonArrestedMonitor.setText("Personas Detenidas");
+        menuMainMonitor.add(itemPersonArrestedMonitor);
+
+        jMenuBar1.add(menuMainMonitor);
+
+        menuMainOthers.setText("Otros");
+
+        itemCrimeType.setText("Tipo de delito");
+        menuMainOthers.add(itemCrimeType);
+
+        itemOutputType.setText("Tipo de salida");
+        menuMainOthers.add(itemOutputType);
+
+        itemOutputTopic.setText("Topico de salida");
+        menuMainOthers.add(itemOutputTopic);
+
+        itemTransferType.setText("Tipos de traslado");
+        menuMainOthers.add(itemTransferType);
+
+        itemTransferTopic.setText("Topico de traslado");
+        menuMainOthers.add(itemTransferTopic);
+
+        itemOrganization.setText("Organismo externo");
+        menuMainOthers.add(itemOrganization);
+
+        itemBlock.setText("Bloque o Seccion");
+        menuMainOthers.add(itemBlock);
+
+        itemCell.setText("Celda");
+        menuMainOthers.add(itemCell);
+
+        itemVisitType.setText("Tipo de Visita");
+        menuMainOthers.add(itemVisitType);
+
+        jMenuBar1.add(menuMainOthers);
+
+        menuMainManagement.setText("Administración");
+
+        itemUpdatePassword.setText("Actualizar Contraseña");
+        menuMainManagement.add(itemUpdatePassword);
+
+        itemEditProfile.setText("Editar Tu Perfil");
+        menuMainManagement.add(itemEditProfile);
+
+        itemUser.setText("Administrar Usuarios");
+        menuMainManagement.add(itemUser);
+
+        jMenuBar1.add(menuMainManagement);
+
+        menuMainRoleAndPermission.setText("Roles y Permisos");
+
+        itemRole.setText("Roles");
+        menuMainRoleAndPermission.add(itemRole);
+
+        itemPermission.setText("Permisos");
+        menuMainRoleAndPermission.add(itemPermission);
+
+        jMenuBar1.add(menuMainRoleAndPermission);
+
+        menuMainExit.setText("Salir de la Aplicación");
+
+        itemExit.setText("Salir");
+        menuMainExit.add(itemExit);
+
+        jMenuBar1.add(menuMainExit);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 672, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 382, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void itemRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRecordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemRecordActionPerformed
+
+    private void itemLastRecordSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemLastRecordSelectedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemLastRecordSelectedActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemAdvancedSearch;
+    private javax.swing.JMenuItem itemBlock;
+    private javax.swing.JMenuItem itemCell;
+    private javax.swing.JMenuItem itemCrimeType;
+    private javax.swing.JMenuItem itemEditProfile;
+    private javax.swing.JMenuItem itemExit;
+    private javax.swing.JMenuItem itemFindByPhoto;
+    private javax.swing.JMenuItem itemFoodDelivery;
+    private javax.swing.JMenuItem itemLastFoodDeliveryAdded;
+    private javax.swing.JMenuItem itemLastOutputAdded;
+    private javax.swing.JMenuItem itemLastRecordSelected;
+    private javax.swing.JMenuItem itemLastTransferAdded;
+    private javax.swing.JMenuItem itemLastVisitAdded;
+    private javax.swing.JMenuItem itemOrganization;
+    private javax.swing.JMenuItem itemOutput;
+    private javax.swing.JMenuItem itemOutputTopic;
+    private javax.swing.JMenuItem itemOutputType;
+    private javax.swing.JMenuItem itemPermission;
+    private javax.swing.JMenuItem itemPersonArrestedMonitor;
+    private javax.swing.JMenuItem itemRecord;
+    private javax.swing.JMenuItem itemRole;
+    private javax.swing.JMenuItem itemSimpleSearch;
+    private javax.swing.JMenuItem itemTransfer;
+    private javax.swing.JMenuItem itemTransferPendingMonitor;
+    private javax.swing.JMenuItem itemTransferTopic;
+    private javax.swing.JMenuItem itemTransferType;
+    private javax.swing.JMenuItem itemTrasferPending;
+    private javax.swing.JMenuItem itemUpdatePassword;
+    private javax.swing.JMenuItem itemUser;
+    private javax.swing.JMenuItem itemVisit;
+    private javax.swing.JMenuItem itemVisitActiveMonitor;
+    private javax.swing.JMenuItem itemVisitActives;
+    private javax.swing.JMenuItem itemVisitType;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuMainExit;
+    private javax.swing.JMenu menuMainManagement;
+    private javax.swing.JMenu menuMainMonitor;
+    private javax.swing.JMenu menuMainOthers;
+    private javax.swing.JMenu menuMainProcess;
+    private javax.swing.JMenu menuMainRecents;
+    private javax.swing.JMenu menuMainReports;
+    private javax.swing.JMenu menuMainRoleAndPermission;
+    private javax.swing.JMenu menuMainSearch;
     // End of variables declaration//GEN-END:variables
+
+    public JMenuItem getItemVisitType() {
+        return itemVisitType;
+    }
+
+    public void setItemVisitType(JMenuItem itemVisitType) {
+        this.itemVisitType = itemVisitType;
+    }
+
+    public JMenuItem getItemExit() {
+        return itemExit;
+    }
+
+    public void setItemExit(JMenuItem itemExit) {
+        this.itemExit = itemExit;
+    }
+
+    public JMenuItem getItemAdvancedSearch() {
+        return itemAdvancedSearch;
+    }
+
+    public void setItemAdvancedSearch(JMenuItem itemAdvancedSearch) {
+        this.itemAdvancedSearch = itemAdvancedSearch;
+    }
+
+    public JMenuItem getItemBlock() {
+        return itemBlock;
+    }
+
+    public void setItemBlock(JMenuItem itemBlock) {
+        this.itemBlock = itemBlock;
+    }
+
+    public JMenuItem getItemCell() {
+        return itemCell;
+    }
+
+    public void setItemCell(JMenuItem itemCell) {
+        this.itemCell = itemCell;
+    }
+
+    public JMenuItem getItemCrimeType() {
+        return itemCrimeType;
+    }
+
+    public void setItemCrimeType(JMenuItem itemCrimeType) {
+        this.itemCrimeType = itemCrimeType;
+    }
+
+    public JMenuItem getItemEditProfile() {
+        return itemEditProfile;
+    }
+
+    public void setItemEditProfile(JMenuItem itemEditProfile) {
+        this.itemEditProfile = itemEditProfile;
+    }
+
+    public JMenuItem getItemFindByPhoto() {
+        return itemFindByPhoto;
+    }
+
+    public void setItemFindByPhoto(JMenuItem itemFindByPhoto) {
+        this.itemFindByPhoto = itemFindByPhoto;
+    }
+
+    public JMenuItem getItemFoodDelivery() {
+        return itemFoodDelivery;
+    }
+
+    public void setItemFoodDelivery(JMenuItem itemFoodDelivery) {
+        this.itemFoodDelivery = itemFoodDelivery;
+    }
+
+    public JMenuItem getItemLastFoodDeliveryAdded() {
+        return itemLastFoodDeliveryAdded;
+    }
+
+    public void setItemLastFoodDeliveryAdded(JMenuItem itemLastFoodDeliveryAdded) {
+        this.itemLastFoodDeliveryAdded = itemLastFoodDeliveryAdded;
+    }
+
+    public JMenuItem getItemLastOutputAdded() {
+        return itemLastOutputAdded;
+    }
+
+    public void setItemLastOutputAdded(JMenuItem itemLastOutputAdded) {
+        this.itemLastOutputAdded = itemLastOutputAdded;
+    }
+
+    public JMenuItem getItemLastRecordSelected() {
+        return itemLastRecordSelected;
+    }
+
+    public void setItemLastRecordSelected(JMenuItem itemLastRecordSelected) {
+        this.itemLastRecordSelected = itemLastRecordSelected;
+    }
+
+    public JMenuItem getItemLastTransferAdded() {
+        return itemLastTransferAdded;
+    }
+
+    public void setItemLastTransferAdded(JMenuItem itemLastTransferAdded) {
+        this.itemLastTransferAdded = itemLastTransferAdded;
+    }
+
+    public JMenuItem getItemLastVisitAdded() {
+        return itemLastVisitAdded;
+    }
+
+    public void setItemLastVisitAdded(JMenuItem itemLastVisitAdded) {
+        this.itemLastVisitAdded = itemLastVisitAdded;
+    }
+
+    public JMenuItem getItemOrganization() {
+        return itemOrganization;
+    }
+
+    public void setItemOrganization(JMenuItem itemOrganization) {
+        this.itemOrganization = itemOrganization;
+    }
+
+    public JMenuItem getItemOutput() {
+        return itemOutput;
+    }
+
+    public void setItemOutput(JMenuItem itemOutput) {
+        this.itemOutput = itemOutput;
+    }
+
+    public JMenuItem getItemOutputTopic() {
+        return itemOutputTopic;
+    }
+
+    public void setItemOutputTopic(JMenuItem itemOutputTopic) {
+        this.itemOutputTopic = itemOutputTopic;
+    }
+
+    public JMenuItem getItemOutputType() {
+        return itemOutputType;
+    }
+
+    public void setItemOutputType(JMenuItem itemOutputType) {
+        this.itemOutputType = itemOutputType;
+    }
+
+    public JMenuItem getItemPermission() {
+        return itemPermission;
+    }
+
+    public void setItemPermission(JMenuItem itemPermission) {
+        this.itemPermission = itemPermission;
+    }
+
+    public JMenuItem getItemPersonArrestedMonitor() {
+        return itemPersonArrestedMonitor;
+    }
+
+    public void setItemPersonArrestedMonitor(JMenuItem itemPersonArrestedMonitor) {
+        this.itemPersonArrestedMonitor = itemPersonArrestedMonitor;
+    }
+
+    public JMenuItem getItemRecord() {
+        return itemRecord;
+    }
+
+    public void setItemRecord(JMenuItem itemRecord) {
+        this.itemRecord = itemRecord;
+    }
+
+    public JMenuItem getItemRole() {
+        return itemRole;
+    }
+
+    public void setItemRole(JMenuItem itemRole) {
+        this.itemRole = itemRole;
+    }
+
+    public JMenuItem getItemSimpleSearch() {
+        return itemSimpleSearch;
+    }
+
+    public void setItemSimpleSearch(JMenuItem itemSimpleSearch) {
+        this.itemSimpleSearch = itemSimpleSearch;
+    }
+
+    public JMenuItem getItemTransfer() {
+        return itemTransfer;
+    }
+
+    public void setItemTransfer(JMenuItem itemTransfer) {
+        this.itemTransfer = itemTransfer;
+    }
+
+    public JMenuItem getItemTransferPendingMonitor() {
+        return itemTransferPendingMonitor;
+    }
+
+    public void setItemTransferPendingMonitor(JMenuItem itemTransferPendingMonitor) {
+        this.itemTransferPendingMonitor = itemTransferPendingMonitor;
+    }
+
+    public JMenuItem getItemTransferTopic() {
+        return itemTransferTopic;
+    }
+
+    public void setItemTransferTopic(JMenuItem itemTransferTopic) {
+        this.itemTransferTopic = itemTransferTopic;
+    }
+
+    public JMenuItem getItemTransferType() {
+        return itemTransferType;
+    }
+
+    public void setItemTransferType(JMenuItem itemTransferType) {
+        this.itemTransferType = itemTransferType;
+    }
+
+    public JMenuItem getItemTrasferPending() {
+        return itemTrasferPending;
+    }
+
+    public void setItemTrasferPending(JMenuItem itemTrasferPending) {
+        this.itemTrasferPending = itemTrasferPending;
+    }
+
+    public JMenuItem getItemUpdatePassword() {
+        return itemUpdatePassword;
+    }
+
+    public void setItemUpdatePassword(JMenuItem itemUpdatePassword) {
+        this.itemUpdatePassword = itemUpdatePassword;
+    }
+
+    public JMenuItem getItemUser() {
+        return itemUser;
+    }
+
+    public void setItemUser(JMenuItem itemUser) {
+        this.itemUser = itemUser;
+    }
+
+    public JMenuItem getItemVisit() {
+        return itemVisit;
+    }
+
+    public void setItemVisit(JMenuItem itemVisit) {
+        this.itemVisit = itemVisit;
+    }
+
+    public JMenuItem getItemVisitActiveMonitor() {
+        return itemVisitActiveMonitor;
+    }
+
+    public void setItemVisitActiveMonitor(JMenuItem itemVisitActiveMonitor) {
+        this.itemVisitActiveMonitor = itemVisitActiveMonitor;
+    }
+
+    public JMenuItem getItemVisitActives() {
+        return itemVisitActives;
+    }
+
+    public void setItemVisitActives(JMenuItem itemVisitActives) {
+        this.itemVisitActives = itemVisitActives;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenu getMenuMainExit() {
+        return menuMainExit;
+    }
+
+    public void setMenuMainExit(JMenu menuMainExit) {
+        this.menuMainExit = menuMainExit;
+    }
+
+    public JMenu getMenuMainManagement() {
+        return menuMainManagement;
+    }
+
+    public void setMenuMainManagement(JMenu menuMainManagement) {
+        this.menuMainManagement = menuMainManagement;
+    }
+
+    public JMenu getMenuMainMonitor() {
+        return menuMainMonitor;
+    }
+
+    public void setMenuMainMonitor(JMenu menuMainMonitor) {
+        this.menuMainMonitor = menuMainMonitor;
+    }
+
+    public JMenu getMenuMainOthers() {
+        return menuMainOthers;
+    }
+
+    public void setMenuMainOthers(JMenu menuMainOthers) {
+        this.menuMainOthers = menuMainOthers;
+    }
+
+    public JMenu getMenuMainProcess() {
+        return menuMainProcess;
+    }
+
+    public void setMenuMainProcess(JMenu menuMainProcess) {
+        this.menuMainProcess = menuMainProcess;
+    }
+
+    public JMenu getMenuMainRecents() {
+        return menuMainRecents;
+    }
+
+    public void setMenuMainRecents(JMenu menuMainRecents) {
+        this.menuMainRecents = menuMainRecents;
+    }
+
+    public JMenu getMenuMainReports() {
+        return menuMainReports;
+    }
+
+    public void setMenuMainReports(JMenu menuMainReports) {
+        this.menuMainReports = menuMainReports;
+    }
+
+    public JMenu getMenuMainSearch() {
+        return menuMainSearch;
+    }
+
+    public void setMenuMainSearch(JMenu menuMainSearch) {
+        this.menuMainSearch = menuMainSearch;
+    }
 }

@@ -3,14 +3,9 @@ package ve.com.fsjv.devsicodetv.utils.others;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
- * @author franklin
+ * @author TecnoSoluciones-NS
  */
 public class ConstantsApp {
     public static final String ACRONIMO_MODULO_FICHA_DETENIDO = "DET";
@@ -146,5 +141,8 @@ public class ConstantsApp {
     public static final String MENSAJE_ACRONIMO_NULO = "Codigo de Error 012: El parametro acronimo esta pasando nulo o vacio.";
     public static final String MENSAJE_CAMPO_TELEFONO_ERRONEO = "Codigo de Error 013: El campo telefono esta incompleto, componente referenciado: ";
     public static final String MENSAJE_CAMPO_DECIMAL_ERRONEO = "Codigo de Error 014: El campo decimal esta mal escrito o incompleto, componente referenciado: ";
+    
+    public static final int OK_EXIT_APP = 0;
+    public static final int CANCEL_EXIT_APP = 1;
     
 }
