@@ -22,8 +22,9 @@ public class RecordDialogManager implements ActionListener {
         this.recordForm.setSize(Toolkit.getDefaultToolkit().getScreenSize().width - 100, Toolkit.getDefaultToolkit().getScreenSize().height - 100);
         this.recordForm.setLocationRelativeTo(null);
         this.recordForm.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        this.recordForm.setVisible(true);
         this.recordForm.getItemNew().addActionListener(this);
+        this.recordForm.setVisible(true);
+        
     }
 
     public void actionPerformed(ActionEvent e) {
