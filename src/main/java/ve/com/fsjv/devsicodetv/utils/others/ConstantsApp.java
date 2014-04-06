@@ -145,4 +145,7 @@ public class ConstantsApp {
     public static final int OK_EXIT_APP = 0;
     public static final int CANCEL_EXIT_APP = 1;
     
+    public static final int USER_LOGGED = 1;
+    public static final int USER_NO_LOGGED = 0;
+    
 }

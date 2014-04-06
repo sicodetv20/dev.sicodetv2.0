@@ -1,5 +1,7 @@
 package ve.com.fsjv.devsicodetv.views;
 
+import javax.swing.JMenuItem;
+
 /**
  *
  * @author TecnoSoluciones-NS
@@ -41,4 +43,5 @@ public class OutputDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
 }

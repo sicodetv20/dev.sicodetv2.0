@@ -32,4 +32,6 @@ public class TitleApp {
     public static final String USER_FORM_TITLE = "Administrar Usuarios";
     public static final String ROLE_FORM_TITLE = "Roles";
     public static final String PERMISSION_TYPE_FORM_TITLE = "Permisos de Acceso";
+    public static final String LOGIN_FORM_TITLE = "Inicio de Sesion";
+    public static final String CAUSE_FORM_TITLE = "Causa de detencion";
 }

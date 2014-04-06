@@ -29,6 +29,7 @@ import ve.com.fsjv.devsicodetv.controllers.updatePassword.UpdatePasswordDialogMa
 import ve.com.fsjv.devsicodetv.controllers.user.UserDialogManager;
 import ve.com.fsjv.devsicodetv.controllers.role.RoleDialogManager;
 import ve.com.fsjv.devsicodetv.controllers.permission.PermissionDialogManager;
+import ve.com.fsjv.devsicodetv.controllers.login.LoginDialogManager;
 import ve.com.fsjv.devsicodetv.utils.others.TitleApp;
 
 /**
@@ -42,7 +43,11 @@ public class MenuDialogManager implements ActionListener {
         this.form.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.form.dispose();
         this.form.setUndecorated(true);
-        this.form.setVisible(true);
+        LoginDialogManager dialog = new LoginDialogManager();
+        if(dialog.login() == ConstantsApp.USER_NO_LOGGED)
+            dialog.initForm();
+        else
+            this.form.setVisible(true);
         this.form.getItemExit().addActionListener(this);
         this.form.getItemRecord().addActionListener(this);
         this.form.getItemOutput().addActionListener(this);
@@ -76,6 +81,7 @@ public class MenuDialogManager implements ActionListener {
         this.form.getItemUser().addActionListener(this);
         this.form.getItemRole().addActionListener(this);
         this.form.getItemPermission().addActionListener(this);
+        
     }
 
     public void actionPerformed(ActionEvent e) {

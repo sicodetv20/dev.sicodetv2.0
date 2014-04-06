@@ -1,1 +1,0 @@
-Directorio destinado para alojar cada una de las imagenes utilizadas en la apliación.

@@ -1,8 +1,9 @@
 package ve.com.fsjv.devsicodetv.controllers.login;
 
-import ve.com.fsjv.devsicodetv.views.LoginDialog;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
+import ve.com.fsjv.devsicodetv.views.LoginDialog;
+import ve.com.fsjv.devsicodetv.utils.others.ConstantsApp;
+import ve.com.fsjv.devsicodetv.utils.others.TitleApp;
 
 /**
  *
@@ -11,9 +12,17 @@ import javax.swing.JFrame;
 public class LoginDialogManager {
     private LoginDialog form;
     public LoginDialogManager(){
-        this.form = new LoginDialog(new JFrame(), true);
-        this.form.setTitle("Inicio de Sesion");
-        this.form.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        this.form = new LoginDialog();
+    }
+    public int login(){
+        return ConstantsApp.USER_LOGGED;
+    }
+    
+    public void initForm(){
+        this.form.setTitle(TitleApp.LOGIN_FORM_TITLE);
+        this.form.setLocationRelativeTo(null);
+        this.form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.form.setVisible(true);
     }
+            
 }
