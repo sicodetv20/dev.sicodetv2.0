@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ve.com.fsjv.devsicodetv.DAO;
 
 import java.io.Serializable;
@@ -9,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author Juan
+ * @author TecnoSoluciones-NS
  */
 public interface DAO {
 

@@ -4,18 +4,25 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <!--
-    <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/sicodetdev</property>
-    <property name="hibernate.connection.username">sicodetdev</property>
-    <property name="hibernate.connection.password">sicodetdev15242874</property>-->
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sicodetdev</property>
+    <property name="hibernate.connection.url">jdbc:mysql://tecnosoluciones-ns.dev:3306/sicodet</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">nirvana</property>
+    <property name="hibernate.connection.password">15242874</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping class="ve.com.fsjv.devsicodetv.modelos.Persona" />
-    <mapping class="ve.com.fsjv.devsicodetv.modelos.FichaDetenido" />
-    <mapping class="ve.com.fsjv.devsicodetv.modelos.Prueba" />
+    <property name="cache.providerclass">org.hibernate.NoCacheProvider</property>
+    <property name="connection.pool_size">1</property>
+    <property name="show_sql">true</property>
+    <property name="hbm2ddl.auto">create-drop</property>
+    <mapping class="ve.com.fsjv.devsicodetv.models.VisitType" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.Crime" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.Role" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.Organization" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.Block" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.Cell" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.TransferType" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.TransferTopic" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.OutputType" />
+    <mapping class="ve.com.fsjv.devsicodetv.models.OutputTopic" />
   </session-factory>
 </hibernate-configuration>

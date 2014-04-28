@@ -33,6 +33,12 @@ public class Utils {
     public Utils() {
     }
     
+    public static java.sql.Timestamp getCurrentDate(){
+        java.util.Date jud = new java.util.Date();
+        java.sql.Timestamp currentDate = new java.sql.Timestamp(jud.getTime());
+        return currentDate;
+    }
+    
     public void permitirSoloNumeros(KeyEvent e){
         int tecla = (int)e.getKeyChar();
         if(tecla >= 97 && tecla <= 122 || tecla >= 65 && tecla <= 90)

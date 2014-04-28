@@ -33,63 +33,286 @@ public class RecordDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
-        jButton1 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        itemNew = new javax.swing.JMenuItem();
+        jToolBar1 = new javax.swing.JToolBar();
+        btnNew = new javax.swing.JButton();
+        btnOpen = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnAddCause = new javax.swing.JButton();
+        btnAssignCell = new javax.swing.JButton();
+        btnAddEvidence = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+        btnLastAdded = new javax.swing.JButton();
+        btnHistory = new javax.swing.JButton();
+        btnCamera = new javax.swing.JButton();
+        btnGallery = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/imgs/Add.png"))); // NOI18N
-        jButton1.setText("jButton1");
+        jToolBar1.setRollover(true);
 
-        jMenu2.setText("Archivo");
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/Files-New-File-icon.png"))); // NOI18N
+        btnNew.setToolTipText("Nuevo registro");
+        btnNew.setBorderPainted(false);
+        btnNew.setFocusable(false);
+        btnNew.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNew.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnNew);
 
-        itemNew.setText("Nueva ficha");
-        jMenu2.add(itemNew);
+        btnOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/user-check-icon.png"))); // NOI18N
+        btnOpen.setToolTipText("Buscar detenido");
+        btnOpen.setBorderPainted(false);
+        btnOpen.setFocusable(false);
+        btnOpen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnOpen.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnOpen);
 
-        jMenuBar1.add(jMenu2);
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/Actions-document-save-icon.png"))); // NOI18N
+        btnSave.setToolTipText("Guardar cambios");
+        btnSave.setBorderPainted(false);
+        btnSave.setFocusable(false);
+        btnSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnSave);
 
-        setJMenuBar(jMenuBar1);
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/Actions-document-edit-icon.png"))); // NOI18N
+        btnEdit.setToolTipText("Editar registro");
+        btnEdit.setBorderPainted(false);
+        btnEdit.setFocusable(false);
+        btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnEdit);
+
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/delete-file-icon.png"))); // NOI18N
+        btnDelete.setToolTipText("Borrar registro");
+        btnDelete.setBorderPainted(false);
+        btnDelete.setFocusable(false);
+        btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnDelete);
+
+        btnAddCause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/document-add-icon.png"))); // NOI18N
+        btnAddCause.setToolTipText("Agregar Causa");
+        btnAddCause.setBorderPainted(false);
+        btnAddCause.setFocusable(false);
+        btnAddCause.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAddCause.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnAddCause);
+
+        btnAssignCell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/document-add-icon.png"))); // NOI18N
+        btnAssignCell.setToolTipText("Asignar celda");
+        btnAssignCell.setBorderPainted(false);
+        btnAssignCell.setFocusable(false);
+        btnAssignCell.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAssignCell.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnAssignCell);
+
+        btnAddEvidence.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/document-add-icon.png"))); // NOI18N
+        btnAddEvidence.setToolTipText("Agregar evidencia");
+        btnAddEvidence.setBorderPainted(false);
+        btnAddEvidence.setFocusable(false);
+        btnAddEvidence.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAddEvidence.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnAddEvidence);
+
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/Printer-icon.png"))); // NOI18N
+        btnPrint.setToolTipText("Imprimir");
+        btnPrint.setBorderPainted(false);
+        btnPrint.setFocusable(false);
+        btnPrint.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPrint.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnPrint);
+
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/Actions-process-stop-icon.png"))); // NOI18N
+        btnCancel.setToolTipText("Cancelar");
+        btnCancel.setBorderPainted(false);
+        btnCancel.setFocusable(false);
+        btnCancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCancel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnCancel);
+
+        btnLastAdded.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/distributor-report-icon.png"))); // NOI18N
+        btnLastAdded.setToolTipText("Ultimos agregados");
+        btnLastAdded.setBorderPainted(false);
+        btnLastAdded.setFocusable(false);
+        btnLastAdded.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLastAdded.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnLastAdded);
+
+        btnHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/Actions-format-indent-more-icon.png"))); // NOI18N
+        btnHistory.setToolTipText("Historial del detenido");
+        btnHistory.setBorderPainted(false);
+        btnHistory.setFocusable(false);
+        btnHistory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnHistory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnHistory);
+
+        btnCamera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/Cameras-icon.png"))); // NOI18N
+        btnCamera.setToolTipText("Tomar foto");
+        btnCamera.setBorderPainted(false);
+        btnCamera.setFocusable(false);
+        btnCamera.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCamera.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnCamera);
+
+        btnGallery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ve/com/fsjv/devsicodetv/utils/img/Windows-Live-Gallery-icon.png"))); // NOI18N
+        btnGallery.setToolTipText("Galeria de fotos");
+        btnGallery.setBorderPainted(false);
+        btnGallery.setFocusable(false);
+        btnGallery.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGallery.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnGallery);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(jButton1)
-                .addContainerGap(392, Short.MAX_VALUE))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jButton1)
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 533, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem itemNew;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAddCause;
+    private javax.swing.JButton btnAddEvidence;
+    private javax.swing.JButton btnAssignCell;
+    private javax.swing.JButton btnCamera;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnGallery;
+    private javax.swing.JButton btnHistory;
+    private javax.swing.JButton btnLastAdded;
+    private javax.swing.JButton btnNew;
+    private javax.swing.JButton btnOpen;
+    private javax.swing.JButton btnPrint;
+    private javax.swing.JButton btnSave;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 
-    public JMenuItem getItemNew() {
-        return itemNew;
+    public JButton getBtnAddCause() {
+        return btnAddCause;
     }
 
-    public void setItemNew(JMenuItem itemNew) {
-        this.itemNew = itemNew;
+    public void setBtnAddCause(JButton btnAddCause) {
+        this.btnAddCause = btnAddCause;
     }
 
-   
+    public JButton getBtnAddEvidence() {
+        return btnAddEvidence;
+    }
+
+    public void setBtnAddEvidence(JButton btnAddEvidence) {
+        this.btnAddEvidence = btnAddEvidence;
+    }
+
+    public JButton getBtnAssignCell() {
+        return btnAssignCell;
+    }
+
+    public void setBtnAssignCell(JButton btnAssignCell) {
+        this.btnAssignCell = btnAssignCell;
+    }
+
+    public JButton getBtnCamera() {
+        return btnCamera;
+    }
+
+    public void setBtnCamera(JButton btnCamera) {
+        this.btnCamera = btnCamera;
+    }
+
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public void setBtnCancel(JButton btnCancel) {
+        this.btnCancel = btnCancel;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(JButton btnDelete) {
+        this.btnDelete = btnDelete;
+    }
+
+    public JButton getBtnEdit() {
+        return btnEdit;
+    }
+
+    public void setBtnEdit(JButton btnEdit) {
+        this.btnEdit = btnEdit;
+    }
+
+    public JButton getBtnGallery() {
+        return btnGallery;
+    }
+
+    public void setBtnGallery(JButton btnGallery) {
+        this.btnGallery = btnGallery;
+    }
+
+    public JButton getBtnHistory() {
+        return btnHistory;
+    }
+
+    public void setBtnHistory(JButton btnHistory) {
+        this.btnHistory = btnHistory;
+    }
+
+    public JButton getBtnLastAdded() {
+        return btnLastAdded;
+    }
+
+    public void setBtnLastAdded(JButton btnLastAdded) {
+        this.btnLastAdded = btnLastAdded;
+    }
+
+    public JButton getBtnNew() {
+        return btnNew;
+    }
+
+    public void setBtnNew(JButton btnNew) {
+        this.btnNew = btnNew;
+    }
+
+    public JButton getBtnOpen() {
+        return btnOpen;
+    }
+
+    public void setBtnOpen(JButton btnOpen) {
+        this.btnOpen = btnOpen;
+    }
+
+    public JButton getBtnPrint() {
+        return btnPrint;
+    }
+
+    public void setBtnPrint(JButton btnPrint) {
+        this.btnPrint = btnPrint;
+    }
+
+    public JButton getBtnSave() {
+        return btnSave;
+    }
+
+    public void setBtnSave(JButton btnSave) {
+        this.btnSave = btnSave;
+    }
+
     
 }

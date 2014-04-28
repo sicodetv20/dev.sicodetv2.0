@@ -108,15 +108,15 @@ public class MenuDialogManager implements ActionListener {
         }else if(e.getSource() == this.form.getItemAdvancedSearch()){
             JOptionPane.showMessageDialog(this.form, Messages.FORM_BY_DEVELOP, TitleApp.MESSAGE_CONFIRMATION_TITLE, JOptionPane.ERROR_MESSAGE);
         }else if(e.getSource() == this.form.getItemLastRecordSelected()){
-            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_RECORD_SELECTED_FORM_TITLE);
+            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_RECORD_SELECTED_FORM_TITLE, null);
         }else if(e.getSource() == this.form.getItemLastTransferAdded()){
-            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_TRANSFER_ADDED_FORM_TITLE);
+            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_TRANSFER_ADDED_FORM_TITLE, null);
         }else if(e.getSource() == this.form.getItemLastVisitAdded()){
-            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_VISIT_ADDED_FORM_TITLE);
+            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_VISIT_ADDED_FORM_TITLE, null);
         }else if(e.getSource() == this.form.getItemLastFoodDeliveryAdded()){
-            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_FOOD_DELIVERY_ADDED_FORM_TITLE);
+            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_FOOD_DELIVERY_ADDED_FORM_TITLE, null);
         }else if(e.getSource() == this.form.getItemLastOutputAdded()){
-            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_OUTPUT_ADDED_FORM_TITLE);
+            ListLastAddedDialogManager dialog = new ListLastAddedDialogManager(TitleApp.LAST_OUTPUT_ADDED_FORM_TITLE, null);
         }else if(e.getSource() == this.form.getItemTrasferPending()){
             ListTransferByCloseDialogManager dialog = new ListTransferByCloseDialogManager();
         }else if(e.getSource() == this.form.getItemVisitActives()){

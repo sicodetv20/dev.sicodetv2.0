@@ -8,6 +8,12 @@ import java.util.Calendar;
  * @author TecnoSoluciones-NS
  */
 public class ConstantsApp {
+    
+    public static final int ACTIVE_RECORD = 1;
+    public static final int INACTIVE_RECORD = 0;
+    public static final int OK_PROCESS = 1;
+    public static final int ERROR_PROCESS = 0;
+    
     public static final String ACRONIMO_MODULO_FICHA_DETENIDO = "DET";
     public static final String ACRONIMO_MODULO_SALIDA = "SAL";
     public static final String ACRONIMO_MODULO_TRASLADO = "TRA";
@@ -99,6 +105,13 @@ public class ConstantsApp {
     
     public static final int READONLY_DEFAULT = 1;
     public static final int READONLY_DATA = 2;
+    
+    public static final int CONFIRM_OK_OPTION = 0;
+    public static final int CONFIRM_CANCEL_OPTION = 1;
+    
+    public static final int SAVE_TYPE_OPTION = 0;
+    public static final int EDIT_TYPE_OPTION = 1;
+    public static final int DELETE_TYPE_OPTION = 2;
     
     public static final int SIN_TITULO = 0;
     public static final int TITULO_SIMPLE = 1;

@@ -6,6 +6,7 @@ package ve.com.fsjv.devsicodetv.utils.connect;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 /**
@@ -20,7 +21,8 @@ public class ConexionSicodetUtil {
     
     static {
         try {
-            sessionFactory = new Configuration().configure("ConexionSicodet.cfg.xml").buildSessionFactory();
+            //sessionFactory = new Configuration().configure("ConexionSicodet.cfg.xml").buildSessionFactory();
+            sessionFactory = new AnnotationConfiguration().configure("ConexionSicodet.cfg.xml").buildSessionFactory();
         } catch (Throwable ex) {
             // Log the exception. 
             System.err.println("Initial SessionFactory creation failed." + ex);

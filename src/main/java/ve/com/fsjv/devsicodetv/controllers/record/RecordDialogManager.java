@@ -22,16 +22,17 @@ public class RecordDialogManager implements ActionListener {
         this.recordForm.setSize(Toolkit.getDefaultToolkit().getScreenSize().width - 100, Toolkit.getDefaultToolkit().getScreenSize().height - 100);
         this.recordForm.setLocationRelativeTo(null);
         this.recordForm.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        this.recordForm.getItemNew().addActionListener(this);
+        //this.recordForm.getItemNew().addActionListener(this);
         this.recordForm.setVisible(true);
         
     }
 
     public void actionPerformed(ActionEvent e) {
+        /*
         if(e.getSource() == this.recordForm.getItemNew()){
             System.out.println("hi!");
             JOptionPane.showMessageDialog(this.recordForm, "hi");
             
-        }
+        }*/
     }
 }
